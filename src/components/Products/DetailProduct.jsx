@@ -96,11 +96,10 @@ const DetailProduct = () => {
           
           {/* Giá */}
           <p className="detail-price">
-            <span className="current-price">{product.currentPrice}</span>
-            {product.originalPrice && <span className="original-price">{product.originalPrice}</span>}
+            <span className="current-price">          {product.currentPrice ? product.currentPrice.toLocaleString("vi-VN") + " ₫" : "Đang cập nhật"}</span>
+            {product.originalPrice && <span className="original-price">{product.originalPrice.toLocaleString("vi-VN")}₫</span>}
             {product.discount && <span className="discount">{product.discount}</span>}
           </p>
-
           {/* Đánh giá */}
           <div className="detail-meta">
             {product.rating && <span> {product.rating}</span>}
