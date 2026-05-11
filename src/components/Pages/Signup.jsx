@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import "./Signup.css";
 function Signup() {
   const [formData, setFormData] = useState({
@@ -89,9 +90,12 @@ function Signup() {
           <button type="button" className="btn-google">
             <span style={{ fontWeight: "bold", fontSize: "18px" }}>G</span> Đăng ký bằng Google
           </button>
-          
-          <div className="login-link-su">
+
+          {/* <div className="login-link-su">
             Đã có tài khoản? <a href="/Login">Đăng nhập</a>
+          </div> */}
+          <div className="login-link-su">
+            Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
           </div>
         </div>
       </div>

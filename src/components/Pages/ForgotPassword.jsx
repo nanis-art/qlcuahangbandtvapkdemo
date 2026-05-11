@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "./ForgotPassword.css"; 
-
+import "./ForgotPassword.css";
+import { Link } from 'react-router-dom';
 function ForgotPassword({ onBackToforgot }) {
   const [email, setEmail] = useState("");
   const [isSent, setIsSent] = useState(false);
@@ -8,7 +8,7 @@ function ForgotPassword({ onBackToforgot }) {
   const handleReset = (e) => {
     e.preventDefault();
     console.log("Gửi mã khôi phục đến:", email);
-    setIsSent(true); 
+    setIsSent(true);
   };
 
   return (
@@ -24,13 +24,13 @@ function ForgotPassword({ onBackToforgot }) {
             <form onSubmit={handleReset} className="form">
               <div className="input-group">
                 <label className="label">Email đã đăng ký</label>
-                <input 
-                  type="email" 
-                  placeholder="Nhập email của bạn..." 
-                  value={email} 
-                  onChange={(e) => setEmail(e.target.value)} 
-                  className="input" 
-                  required 
+                <input
+                  type="email"
+                  placeholder="Nhập email của bạn..."
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="input"
+                  required
                 />
               </div>
               <button type="submit" className="btn-forgot">
@@ -42,10 +42,10 @@ function ForgotPassword({ onBackToforgot }) {
           <div style={{ textAlign: "center", padding: "20px 0" }}>
             <h3 style={{ color: "#10b981", margin: "0 0 10px 0" }}>Kiểm tra email nhé!</h3>
             <p style={{ color: "#555", fontSize: "14px", lineHeight: "1.5" }}>
-              Chúng tôi đã gửi hướng dẫn lấy lại mật khẩu vào mail <br/><b>{email}</b>
+              Chúng tôi đã gửi hướng dẫn lấy lại mật khẩu vào mail <br /><b>{email}</b>
             </p>
-            <button 
-              className="btn-forgot" 
+            <button
+              className="btn-forgot"
               style={{ backgroundColor: "#10b981", marginTop: "15px" }}
               onClick={() => alert("Chuyển hướng mở tab Gmail...")}
             >
@@ -55,11 +55,19 @@ function ForgotPassword({ onBackToforgot }) {
         )}
 
         {/* Nút Quay xe về Đăng nhập */}
-        <div className="footer">
+        {/* <div className="footer">
           <span className="link" onClick={onBackToforgot} style={{ cursor: "pointer" }}>
-            ⬅ Quay lại Đăng nhập
+            <i className="bi bi-arrow-left" style={{ marginRight: "6px" }}></i>
+            Quay lại Đăng nhập
           </span>
-        </div>
+        </div> */}
+        <div className="footer">
+  {/* Đổi span thành Link, xài 'to' thay vì 'onClick' */}
+  <Link to="/login" className="link" style={{ textDecoration: "none", cursor: "pointer" }}>
+    <i className="bi bi-arrow-left" style={{ marginRight: "6px" }}></i> 
+    Quay lại Đăng nhập
+  </Link>
+</div>
       </div>
     </div>
   );

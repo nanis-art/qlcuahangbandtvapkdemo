@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Login.css";
-
+import { Link } from 'react-router-dom';
 function Login() {
   // 1. Quản lý trạng thái (State) cho các ô nhập liệu
   const [email, setEmail] = useState("");
@@ -67,8 +67,8 @@ function Login() {
 
         {/* Link chuyển sang trang Đăng ký */}
         <div className="footer">
-          Chưa có tài khoản? <a href="/Signup" className="link">Đăng ký</a>
-        </div>
+  Chưa có tài khoản? <Link to="/signup" className="link">Đăng ký</Link>
+</div>
       </div>
     </div>
   );
