@@ -19,8 +19,8 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <div className="Login-box">
+    <div className="login-container">
+      <div className="login-box">
        
 
         <h2 className="title">Đăng nhập</h2>
@@ -28,7 +28,7 @@ function Login() {
         <form onSubmit={handleLogin} className="form">
           {/* Ô Gmail */}
           <div className="input-group">
-            <label className="label">Gmail</label>
+            <label className="label">Email</label>
             <input
               type="email"
               placeholder="Nhập email của bạn..."
@@ -50,7 +50,7 @@ function Login() {
               className="input"
               required
             />
-            <a href="#" className="link">Quên mật khẩu?</a>
+            <a href="/ForgotPassword" className="link">Quên mật khẩu?</a>
           </div>
 
           {/* Nút Đăng nhập chính */}
@@ -67,7 +67,7 @@ function Login() {
 
         {/* Link chuyển sang trang Đăng ký */}
         <div className="footer">
-          Chưa có tài khoản? <a href="#" className="link">Đăng ký</a>
+          Chưa có tài khoản? <a href="/Signup" className="link">Đăng ký</a>
         </div>
       </div>
     </div>

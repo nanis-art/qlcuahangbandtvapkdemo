@@ -107,51 +107,70 @@ const Header = () => {
     { text: "Phụ Kiện Khác", href: "/phu-kien/khac" },
   ];
 
+  console.log("dienthoaiMenuItems:", dienthoaiMenuItems);
+  console.log("tabletMenuItems:", tabletMenuItems);
+  console.log("smartwatchMenuItems:", smartwatchMenuItems);
+  console.log("phukienMenuItems:", phukienMenuItems);
+  console.log("hoveredMenu:", hoveredMenu);
+
   return (
     <header className="techshop-header">
       {/* Top Section: Header Bar */}
       <div className="header-top-bar">
         <div className="header-top-content">
           {/* Left: Free Delivery Info */}
-          <div className="header-delivery-info">
+          <div className="left">
             {/* Center: Logo */}
             <div className="header-logo-container">
               <div className="techshop-logo">
-                <img src={logoImage} alt="Logo" className="header-logo-image" />
+                <a href="/">  <img src={logoImage} alt="Logo" className="header-logo-image" /></a>
               </div>
             </div>
+          </div>
 
-            <div className="delivery-scooter">
-              <i className="fas fa-motorcycle"></i>
+          <div className="center">
+            <label className="input-group-search">
+              <i className="bi bi-search search-icon"></i>
+              <input type="text" placeholder="Tìm kiếm sản phẩm..." value={q} onChange={e => setQ(e.target.value)} />
+              <button>Tìm kiếm</button>
+            </label>
+          </div>
+
+          <div className="right">
+            {/* tìm kiếm */}
+
+            {/* Right: User Actions */}
+            <div className="header-user-actions">
+              {/* Yêu thích */}
+              <button className="favorite-button" onClick={() => navigate("/favorites")}>
+                <i className="bi bi-heart"></i>
+                <span>Yêu thích</span>
+                <span className="favorite-badge">0</span>
+              </button>
+
+              {/* Giỏ hàng */}
+              <button className="cart-button" onClick={() => navigate("/cart")}>
+                <i className="bi bi-cart3"></i>
+                <span>Giỏ hàng</span>
+                <span className="cart-badge">{cartCount}</span>
+              </button>
+
+              <span className="action-separator">|</span>
+              {/* ngôn ngữ */}
+              <div className="language-selector">
+                <span className="lang-active">VN</span>
+                <span className="lang-separator">|</span>
+                <span className="lang-option">EN</span>
+              </div>
+
+              {/* tài khoản */}
+              {/* tài khoản */}
+              <button className="login-link" onClick={() => navigate("/login")}>
+                <i className="bi bi-person-circle"></i>
+                <span>{currentUser ? currentUser.name || currentUser.user : "Đăng nhập"}</span>
+              </button>
             </div>
           </div>
-
-          <div className="input-group-search">
-            <input type="text" placeholder="Tìm kiếm sản phẩm..." value={q} onChange={e => setQ(e.target.value)} />
-            <button>Tìm kiếm</button>
-          </div>
-
-          {/* Right: User Actions */}
-          <div className="header-user-actions">
-            <button className="cart-button" onClick={() => navigate("/cart")}>
-            <i className="bi bi-cart3"></i>
-              <span>Giỏ hàng</span>
-              <span className="cart-badge">{cartCount}</span>
-            </button>
-
-            <span className="action-separator">|</span>
-
-            <div className="language-selector">
-              <span className="lang-active">VN</span>
-              <span className="lang-separator">|</span>
-              <span className="lang-option">EN</span>
-            </div>
-
-            <button className="login-link" onClick={() => navigate("/login")}>
-              {currentUser ? currentUser.name || currentUser.user : "Đăng nhập"}
-            </button>
-          </div>
-          
         </div>
       </div>
 

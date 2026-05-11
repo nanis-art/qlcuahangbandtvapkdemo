@@ -12,7 +12,7 @@ function ForgotPassword({ onBackToforgot }) {
   };
 
   return (
-    <div className="container">
+    <div className="fg-container">
       <div className="forgot-box">
         <h2 className="title">Quên mật khẩu?</h2>
 

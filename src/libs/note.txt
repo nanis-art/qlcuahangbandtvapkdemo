@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/libs/bootstrap_bootstrap-icon.css"/>
+<script type="module" src="/libs/bootstrap.js"></script>
+<script src="/libs/jquery.js"></script>
+
+( >dán vô đầu file như bình thường< )
+
+(Thư mục)
+( 1. Tên dự án )
+( 2. Libs ) - ( 2. CSS ) - ( 2. JS ) - ( 2. IMAGES ) - ( 2. HTML )
+( 3. X ) - ( 3. CSS {cá nhân} ) - ( 3. JS {cá nhân} ) - ( 3. {ảnh dự án} )
+
+[TEN_DU_AN]\                 <-- (1) Thư mục gốc chứa toàn bộ web
+ |
+ +--- [Libs]\                <-- (2) Không được sửa
+ |
+ +--- [CSS]\                 <-- (2) Nơi chứa css
+ |      \--- style.css       <-- (3) Code CSS cá nhân tự viết
+ |
+ +--- [JS]\                  <-- (2) Nơi chứa não bộ, hiệu ứng
+ |      \--- main.js         <-- (3) Code JS cá nhân tự viết
+ |
+ +--- [IMAGES]\              <-- (2) Kho lưu trữ hình ảnh
+ |      \--- banner.jpg      <-- (3) Ảnh dùng cho dự án
+ |
+ \--- index.html             <-- (2) Giao diện chính

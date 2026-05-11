@@ -4,7 +4,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: calc(100vh - 80px);
+  padding: 20px; 
+  width: 100%;
   background-color: #f4f7f6; /* Cùng màu nền với trang Login cho đồng bộ */
 }
 

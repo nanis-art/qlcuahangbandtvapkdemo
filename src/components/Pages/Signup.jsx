@@ -31,7 +31,7 @@ function Signup() {
   };
 
   return (
-    <div className="container">
+    <div className="signup-container">
       <div className="signup-box">
 
 
@@ -90,8 +90,8 @@ function Signup() {
             <span style={{ fontWeight: "bold", fontSize: "18px" }}>G</span> Đăng ký bằng Google
           </button>
           
-          <div className="login-link">
-            Đã có tài khoản? <a href="">Đăng nhập</a>
+          <div className="login-link-su">
+            Đã có tài khoản? <a href="/Login">Đăng nhập</a>
           </div>
         </div>
       </div>
