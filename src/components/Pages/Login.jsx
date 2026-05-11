@@ -21,7 +21,7 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-box">
-       
+
 
         <h2 className="title">Đăng nhập</h2>
 
@@ -50,7 +50,8 @@ function Login() {
               className="input"
               required
             />
-            <a href="/ForgotPassword" className="link">Quên mật khẩu?</a>
+            {/* <a href="/ForgotPassword" className="link">Quên mật khẩu?</a> */}
+          <Link to="/ForgotPassword" className="link">Quên mật khẩu?</Link>
           </div>
 
           {/* Nút Đăng nhập chính */}
@@ -67,8 +68,8 @@ function Login() {
 
         {/* Link chuyển sang trang Đăng ký */}
         <div className="footer">
-  Chưa có tài khoản? <Link to="/signup" className="link">Đăng ký</Link>
-</div>
+          Chưa có tài khoản? <Link to="/signup" className="link">Đăng ký</Link>
+        </div>
       </div>
     </div>
   );

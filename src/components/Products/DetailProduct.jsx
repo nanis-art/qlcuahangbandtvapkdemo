@@ -111,7 +111,6 @@ const DetailProduct = () => {
             <button className="add-to-cart-btn" onClick={handleAddToCart} title="Thêm vào giỏ hàng">
               <i className="bi bi-cart-plus"></i>
             </button>
-            
             {/* Mua Ngay */}
             <button
               className="buy-now-button"
