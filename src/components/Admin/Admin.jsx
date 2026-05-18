@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-// import AdminProduct from "./Adminproduct";
-// import AdminCategory from "./Admincategory";
-// import AdminCustomer from "./Admincustomer";
-// import AdminEmployee from "./Adminemployee";
-// import AdminBill from "./Adminbill";
-// import AdminInvoiceDetails from "./Admininvoicedetails";
+import AdminProduct from "./AdminProduct";
+import AdminCategory from "./Admincategory";
+import AdminCustomer from "./AdminCustomer";
+import AdminEmployee from "./AdminEmployee";
+import AdminBill from "./Adminbill";
+import AdminInvoiceDetails from "./AdminInvoiceDetails";
 import "./Admin.css";
 
 const jsonBase = import.meta.env.BASE_URL || "/";
@@ -65,6 +65,7 @@ const Admin = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [logoutModalOpen, setLogoutModalOpen] = useState(false);
   const [adminSection, setAdminSection] = useState("dashboard");
+  const [selectedBillId, setSelectedBillId] = useState(null);
   const userMenuRef = useRef(null);
 
   // Check login quyền staff
@@ -175,7 +176,7 @@ const Admin = () => {
   }, []);
 
   /* =================================================================================
-     PHẦN 1: XỬ LÝ LOGIC DỮ LIỆU ĐỂ HIỂN THỊ LÊN DASHBOARD
+      PHẦN 1: XỬ LÝ LOGIC DỮ LIỆU ĐỂ HIỂN THỊ LÊN DASHBOARD
   ==================================================================================== */
 
   // Tính 4 thẻ thống kê tổng quan
@@ -299,6 +300,8 @@ const Admin = () => {
       .map(row => ({
         ...row,
         name: customerMap.get(row.customerId) || `KH #${row.customerId}`,
+        total: row.total,
+        count: row.count,
       }));
   }, [bills, customers]);
 
@@ -318,7 +321,7 @@ const Admin = () => {
   }
 
   /* =================================================================================
-     PHẦN 2: RENDER GIAO DIỆN HIỂN THỊ
+      PHẦN 2: RENDER GIAO DIỆN HIỂN THỊ
   ==================================================================================== */
 
   return (
@@ -419,6 +422,7 @@ const Admin = () => {
               type="button"
               className={`ruang-sidebar_link ${adminSection === "invoiceDetails" ? "is-active" : ""}`}
               onClick={() => {
+                setSelectedBillId(null);
                 setAdminSection("invoiceDetails");
                 closeMobileNav();
               }}
@@ -487,7 +491,7 @@ const Admin = () => {
           ) : adminSection === "bill" ? (
             <AdminBill embedded />
           ) : adminSection === "invoiceDetails" ? (
-            <AdminInvoiceDetails embedded />
+            <AdminInvoiceDetails embedded filterBillId={selectedBillId} clearFilter={() => setSelectedBillId(null)} />
           ) : loading ? (
             <div className="ruang-loading">Đang tải...</div>
           ) : (
@@ -592,7 +596,10 @@ const Admin = () => {
                 <div className="ruang-card">
                   <div className="ruang-card_title-bar">
                     <h6>Hóa đơn</h6>
-                    <button type="button" className="ruang-mini-btn">
+                    <button type="button" className="ruang-mini-btn" onClick={() => {
+                      setSelectedBillId(null);
+                      setAdminSection("bill");
+                    }}>
                       Xem thêm <i className="bi bi-chevron-right" />
                     </button>
                   </div>
@@ -624,7 +631,10 @@ const Admin = () => {
                                 <span className={`ruang-status ruang-status--${row.status.cls}`}>{row.status.label}</span>
                               </td>
                               <td>
-                                <button type="button" className="ruang-detail-btn">
+                                <button type="button" className="ruang-detail-btn" onClick={() => {
+                                  setSelectedBillId(row.id);
+                                  setAdminSection("invoiceDetails");
+                                }}>
                                   Chi tiết
                                 </button>
                               </td>
@@ -637,7 +647,9 @@ const Admin = () => {
                 </div>
 
                 <div className="ruang-card">
-                  <div className="ruang-vip-title">Khách hàng VIP tháng</div>
+                  <div className="ruang-card_title-bar">
+                    <h6>Khách hàng VIP tháng</h6>
+                  </div>
                   <div className="ruang-vip-list">
                     {vipCustomers.length === 0 ? (
                       <p style={{ padding: "20px", textAlign: "center", color: "#64748b" }}>Chưa có khách VIP.</p>

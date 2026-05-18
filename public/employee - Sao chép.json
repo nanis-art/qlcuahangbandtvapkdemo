@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Nguyễn Minh Tuấn",
+    "position": "Quản Lý Cửa Hàng",
+    "phone": "0901111222",
+    "email": "tuan.nm@shop.com"
+  },
+  {
+    "id": 2,
+    "name": "Trần Thị Mai",
+    "position": "Kế Toán",
+    "phone": "0902222333",
+    "email": "mai.tt@shop.com"
+  },
+  {
+    "id": 3,
+    "name": "Lê Hoàng Bách",
+    "position": "Kỹ Thuật Viên Phần Cứng",
+    "phone": "0903333444",
+    "email": "bach.lh@shop.com"
+  },
+  {
+    "id": 4,
+    "name": "Phạm Văn Đức",
+    "position": "Kỹ Thuật Viên Phần Mềm",
+    "phone": "0904444555",
+    "email": "duc.pv@shop.com"
+  },
+  {
+    "id": 5,
+    "name": "Vũ Hải Đăng",
+    "position": "Kỹ Thuật Viên Bảo Hành",
+    "phone": "0905555666",
+    "email": "dang.vh@shop.com"
+  },
+  {
+    "id": 6,
+    "name": "Ngô Bích Ngọc",
+    "position": "Nhân Viên Bán Hàng",
+    "phone": "0906666777",
+    "email": "ngoc.nb@shop.com"
+  },
+  {
+    "id": 7,
+    "name": "Đặng Thái Sơn",
+    "position": "Nhân Viên Bán Hàng",
+    "phone": "0907777888",
+    "email": "son.dt@shop.com"
+  },
+  {
+    "id": 8,
+    "name": "Bùi Lan Anh",
+    "position": "Nhân Viên Bán Hàng",
+    "phone": "0908888999",
+    "email": "anh.bl@shop.com"
+  },
+  {
+    "id": 9,
+    "name": "Đỗ Thanh Hà",
+    "position": "Chăm Sóc Khách Hàng",
+    "phone": "0909999000",
+    "email": "ha.dt@shop.com"
+  },
+  {
+    "id": 10,
+    "name": "Lý Quốc Bảo",
+    "position": "Chăm Sóc Khách Hàng",
+    "phone": "0910000111",
+    "email": "bao.lq@shop.com"
+  }
+]

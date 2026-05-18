@@ -1,13 +1,13 @@
 upd{
     Thông số kỹ thuật:[Chipset, ram, rom]/
     Thông số chí tiết:[all]/
-    Logic tính giá tiền và logic mã giảm giá
+    Logic tính giá tiền và logic mã giảm giá/
 }
 fix{
     thanh tìm kiếm[
         tiềm kiếm sản phẩm bấm vào sp 1 (sp lần 1) đã vào detailproduct
      bấm vào search lần 2 bấm vào sản phẩm lần 2 thì không chuyển sang sản phẩm của lần 2
-    ]
+    ]/
     ui{
         cập nhật lại màu giao diện đẹp hơn
         cập nhật lại nút bấm/
@@ -21,5 +21,5 @@ fix{
     ]
     cập nhật lại giao diện tổng kết đơn hàng trong giỏ hàng
 }
-(làm các trang admin)
+(làm các trang admin)/
 (banner)/
