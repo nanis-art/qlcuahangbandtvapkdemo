@@ -34,40 +34,12 @@ const ProductCard = ({ product }) => {
     }
   };
 
-  const [isFavorite, setIsFavorite] = useState(false);
-  React.useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("Favorite") || "[]");
-    setIsFavorite(favorites.some(item => item.id === product.id));
-  }, [product.id]);
-  const toggleFavorite = e => {
-    e.stopPropagation();
-    let favorites = JSON.parse(localStorage.getItem("Favorite") || "[]");
-
-    if (isFavorite) {
-      favorites = favorites.filter(item => item.id !== product.id);
-    } else {
-      favorites.push({
-        id: product.id,
-        name: product.name,
-        currentPrice: product.currentPrice,
-        originalPrice: product.originalPrice,
-        image: product.image,
-        imageKey: product.imageKey || "",
-        rating: product.rating,
-        sold: product.sold,
-      });
-    }
-
-    localStorage.setItem("Favorite", JSON.stringify(favorites));
-    setIsFavorite(!isFavorite);
-    window.dispatchEvent(new Event("FavoriteUpdated"));
-  };
 
   return (
     <div className="product-card">
-      {/*NÚT YÊU THÍCH CHUẨN SHOPEE*/}
-      <button className={`favorite-btn ${isFavorite ? "active" : ""}`} onClick={toggleFavorite} title={isFavorite ? "Bỏ yêu thích" : "Yêu thích sản phẩm"}>
-        <i className={`bi ${isFavorite ? "bi-heart-fill" : "bi-heart"}`}></i>
+      {/*NÚT YÊU THÍCH*/}
+      <button className="favorite-btn" title="yêu thích sp">
+        <i className="bi bi-heart"></i>
       </button>
 
       <div className="product-image-container">

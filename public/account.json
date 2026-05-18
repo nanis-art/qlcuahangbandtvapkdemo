@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "user": "adminduckit",
+      "email": "adminduckit@gmail.com",
+      "pass": "29062009duckit",
+      "role": "staff",
+      "fullName": "Sếp"
+    },
+    {
+      "id": 2,
+      "user": "nhanvien",
+      "email": "nv@gmail.com",
+      "pass": "...@~@...",
+      "role": "staff",
+      "fullName": "Nhân Viên"
+    },
+    {
+      "id": 3,
+      "user": "khachhang",
+      "email": "khach@gmail.com",
+      "pass": "123456",
+      "role": "customer",
+      "fullName": "Thượng Đế"
+    }
+  ]

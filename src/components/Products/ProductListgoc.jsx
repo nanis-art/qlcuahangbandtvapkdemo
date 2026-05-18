@@ -16,7 +16,7 @@ const ProductList = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [productsRes, categoriesRes, dichvuRes] = await Promise.all([fetch(`${jsonBase}products.json`), fetch(`${jsonBase}category.json`)],[fetch(`${jsonBase}dichvu.json`), fetch(`${jsonBase}category.json`)] );
+        const [productsRes, categoriesRes] = await Promise.all([fetch(`${jsonBase}products.json`), fetch(`${jsonBase}category.json`)]);
 
         if (!productsRes.ok) {
           throw new Error("Không thể tải dữ liệu sản phẩm");

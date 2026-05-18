@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
 import "./Signup.css";
+
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     dob: "",
@@ -11,8 +14,8 @@ function Signup() {
     address: "",
     agreed: false
   });
+  const [error, setError] = useState("");
 
-  // Hàm xử lý khi gõ phím, tự động cập nhật đúng ô đang gõ
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -21,25 +24,53 @@ function Signup() {
     });
   };
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Mật khẩu không khớp!");
+    setError("");
+
+    const trimmedEmail = formData.email.trim();
+    const trimmedPass = formData.password.trim();
+    const trimmedConfirm = formData.confirmPassword.trim();
+
+    if (trimmedPass !== trimmedConfirm) {
+      setError("Mật khẩu xác nhận không khớp!");
       return;
     }
-    console.log("Dữ liệu đăng ký:", formData);
-    alert("Đăng ký thành công!");
+
+    if (trimmedPass.length < 3) {
+      setError("Mật khẩu tối thiểu 3 ký tự");
+      return;
+    }
+
+    if (!formData.agreed) {
+      setError("Bạn chưa đồng ý với điều khoản dịch vụ");
+      return;
+    }
+
+    try {
+      await axios.post("/api/register", {
+        user: trimmedEmail,
+        pass: trimmedPass,
+        fullName: formData.fullName,
+        dob: formData.dob,
+        address: formData.address
+      });
+      alert("Đăng ký thành công!");
+      navigate("/login");
+    } catch (err) {
+      const msg =
+        err.response?.data?.error ||
+        (err.response?.status === 404 ? "Chỉ hoạt động khi chạy npm run dev (API ghi file)." : null) ||
+        "Đã xảy ra lỗi, vui lòng thử lại sau";
+      setError(msg);
+    }
   };
 
   return (
     <div className="signup-container">
       <div className="signup-box">
-
-
         <h2 className="title">Đăng ký tài khoản</h2>
-
         <form onSubmit={handleSignup} className="form-grid">
-          {/* Hàng 1: Cột 1 & Cột 2 */}
           <div className="input-group">
             <label>Họ và tên</label>
             <input type="text" name="fullName" placeholder="VD: Nguyễn Văn A" onChange={handleChange} required />
@@ -49,13 +80,11 @@ function Signup() {
             <input type="date" name="dob" onChange={handleChange} required />
           </div>
 
-          {/* Hàng 2: Tràn viền */}
           <div className="input-group full-width">
             <label>Email</label>
-            <input type="email" name="email" placeholder="example@gmail.com" onChange={handleChange} required />
+            <input type="text" name="email" placeholder="example@gmail.com" onChange={handleChange} required />
           </div>
 
-          {/* Hàng 3: Cột 1 & Cột 2 */}
           <div className="input-group">
             <label>Mật khẩu</label>
             <input type="password" name="password" placeholder="••••••••" onChange={handleChange} required />
@@ -65,35 +94,30 @@ function Signup() {
             <input type="password" name="confirmPassword" placeholder="••••••••" onChange={handleChange} required />
           </div>
 
-          {/* Hàng 5: Tràn viền */}
           <div className="input-group full-width">
             <label>Địa chỉ</label>
             <input type="text" name="address" placeholder="Nhập địa chỉ giao hàng..." onChange={handleChange} required />
           </div>
 
-          {/* Hàng 6: Checkbox điều khoản */}
           <div className="full-width terms-box">
-            <input type="checkbox" name="agreed" id="terms" onChange={handleChange} required />
+            <input type="checkbox" name="agreed" id="terms" onChange={handleChange} />
             <label htmlFor="terms">
               Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a>.
             </label>
           </div>
 
-          {/* Nút Đăng ký */}
+          {error && <div className="full-width" style={{ color: "red", fontSize: "14px", marginTop: "10px" }}>{error}</div>}
+
           <button type="submit" className="btn-submit full-width">
             Đăng ký
           </button>
         </form>
 
-        {/* Cụm Đăng nhập Google & Link Đăng nhập */}
         <div className="footer-actions">
           <button type="button" className="btn-google">
             <span style={{ fontWeight: "bold", fontSize: "18px" }}>G</span> Đăng ký bằng Google
           </button>
 
-          {/* <div className="login-link-su">
-            Đã có tài khoản? <a href="/Login">Đăng nhập</a>
-          </div> */}
           <div className="login-link-su">
             Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
           </div>

@@ -1,0 +1,229 @@
+[
+  {
+    "code": "FREESHIP15K",
+    "type": "fixed",
+    "value": 15000,
+    "minOrderValue": 50000,
+    "maxDiscount": null,
+    "applicableBrands": [],
+    "description": "Giảm 15k phí ship cho đơn từ 50k"
+  },
+  {
+    "code": "FREESHIP30K",
+    "type": "fixed",
+    "value": 30000,
+    "minOrderValue": 150000,
+    "maxDiscount": null,
+    "applicableBrands": [],
+    "description": "Giảm 30k phí ship cho đơn từ 150k"
+  },
+  {
+    "code": "FREESHIP50K",
+    "type": "fixed",
+    "value": 50000,
+    "minOrderValue": 300000,
+    "maxDiscount": null,
+    "applicableBrands": [],
+    "description": "Giảm 50k phí ship cho đơn từ 300k"
+  },
+  {
+    "code": "FREESHIP70K",
+    "type": "fixed",
+    "value": 70000,
+    "minOrderValue": 500000,
+    "maxDiscount": null,
+    "applicableBrands": [],
+    "description": "Giảm 70k phí ship cho đơn từ 500k"
+  },
+  {
+    "code": "FREESHIPAPPLE",
+    "type": "fixed",
+    "value": 40000,
+    "minOrderValue": 1000000,
+    "maxDiscount": null,
+    "applicableBrands": ["Apple", "iPhone", "MacBook", "iPad", "AirPods"],
+    "description": "Freeship 40k cho đồ Apple từ 1Tr"
+  },
+
+  { "code": "ALL50K", "type": "fixed", "value": 50000, "minOrderValue": 200000, "maxDiscount": null, "applicableBrands": [], "description": "Giảm 50k cho mọi đơn từ 200k" },
+  { "code": "ALL100K", "type": "fixed", "value": 100000, "minOrderValue": 500000, "maxDiscount": null, "applicableBrands": [], "description": "Giảm 100k cho mọi đơn từ 500k" },
+  { "code": "ALL200K", "type": "fixed", "value": 200000, "minOrderValue": 2000000, "maxDiscount": null, "applicableBrands": [], "description": "Giảm 200k cho mọi đơn từ 2 Triệu" },
+  {
+    "code": "ALL500K",
+    "type": "fixed",
+    "value": 500000,
+    "minOrderValue": 10000000,
+    "maxDiscount": null,
+    "applicableBrands": [],
+    "description": "Giảm 500k cho mọi đơn từ 10 Triệu"
+  },
+  {
+    "code": "ALL1TR",
+    "type": "fixed",
+    "value": 1000000,
+    "minOrderValue": 25000000,
+    "maxDiscount": null,
+    "applicableBrands": [],
+    "description": "Giảm 1 Triệu cho mọi đơn từ 25 Triệu"
+  },
+
+  { "code": "SALE5", "type": "percent", "value": 5, "minOrderValue": 100000, "maxDiscount": 50000, "applicableBrands": [], "description": "Giảm 5% (Tối đa 50k) đơn từ 100k" },
+  { "code": "SALE10", "type": "percent", "value": 10, "minOrderValue": 500000, "maxDiscount": 150000, "applicableBrands": [], "description": "Giảm 10% (Tối đa 150k) đơn từ 500k" },
+  {
+    "code": "SALE15",
+    "type": "percent",
+    "value": 15,
+    "minOrderValue": 1500000,
+    "maxDiscount": 300000,
+    "applicableBrands": [],
+    "description": "Giảm 15% (Tối đa 300k) đơn từ 1.5Tr"
+  },
+  {
+    "code": "VIP20",
+    "type": "percent",
+    "value": 20,
+    "minOrderValue": 5000000,
+    "maxDiscount": 1000000,
+    "applicableBrands": [],
+    "description": "Giảm 20% (Tối đa 1 Triệu) đơn từ 5Tr"
+  },
+  {
+    "code": "VIP50",
+    "type": "percent",
+    "value": 50,
+    "minOrderValue": 10000000,
+    "maxDiscount": 3000000,
+    "applicableBrands": [],
+    "description": "Giảm 50% (Tối đa 3 Triệu) đơn từ 10Tr"
+  },
+
+  {
+    "code": "APPLE100",
+    "type": "fixed",
+    "value": 100000,
+    "minOrderValue": 2000000,
+    "maxDiscount": null,
+    "applicableBrands": ["Apple", "iPhone", "MacBook", "iPad"],
+    "description": "Giảm 100k cho đồ Apple từ 2Tr"
+  },
+  {
+    "code": "APPLE500",
+    "type": "fixed",
+    "value": 500000,
+    "minOrderValue": 15000000,
+    "maxDiscount": null,
+    "applicableBrands": ["Apple", "iPhone", "MacBook", "iPad"],
+    "description": "Giảm 500k cho đồ Apple từ 15Tr"
+  },
+  {
+    "code": "MACBOOK2M",
+    "type": "fixed",
+    "value": 2000000,
+    "minOrderValue": 30000000,
+    "maxDiscount": null,
+    "applicableBrands": ["MacBook"],
+    "description": "Giảm 2 Triệu cho MacBook từ 30Tr"
+  },
+  {
+    "code": "IPHONEVIP",
+    "type": "percent",
+    "value": 10,
+    "minOrderValue": 20000000,
+    "maxDiscount": 1500000,
+    "applicableBrands": ["iPhone", "Apple"],
+    "description": "Giảm 10% iPhone (Max 1.5Tr) từ 20Tr"
+  },
+  {
+    "code": "AIRPODS50",
+    "type": "fixed",
+    "value": 50000,
+    "minOrderValue": 3000000,
+    "maxDiscount": null,
+    "applicableBrands": ["AirPods"],
+    "description": "Giảm 50k cho AirPods từ 3Tr"
+  },
+
+  {
+    "code": "SAM200",
+    "type": "fixed",
+    "value": 200000,
+    "minOrderValue": 5000000,
+    "maxDiscount": null,
+    "applicableBrands": ["Samsung", "Galaxy", "Z Fold", "Z Flip"],
+    "description": "Giảm 200k cho Samsung từ 5Tr"
+  },
+  {
+    "code": "SAM500",
+    "type": "fixed",
+    "value": 500000,
+    "minOrderValue": 10000000,
+    "maxDiscount": null,
+    "applicableBrands": ["Samsung", "Galaxy"],
+    "description": "Giảm 500k cho Samsung từ 10Tr"
+  },
+  {
+    "code": "GALAXYVIP",
+    "type": "percent",
+    "value": 15,
+    "minOrderValue": 25000000,
+    "maxDiscount": 2000000,
+    "applicableBrands": ["Samsung", "Galaxy"],
+    "description": "Giảm 15% Samsung (Max 2Tr) từ 25Tr"
+  },
+  {
+    "code": "ZFOLD1M",
+    "type": "fixed",
+    "value": 1000000,
+    "minOrderValue": 35000000,
+    "maxDiscount": null,
+    "applicableBrands": ["Z Fold", "Samsung"],
+    "description": "Giảm 1 Triệu cho Galaxy Z Fold"
+  },
+  {
+    "code": "SAMWATCH",
+    "type": "percent",
+    "value": 10,
+    "minOrderValue": 4000000,
+    "maxDiscount": 300000,
+    "applicableBrands": ["Watch", "Samsung"],
+    "description": "Giảm 10% Samsung Watch (Max 300k)"
+  },
+
+  {
+    "code": "MIFAN200",
+    "type": "fixed",
+    "value": 200000,
+    "minOrderValue": 4000000,
+    "maxDiscount": null,
+    "applicableBrands": ["Xiaomi", "Redmi", "Poco"],
+    "description": "Giảm 200k cho Xiaomi từ 4Tr"
+  },
+  {
+    "code": "XIAOMIVIP",
+    "type": "percent",
+    "value": 10,
+    "minOrderValue": 10000000,
+    "maxDiscount": 800000,
+    "applicableBrands": ["Xiaomi", "Redmi"],
+    "description": "Giảm 10% Xiaomi (Max 800k) từ 10Tr"
+  },
+  {
+    "code": "OPPO150",
+    "type": "fixed",
+    "value": 150000,
+    "minOrderValue": 3000000,
+    "maxDiscount": null,
+    "applicableBrands": ["Oppo", "Reno"],
+    "description": "Giảm 150k cho Oppo từ 3Tr"
+  },
+  { "code": "VIVO100", "type": "fixed", "value": 100000, "minOrderValue": 2000000, "maxDiscount": null, "applicableBrands": ["Vivo"], "description": "Giảm 100k cho Vivo từ 2Tr" },
+  {
+    "code": "ANDROID5",
+    "type": "percent",
+    "value": 5,
+    "minOrderValue": 5000000,
+    "maxDiscount": 200000,
+    "applicableBrands": ["Samsung", "Xiaomi", "Oppo", "Vivo", "Realme", "Asus"],
+    "description": "Giảm 5% cho ĐT Android (Max 200k)"
+  }
+]

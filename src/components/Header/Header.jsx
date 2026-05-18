@@ -1,72 +1,188 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "./Header.css";
 import logoImage from "../../images/logo.png";
+import { imageMap } from "../../utils/productImages";
+const jsonBase = import.meta.env.BASE_URL || "/";
 
 const Header = () => {
-  const [hoveredMenu, setHoveredMenu] = useState(null);
   const [cartCount, setCartCount] = useState(0);
   const [currentUser, setCurrentUser] = useState(null);
+  const [favCount, setFavCount] = useState(0);
   const [q, setQ] = useState("");
+
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const userMenuRef = useRef(null);
+
+  const [products, setProducts] = useState([]);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const searchBoxRef = useRef(null);
+
   const navigate = useNavigate();
 
-  // Lấy số lượng món trong giỏ hàng (tổng quantity) và thông tin user
+  const searchMatches = products.filter(p => p.name?.toLowerCase().includes(q.toLowerCase())).slice(0, 5);
+
+  const updateCartCount = () => {
+    const savedCart = localStorage.getItem("cart");
+    if (!savedCart) {
+      setCartCount(0);
+      return;
+    }
+    try {
+      const cart = JSON.parse(savedCart);
+      setCartCount(cart.reduce((sum, item) => sum + (item.quantity || 0), 0));
+    } catch {
+      setCartCount(0);
+    }
+  };
+
+  const updateCurrentUser = () => {
+    const savedUser = localStorage.getItem("currentUser");
+    if (!savedUser) {
+      setCurrentUser(null);
+      return;
+    }
+    try {
+      setCurrentUser(JSON.parse(savedUser));
+    } catch {
+      setCurrentUser(null);
+    }
+  };
+
+  const updateFavCount = () => {
+    const savedFavs = localStorage.getItem("Favorite");
+    if (!savedFavs) {
+      setFavCount(0);
+      return;
+    }
+    try {
+      setFavCount(JSON.parse(savedFavs).length);
+    } catch {
+      setFavCount(0);
+    }
+  };
+
   useEffect(() => {
-    const updateCartCount = () => {
-      const savedCart = localStorage.getItem("cart");
-      if (!savedCart) {
-        setCartCount(0);
-      } else {
-        try {
-          const cart = JSON.parse(savedCart);
-          const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-          setCartCount(totalItems);
-        } catch (error) {
-          console.error("Lỗi đọc giỏ hàng:", error);
-          setCartCount(0);
-        }
-      }
-    };
-
-    const updateCurrentUser = () => {
-      const savedUser = localStorage.getItem("currentUser");
-      if (!savedUser) {
-        setCurrentUser(null);
-        return;
-      }
-
-      try {
-        const user = JSON.parse(savedUser);
-        setCurrentUser(user);
-      } catch (error) {
-        console.error("Lỗi đọc thông tin người dùng:", error);
-        setCurrentUser(null);
-      }
-    };
-
-    // Cập nhật ngay khi load trang
     updateCartCount();
     updateCurrentUser();
+    updateFavCount();
 
-    // Lắng nghe khi giỏ hàng hoặc user được cập nhật
     window.addEventListener("cartUpdated", updateCartCount);
     window.addEventListener("userUpdated", updateCurrentUser);
-    window.addEventListener("storage", () => {
+    window.addEventListener("FavoriteUpdated", updateFavCount);
+
+    const handleStorageChange = () => {
       updateCartCount();
       updateCurrentUser();
-    });
+      updateFavCount();
+    };
+    window.addEventListener("storage", handleStorageChange);
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const header = document.querySelector(".techshop-header");
+          if (header) {
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+              header.classList.add("header-hidden");
+            } else {
+              header.classList.remove("header-hidden");
+            }
+          }
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    const setHeaderHeight = () => {
+      const header = document.querySelector(".techshop-header");
+      if (header) {
+        document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+      }
+    };
+    setHeaderHeight();
+    window.addEventListener("resize", setHeaderHeight);
 
     return () => {
       window.removeEventListener("cartUpdated", updateCartCount);
       window.removeEventListener("userUpdated", updateCurrentUser);
-      window.removeEventListener("storage", () => {
-        updateCartCount();
-        updateCurrentUser();
-      });
+      window.removeEventListener("FavoriteUpdated", updateFavCount);
+      window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", setHeaderHeight);
     };
   }, []);
 
-  // Dropdown menu items
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(`${jsonBase}products.json`);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (cancelled) return;
+        setProducts(data);
+      } catch (err) {}
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!searchFocused) return;
+    const onPointerDown = e => {
+      if (searchBoxRef.current && !searchBoxRef.current.contains(e.target)) {
+        setSearchFocused(false);
+      }
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    return () => document.removeEventListener("mousedown", onPointerDown);
+  }, [searchFocused]);
+
+  useEffect(() => {
+    if (!userMenuOpen) return;
+    const onPointerDown = e => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target)) {
+        setUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    return () => document.removeEventListener("mousedown", onPointerDown);
+  }, [userMenuOpen]);
+
+  useEffect(() => {
+    if (!currentUser) setUserMenuOpen(false);
+  }, [currentUser]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    setUserMenuOpen(false);
+    window.dispatchEvent(new Event("userUpdated"));
+    navigate("/");
+  };
+
+  const handleSearchSubmit = e => {
+    e.preventDefault();
+    if (!q.trim()) return;
+    navigate(`/products?q=${encodeURIComponent(q.trim())}`);
+    setSearchFocused(false);
+  };
+
+  const goToProduct = product => {
+    setQ("");
+    setSearchFocused(false);
+    navigate(`/product/${product.id}`, { state: { product } });
+  };
+
   const dienthoaiMenuItems = [
     { text: "Xiaomi", href: "/dien-thoai/xiaomi" },
     { text: "Samsung Galaxy", href: "/dien-thoai/samsung" },
@@ -77,21 +193,21 @@ const Header = () => {
   ];
 
   const tabletMenuItems = [
-    { text: "Xiaomi Pad ", href: "/may-tinh-bang/xiaomi-pad" },
-    { text: "Redmi Pad ", href: "/may-tinh-bang/redmi-pad" },
-    { text: "POCO Pad ", href: "/may-tinh-bang/poco-pad" },
-    { text: "Vivo Pad ", href: "/may-tinh-bang/vivo-pad" },
-    { text: "iQOO Pad ", href: "/may-tinh-bang/iqoo-pad" },
-    { text: "OPPO Pad ", href: "/may-tinh-bang/oppo-pad" },
-    { text: "OnePlus Pad ", href: "/may-tinh-bang/oneplus-pad" },
+    { text: "Xiaomi Pad", href: "/may-tinh-bang/xiaomi-pad" },
+    { text: "Redmi Pad", href: "/may-tinh-bang/redmi-pad" },
+    { text: "POCO Pad", href: "/may-tinh-bang/poco-pad" },
+    { text: "Vivo Pad", href: "/may-tinh-bang/vivo-pad" },
+    { text: "iQOO Pad", href: "/may-tinh-bang/iqoo-pad" },
+    { text: "OPPO Pad", href: "/may-tinh-bang/oppo-pad" },
+    { text: "OnePlus Pad", href: "/may-tinh-bang/oneplus-pad" },
   ];
 
   const smartwatchMenuItems = [
     { text: "Xiaomi Watch", href: "/dong-ho-thong-minh/xiaomi" },
-    { text: "Redmi Watch ", href: "/dong-ho-thong-minh/redmi" },
+    { text: "Redmi Watch", href: "/dong-ho-thong-minh/redmi" },
     { text: "POCO Watch", href: "/dong-ho-thong-minh/poco" },
     { text: "Vivo Watch", href: "/dong-ho-thong-minh/vivo" },
-    { text: "OPPO Watch ", href: "/dong-ho-thong-minh/oppo" },
+    { text: "OPPO Watch", href: "/dong-ho-thong-minh/oppo" },
     { text: "OnePlus Watch", href: "/dong-ho-thong-minh/oneplus" },
     { text: "Samsung Galaxy Watch", href: "/dong-ho-thong-minh/samsung" },
   ];
@@ -107,151 +223,183 @@ const Header = () => {
     { text: "Phụ Kiện Khác", href: "/phu-kien/khac" },
   ];
 
-  console.log("dienthoaiMenuItems:", dienthoaiMenuItems);
-  console.log("tabletMenuItems:", tabletMenuItems);
-  console.log("smartwatchMenuItems:", smartwatchMenuItems);
-  console.log("phukienMenuItems:", phukienMenuItems);
-  console.log("hoveredMenu:", hoveredMenu);
+  const renderDropdown = items => (
+    <div className="dropdown-menu">
+      {items.map((item, index) => (
+        <Link key={index} to={item.href} className="dropdown-item">
+          {item.text}
+        </Link>
+      ))}
+    </div>
+  );
 
   return (
-    <header className="techshop-header">
-      {/* Top Section: Header Bar */}
-      <div className="header-top-bar">
-        <div className="header-top-content">
-          {/* Left: Free Delivery Info */}
-          <div className="left">
-            {/* Center: Logo */}
-            <div className="header-logo-container">
-              <div className="techshop-logo">
-                <a href="/">  <img src={logoImage} alt="Logo" className="header-logo-image" /></a>
+    <>
+      <header className="techshop-header">
+        <div className="header-top-bar">
+          <div className="header-top-content">
+            <div className="left">
+              <div className="header-logo-container">
+                <div className="techshop-logo">
+                  <Link to="/">
+                    <img src={logoImage} alt="Logo" className="header-logo-image" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="center" ref={searchBoxRef}>
+              <form className="input-group-search" onSubmit={handleSearchSubmit}>
+                <i className="bi bi-search search-icon"></i>
+                <input type="text" placeholder="Tìm kiếm sản phẩm..." value={q} onChange={e => setQ(e.target.value)} onFocus={() => setSearchFocused(true)} autoComplete="off" />
+                <button type="submit">Tìm kiếm</button>
+              </form>
+
+              {searchFocused && q.trim().length > 0 && (
+                <ul className="header-search_dropdown">
+                  {searchMatches.length === 0 ? (
+                    <li className="header-search_empty">Không tìm thấy sản phẩm.</li>
+                  ) : (
+                    searchMatches.map(p => (
+                      <li key={p.id}>
+                        <button type="button" className="header-search_option" onClick={() => goToProduct(p)}>
+                          <span className="header-search_thumb-wrap">
+                            <img
+                              src={imageMap[p.imageKey] || "https://dummyimage.com/40x40/e2e8f0/475569&text=No"}
+                              alt={p.name}
+                              className="header-search_thumb"
+                              style={{ objectFit: "contain", width: "40px", height: "40px", background: "#f8faff", borderRadius: "4px" }}
+                            />{" "}
+                          </span>
+                          <span className="header-search_meta">
+                            <span className="header-search_name">{p.name}</span>
+                            {p.currentPrice && <span className="header-search_price">{p.currentPrice}</span>}
+                          </span>
+                        </button>
+                      </li>
+                    ))
+                  )}
+                </ul>
+              )}
+            </div>
+
+            <div className="right">
+              <div className="header-user-actions">
+                <button className="favorite-button" onClick={() => navigate("/favorites")}>
+                  <i className="bi bi-heart"></i>
+                  <span>Yêu thích</span>
+                  <span className="favorite-badge">{favCount}</span>
+                </button>
+
+                <button className="cart-button" onClick={() => navigate("/cart")}>
+                  <i className="bi bi-cart3"></i>
+                  <span>Giỏ hàng</span>
+                  <span className="cart-badge">{cartCount}</span>
+                </button>
+
+                <span className="action-separator">|</span>
+
+                <div className="language-selector">
+                  <span className="lang-active">VN</span>
+                  <span className="lang-separator">|</span>
+                  <span className="lang-option">EN</span>
+                </div>
+
+                {currentUser ? (
+                  <div className="header-user-menu" ref={userMenuRef}>
+                    <button className="login-link header-user-menu_trigger" onClick={() => setUserMenuOpen(!userMenuOpen)}>
+                      <i className="bi bi-person-circle"></i>
+                      <span>{currentUser.name || currentUser.user}</span>
+                      <i className={`bi bi-chevron-down ${userMenuOpen ? "is-open" : ""}`}></i>
+                    </button>
+
+                    {userMenuOpen && (
+                      <div className="header-user-dropdown">
+                        <button
+                          type="button"
+                          className="header-user-dropdown_item"
+                          onClick={() => {
+                            setUserMenuOpen(false);
+                            navigate("/profile");
+                          }}
+                        >
+                          Hồ sơ
+                        </button>
+                        {currentUser.role === "staff" && (
+                          <button
+                            type="button"
+                            className="header-user-dropdown_item"
+                            onClick={() => {
+                              setUserMenuOpen(false);
+                              navigate("/admin");
+                            }}
+                          >
+                            Quản trị
+                          </button>
+                        )}
+                        <button type="button" className="header-user-dropdown_item header-user-dropdown_item--logout" onClick={handleLogout}>
+                          Đăng xuất
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <button className="login-link" onClick={() => navigate("/login")}>
+                    <i className="bi bi-person-circle"></i>
+                    <span>Đăng nhập</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="center">
-            <label className="input-group-search">
-              <i className="bi bi-search search-icon"></i>
-              <input type="text" placeholder="Tìm kiếm sản phẩm..." value={q} onChange={e => setQ(e.target.value)} />
-              <button>Tìm kiếm</button>
-            </label>
-          </div>
+        <nav className="header-navigation">
+          <div className="nav-content">
+            <Link to="/" className="nav-link">
+              TRANG CHỦ
+            </Link>
 
-          <div className="right">
-            {/* tìm kiếm */}
-
-            {/* Right: User Actions */}
-            <div className="header-user-actions">
-              {/* Yêu thích */}
-              <button className="favorite-button" onClick={() => navigate("/favorites")}>
-                <i className="bi bi-heart"></i>
-                <span>Yêu thích</span>
-                <span className="favorite-badge">0</span>
-              </button>
-
-              {/* Giỏ hàng */}
-              <button className="cart-button" onClick={() => navigate("/cart")}>
-                <i className="bi bi-cart3"></i>
-                <span>Giỏ hàng</span>
-                <span className="cart-badge">{cartCount}</span>
-              </button>
-
-              <span className="action-separator">|</span>
-              {/* ngôn ngữ */}
-              <div className="language-selector">
-                <span className="lang-active">VN</span>
-                <span className="lang-separator">|</span>
-                <span className="lang-option">EN</span>
-              </div>
-
-              {/* tài khoản */}
-              {/* tài khoản */}
-              <button className="login-link" onClick={() => navigate("/login")}>
-                <i className="bi bi-person-circle"></i>
-                <span>{currentUser ? currentUser.name || currentUser.user : "Đăng nhập"}</span>
-              </button>
+            <div className="nav-item-with-dropdown">
+              <Link to="/dienthoai" className="nav-link">
+                ĐIỆN THOẠI
+              </Link>
+              {renderDropdown(dienthoaiMenuItems)}
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Bottom Section: Navigation Bar */}
-      <nav className="header-navigation">
-        <div className="nav-content">
-          <a href="/" className="nav-link">
-            TRANG CHỦ
-          </a>
+            <div className="nav-item-with-dropdown">
+              <Link to="/may-tinh-bang" className="nav-link">
+                MÁY TÍNH BẢNG
+              </Link>
+              {renderDropdown(tabletMenuItems)}
+            </div>
 
-          {/* ĐIỆN THOẠI với Dropdown */}
-          <div className="nav-item-with-dropdown" onMouseEnter={() => setHoveredMenu("dienthoai")} onMouseLeave={() => setHoveredMenu(null)}>
-            <a href="/dienthoai" className={`nav-link ${hoveredMenu === "dienthoai" ? "active" : ""}`}>
-              ĐIỆN THOẠI
-            </a>
-            {hoveredMenu === "dienthoai" && (
-              <div className="dropdown-menu">
-                {dienthoaiMenuItems.map((item, index) => (
-                  <a key={index} href={item.href} className="dropdown-item">
-                    {item.text}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
+            <div className="nav-item-with-dropdown">
+              <Link to="/dong-ho-thong-minh" className="nav-link">
+                ĐỒNG HỒ THÔNG MINH
+              </Link>
+              {renderDropdown(smartwatchMenuItems)}
+            </div>
 
-          {/* MÁY TÍNH BẢN với Dropdown */}
-          <div className="nav-item-with-dropdown" onMouseEnter={() => setHoveredMenu("maytinhbang")} onMouseLeave={() => setHoveredMenu(null)}>
-            <a href="/may-tinh-bang" className={`nav-link ${hoveredMenu === "maytinhbang" ? "active" : ""}`}>
-              MÁY TÍNH BẢNG
-            </a>
-            {hoveredMenu === "maytinhbang" && (
-              <div className="dropdown-menu">
-                {tabletMenuItems.map((item, index) => (
-                  <a key={index} href={item.href} className="dropdown-item">
-                    {item.text}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
+            <div className="nav-item-with-dropdown">
+              <Link to="/phu-kien" className="nav-link">
+                PHỤ KIỆN
+              </Link>
+              {renderDropdown(phukienMenuItems)}
+            </div>
 
-          {/* ĐỒNG HỒ THÔNG MINH với Dropdown */}
-          <div className="nav-item-with-dropdown" onMouseEnter={() => setHoveredMenu("dongho")} onMouseLeave={() => setHoveredMenu(null)}>
-            <a href="/dong-ho-thong-minh" className={`nav-link ${hoveredMenu === "dongho" ? "active" : ""}`}>
-              ĐỒNG HỒ THÔNG MINH
-            </a>
-            {hoveredMenu === "dongho" && (
-              <div className="dropdown-menu">
-                {smartwatchMenuItems.map((item, index) => (
-                  <a key={index} href={item.href} className="dropdown-item">
-                    {item.text}
-                  </a>
-                ))}
-              </div>
-            )}
+            <Link to="/promotions" className="nav-link">
+              KHUYẾN MÃI
+            </Link>
+            <Link to="/about" className="nav-link">
+              VỀ CHÚNG TÔI
+            </Link>
           </div>
-          {/* PHỤ KIỆN với Dropdown */}
-          <div className="nav-item-with-dropdown" onMouseEnter={() => setHoveredMenu("phukien")} onMouseLeave={() => setHoveredMenu(null)}>
-            <a href="/phu-kien" className={`nav-link ${hoveredMenu === "phukien" ? "active" : ""}`}>
-              PHỤ KIỆN
-            </a>
-            {hoveredMenu === "phukien" && (
-              <div className="dropdown-menu">
-                {phukienMenuItems.map((item, index) => (
-                  <a key={index} href={item.href} className="dropdown-item">
-                    {item.text}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-          <a href="/promotions" className="nav-link">
-            KHUYẾN MÃI
-          </a>
-          <a href="/about" className="nav-link">
-            VỀ CHÚNG TÔI
-          </a>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
+
+      <div className="header-placeholder" />
+    </>
   );
 };
 
