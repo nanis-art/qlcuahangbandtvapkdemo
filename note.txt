@@ -1,6 +1,25 @@
 upd{
-    Thông số kỹ thuật:[Chipset, ram, rom];
-    Thông số chí tiết:[all]
-
-    (làm các trang admin)
+    Thông số kỹ thuật:[Chipset, ram, rom]/
+    Thông số chí tiết:[all]/
+    Logic tính giá tiền và logic mã giảm giá
 }
+fix{
+    thanh tìm kiếm[
+        tiềm kiếm sản phẩm bấm vào sp 1 (sp lần 1) đã vào detailproduct
+     bấm vào search lần 2 bấm vào sản phẩm lần 2 thì không chuyển sang sản phẩm của lần 2
+    ]
+    ui{
+        cập nhật lại màu giao diện đẹp hơn
+        cập nhật lại nút bấm/
+    Thông số kỹ thuật:[Chipset, ram, rom](nằm trên giá dưới tên sản phẩm{detailproduct})/
+    Thông số chí tiết:[all {nằm dưới sản phẩm trong detailproduct}]/
+    }
+    button[
+        nút chọn mã giảm giá{
+            cập nhật lại giao diện nút trong giỏ hàng( nút chọn mã giảm giá )/
+        }
+    ]
+    cập nhật lại giao diện tổng kết đơn hàng trong giỏ hàng
+}
+(làm các trang admin)
+(banner)/

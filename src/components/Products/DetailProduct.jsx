@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams, useNavigate } from "react-router-dom";
+import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { imageMap } from "../../utils/productImages";
 import "./DetailProduct.css";
 
@@ -7,27 +7,43 @@ const DetailProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const [product, setProduct] = useState(location.state?.product || null);
-  const [isLoading, setIsLoading] = useState(!location.state?.product);
+
+  // ===== CHỖ THAY ĐỔI 1: KHỞI TẠO STATE RỖNG ĐỂ ÉP REACT RE-RENDER KHI ID ĐỔI =====
+  const [product, setProduct] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedMemory, setSelectedMemory] = useState(null);
+
+  // ===== STATE ĐỒNG BỘ AUTH THEO HEADER =====
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("Quý khách");
+
+  // ===== CHỖ THAY ĐỔI 2: LẮNG NGHE URL (ID) ĐỔI TỪ THANH SEARCH LÀ CẬP NHẬT NGAY =====
   useEffect(() => {
-    if (product) return;
+    // Reset lỗi mỗi khi URL thay đổi
+    setError(null);
+
+    // TRƯỜNG HỢP A: Bấm từ thanh Search (đã có cục state gửi qua)
+    if (location.state?.product && String(location.state.product.id) === String(id)) {
+      const found = location.state.product;
+      setProduct({ ...found, image: imageMap[found.imageKey] || found.image });
+      setIsLoading(false);
+      return;
+    }
+
+    // TRƯỜNG HỢP B: Nhấn F5, gõ link trực tiếp (phải tự fetch data mới)
+    setIsLoading(true);
+    setProduct(null);
     const fetchProduct = async () => {
       try {
         const response = await fetch("/products.json");
-        if (!response.ok) {
-          throw new Error("Không thể tải thông tin sản phẩm");
-        }
+        if (!response.ok) throw new Error("Không thể tải thông tin sản phẩm");
         const data = await response.json();
         const found = data.find(item => String(item.id) === String(id));
-        if (!found) {
-          throw new Error("Sản phẩm không tồn tại");
-        }
-        setProduct({
-          ...found,
-          image: imageMap[found.imageKey] || found.image,
-        });
+        if (!found) throw new Error("Sản phẩm không tồn tại");
+        setProduct({ ...found, image: imageMap[found.imageKey] || found.image });
       } catch (err) {
         setError(err.message);
       } finally {
@@ -35,219 +51,384 @@ const DetailProduct = () => {
       }
     };
     fetchProduct();
-  }, [id, product]);
+  }, [id, location.state]); // Cập nhật dependency list để React biết đường fetch lại
 
-  if (isLoading) {
-    return <div className="detail-container">Đang tải chi tiết sản phẩm...</div>;
-  }
+  useEffect(() => {
+    if (!product) return;
+    const spec = product.specifications;
+    const colors = spec?.design?.colors || [];
+    const ram = spec?.memory?.ram;
+    const rom = spec?.memory?.rom;
+    if (colors.length > 0) setSelectedColor(colors[0]);
+    if (ram || rom) setSelectedMemory(`${ram || ""}${rom ? `/${rom}` : ""}`);
+  }, [product]);
 
-  if (error) {
-    return <div className="detail-container">Lỗi: {error}</div>;
-  }
-
-  if (!product) {
-    return null;
-  }
-  const getQuickSpecs = (item) => {
-    const spec = item.specifications || item.thongSo || item.specs;
-    if (!spec) return [];
-    const row = (label, value) => {
-      if (!value) return null;
-      if (Array.isArray(value)) return value.length ? { label, value: value.join(', ') } : null;
-      if (typeof value === 'object') return null;
-      return { label, value: String(value) };
-    };
-
-    switch (Number(item.idcategory)) {
-      case 1: // Điện thoại
-      case 2: // Máy tính bảng
-        return [
-          row("Màn hình", spec.display?.size || spec.manHinh),
-          row("Chipset", spec.processor?.chipset || spec.chip),
-          row("RAM", spec.memory?.ram || spec.ram),
-          row("Bộ nhớ trong", spec.memory?.rom || spec.rom),
-          row("Pin", spec.battery?.capacity || spec.pin),
-          row("Camera", spec.camera?.main || spec.camera),
-        ].filter(Boolean);
-
-      case 3: // Đồng hồ & Vòng đeo tay
-        return [
-          row("Màn hình", spec.display?.size || spec.manHinh),
-          row("Thời lượng pin", spec.battery?.batteryLife || spec.pin),
-          row("Chống nước", spec.design?.waterResistance || spec.chongNuoc),
-          row("Kết nối", spec.connectivity?.bluetooth || spec.ketNoi),
-          row("Chất liệu", spec.design?.material || spec.tinhNang),
-        ].filter(Boolean);
-
-      case 4: // Âm thanh
-        return [
-          row("Kiểu dáng", spec.design?.type || spec.kieuDang),
-          row("Kết nối", spec.connectivity?.bluetooth || spec.connectivity?.type || spec.ketNoi),
-          row("Driver âm thanh", spec.audio?.driver || spec.congSuat),
-          row("Thời lượng pin", spec.battery?.total || spec.battery?.earphone || spec.thoiLuongPin || spec.pin),
-          row("Chống ồn", spec.anc?.supported ? "Có ANC" : spec.chongOn),
-        ].filter(Boolean);
-
-      case 5: // Sạc - Cáp - Pin dự phòng
-        return [
-          row("Dung lượng pin", spec.powerBank?.capacity || spec.dungLuong),
-          row("Công suất tối đa", spec.power?.maxWatt ? `${spec.power.maxWatt}W` : spec.congSuat),
-          row("Đầu vào (Input)", spec.power?.input || spec.powerBank?.input || spec.congSuat),
-          row("Đầu ra (Output)", spec.power?.output || spec.powerBank?.output || spec.congSuatRa),
-          row("Chiều dài cáp", spec.cable?.length || spec.chieuDai),
-        ].filter(Boolean);
-
-      case 6: // Ốp lưng - Kính cường lực
-        return [
-          row("Chất liệu", spec.material?.type || spec.chatLieu),
-          row("Màu sắc", spec.design?.colors || spec.mauSac),
-          row("Độ dày/Cứng", spec.protection?.thickness || spec.protection?.hardness || spec.doDay),
-        ].filter(Boolean);
-
-      case 7: // Bút - Bàn phím
-        return [
-          row("Kiểu kết nối", spec.connectivity?.bluetooth || spec.connectivity?.type || spec.ketNoi),
-          row("Thời lượng pin", spec.battery?.batteryLife || spec.pin),
-          row("Loại Switch", spec.keyboard?.switchType || spec.kieuDang),
-        ].filter(Boolean);
-
-      case 8: // Gimbal - Tripod - Mic
-        return [
-          row("Tải trọng tối đa", spec.gimbal?.payload || spec.tripod?.maxLoad || spec.taiTrong),
-          row("Chiều cao tối đa", spec.tripod?.maxHeight || spec.chieuCao),
-          row("Thời lượng pin", spec.battery?.batteryLife || spec.thoiLuongPin),
-          row("Giao tiếp", spec.connectivity?.bluetooth || spec.mic?.interface || spec.ketNoi),
-        ].filter(Boolean);
-
-      case 9: // Thẻ nhớ - USB - SSD
-        return [
-          row("Dung lượng", spec.storage?.capacity || spec.dungLuong),
-          row("Tốc độ đọc", spec.speed?.read || spec.tocDoDoc),
-          row("Tốc độ ghi", spec.speed?.write || spec.tocDoGhi),
-          row("Chuẩn giao tiếp", spec.storage?.interface || spec.chuanGiaoTiep),
-        ].filter(Boolean);
-
-      case 10: // Smart Home - Network
-        return [
-          row("Độ phân giải", spec.camera?.resolution || spec.doPhanGiai),
-          row("Chuẩn Wifi", spec.router?.standard || spec.chuanWifi),
-          row("Băng tần", spec.router?.band || spec.bangTan),
-          row("Tốc độ mạng", spec.router?.speed || spec.tocDo),
-          row("Kết nối", spec.connectivity?.wifi || spec.ketNoi),
-        ].filter(Boolean);
-
-      case 11: // Phụ kiện khác
-        return [
-          row("Số cổng chia", spec.hub?.totalPorts ? `${spec.hub.totalPorts} cổng` : spec.congKetNoi),
-          row("Tốc độ quạt", spec.cooling?.fanSpeed),
-          row("Công suất", spec.power?.maxWatt ? `${spec.power.maxWatt}W` : spec.congSuat),
-          row("Chất liệu", spec.design?.material || spec.chatLieu),
-        ].filter(Boolean);
-
-      default:
-        if (item.thongSo) {
-          return Object.entries(item.thongSo)
-            .filter(([, v]) => v && typeof v !== 'object')
-            .map(([k, v]) => ({ label: k, value: String(v) }));
-        }
-        return [];
+  // ===== BỘ CHECK AUTH THEO ĐÚNG KEY "currentUser" CỦA HEADER =====
+  const checkAuth = () => {
+    const savedUser = localStorage.getItem("currentUser");
+    if (savedUser) {
+      setIsLoggedIn(true);
+      try {
+        const parsed = JSON.parse(savedUser);
+        setUserName(parsed.name || parsed.user || "Admin");
+      } catch {
+        setUserName(savedUser);
+      }
+    } else {
+      setIsLoggedIn(false);
+      setUserName("Quý khách");
     }
   };
 
-  //THÊM VÀO GIỎ HÀNG
+  useEffect(() => {
+    checkAuth();
+    window.addEventListener("userUpdated", checkAuth);
+    window.addEventListener("storage", checkAuth);
+    return () => {
+      window.removeEventListener("userUpdated", checkAuth);
+      window.removeEventListener("storage", checkAuth);
+    };
+  }, []);
+
+  if (isLoading)
+    return (
+      <div className="detail-loading">
+        <div className="loading-spinner" />
+        <span>Đang tải sản phẩm...</span>
+      </div>
+    );
+  if (error) return <div className="detail-error">{error}</div>;
+  if (!product) return null;
+
+  const spec = product.specifications || {};
+  const colors = spec.design?.colors || [];
+
+  const memoryOptions = [];
+  if (spec.memory?.ram || spec.memory?.rom) {
+    memoryOptions.push(`${spec.memory.ram || ""}${spec.memory.rom ? `/${spec.memory.rom}` : ""}`);
+  }
+  if (spec.storage?.capacity) {
+    memoryOptions.push(spec.storage.capacity);
+  }
+
+  const discountPercent = product.originalPrice && product.currentPrice ? Math.round((1 - product.currentPrice / product.originalPrice) * 100) : null;
+
+  // ===== CẤU TRÚC BỘ GOM NHÓM THÔNG SỐ =====
+  const getAllSpecs = () => {
+    if (!spec) return [];
+    const rows = [];
+
+    const addGroup = (label, lines) => {
+      const validLines = lines.filter(line => line !== null && line !== undefined && String(line).trim() !== "");
+      if (validLines.length > 0) {
+        rows.push({
+          label,
+          value: (
+            <div style={{ display: "flex", flexDirection: "column", gap: "5px", lineHeight: "1.5" }}>
+              {validLines.map((text, idx) => (
+                <div key={idx}>{text}</div>
+              ))}
+            </div>
+          )
+        });
+      }
+    };
+
+    // 1. Nhóm Màn hình
+    if (spec.display) {
+      addGroup("Màn hình", [
+        [spec.display.type, spec.display.refreshRate, spec.display.brightness ? `Độ sáng ${spec.display.brightness}` : null].filter(Boolean).join(", "),
+        [spec.display.size, spec.display.resolution].filter(Boolean).join(" - "),
+        spec.display.alwaysOn !== undefined ? (spec.display.alwaysOn ? "Hỗ trợ Always On Display" : "Không hỗ trợ Always On Display") : null
+      ]);
+    }
+
+    // 2. Nhóm Hệ điều hành & Phần mềm
+    if (spec.software || spec.security) {
+      addGroup("Hệ điều hành", [
+        spec.software ? [spec.software.os, spec.software.version].filter(Boolean).join(" ") : null,
+        spec.security?.fingerprint ? `Cảm biến vân tay: ${spec.security.fingerprint}` : null,
+        spec.security?.face ? `Nhận diện khuôn mặt: ${spec.security.face}` : null
+      ]);
+    }
+
+    // 3. Nhóm Camera Sau
+    if (spec.camera && (spec.camera.main || spec.camera.ultrawide || spec.camera.telephoto || spec.camera.macro || spec.camera.resolution)) {
+      const camLines = [];
+      if (spec.camera.resolution) camLines.push(`Độ phân giải: ${spec.camera.resolution}`);
+      if (spec.camera.main) camLines.push(`${spec.camera.main} (Góc rộng, OIS)`);
+      if (spec.camera.ultrawide) camLines.push(`${spec.camera.ultrawide} (Góc siêu rộng)`);
+      if (spec.camera.telephoto) camLines.push(`${spec.camera.telephoto} (Telephoto)`);
+      if (spec.camera.macro) camLines.push(`${spec.camera.macro} (Macro)`);
+      addGroup("Camera sau", camLines);
+    }
+
+    // 4. Nhóm Camera Trước
+    if (spec.camera?.front) {
+      addGroup("Camera trước", [`Độ phân giải: ${spec.camera.front}`]);
+    }
+
+    // 5. Nhóm CPU / Cấu hình
+    if (spec.processor) {
+      addGroup("CPU / Cấu hình", [
+        spec.processor.chipset,
+        spec.processor.cpu ? `Số nhân: ${spec.processor.cpu}` : null,
+        spec.processor.gpu ? `Đồ họa (GPU): ${spec.processor.gpu}` : null
+      ]);
+    }
+
+    // 6. Nhóm RAM
+    if (spec.memory?.ram) {
+      addGroup("RAM", [[spec.memory.ram, spec.memory.type ? `Loại RAM: ${spec.memory.type}` : null].filter(Boolean).join(", ")]);
+    }
+
+    // 7. Nhóm Bộ nhớ trong
+    if (spec.memory?.rom || spec.storage?.capacity) {
+      addGroup("Bộ nhớ trong", [
+        [spec.memory?.rom || spec.storage?.capacity, spec.storage?.standard ? `Chuẩn tốc độ: ${spec.storage.standard}` : null].filter(Boolean).join(", "),
+        spec.storage?.interface ? `Giao tiếp: ${spec.storage.interface}` : null
+      ]);
+    }
+
+    // 8. Nhóm Pin & Nguồn sạc
+    if (spec.battery || spec.power || spec.powerBank || spec.cable) {
+      const pLines = [];
+      const dungLuong = spec.battery?.capacity || spec.powerBank?.capacity;
+      if (dungLuong) pLines.push(`Dung lượng: ${dungLuong}`);
+
+      const congSuat = spec.battery?.charging || (spec.power?.maxWatt ? `${spec.power.maxWatt}W` : null);
+      if (congSuat) pLines.push(`Sạc nhanh công suất: ${congSuat}`);
+      if (spec.battery?.wireless) pLines.push(`Sạc không dây: ${spec.battery.wireless}`);
+      if (spec.battery?.total || spec.battery?.batteryLife) pLines.push(`Thời lượng pin: ${spec.battery.total || spec.battery.batteryLife}`);
+      if (spec.battery?.earphone || spec.battery?.case) pLines.push(`Tai nghe: ${spec.battery.earphone} / Hộp sạc: ${spec.battery.case}`);
+
+      if (spec.power?.input || spec.power?.output || spec.powerBank?.input || spec.powerBank?.output) {
+        pLines.push(`Đầu vào (Input): ${spec.power?.input || spec.powerBank?.input || "--"}`);
+        pLines.push(`Đầu ra (Output): ${spec.power?.output || spec.powerBank?.output || "--"}`);
+      }
+      if (spec.cable) pLines.push(`Cáp đi kèm: Dài ${spec.cable.length || "--"}, Loại ${spec.cable.type || "--"}`);
+      addGroup("Dung lượng pin", pLines);
+    }
+
+    // 9. Nhóm Thiết kế & Ngoại hình
+    if (spec.design || spec.protection) {
+      const dLines = [];
+      if (spec.design?.material) dLines.push(`Chất liệu: ${spec.design.material}`);
+      if (spec.design?.dimensions || spec.design?.weight) dLines.push(`Kích thước: ${spec.design.dimensions || "--"} / Trọng lượng: ${spec.design.weight || "--"}`);
+      if (spec.design?.waterResistance || spec.protection?.standard) dLines.push(`Kháng nước, bụi: ${spec.design?.waterResistance || spec.protection?.standard}`);
+      if (spec.design?.colors) dLines.push(`Màu sắc có sẵn: ${Array.isArray(spec.design.colors) ? spec.design.colors.join(", ") : spec.design.colors}`);
+      if (spec.design?.caseSize) dLines.push(`Mặt đồng hồ: ${spec.design.caseSize}`);
+      if (spec.protection?.dropResistance || spec.protection?.thickness || spec.protection?.hardness) {
+        dLines.push(`Độ bảo vệ: Kính cường lực cứng ${spec.protection.hardness || "--"}, Dày ${spec.protection.thickness || "--"}`);
+      }
+      addGroup("Thiết kế", dLines);
+    }
+
+    // 10. Nhóm Kết nối & Mạng
+    if (spec.connectivity || spec.router) {
+      const cLines = [];
+      if (spec.connectivity?.sim) cLines.push(`Thẻ SIM: ${spec.connectivity.sim}`);
+      if (spec.connectivity?.["5G"] !== undefined) cLines.push(spec.connectivity["5G"] ? "Hỗ trợ mạng 5G" : "Mạng di động 4G LTE");
+      if (spec.connectivity?.wifi || spec.router?.standard) cLines.push(`Chuẩn WiFi: ${spec.connectivity?.wifi || spec.router?.standard || "--"}`);
+      if (spec.connectivity?.bluetooth) cLines.push(`Kết nối Bluetooth: ${spec.connectivity.bluetooth}`);
+      if (spec.connectivity?.usb) cLines.push(`Cổng giao tiếp USB: ${spec.connectivity.usb}`);
+      if (spec.router) {
+        cLines.push(`Băng tần phát sóng: ${spec.router.band || "--"} (Tốc độ tối đa: ${spec.router.speed || "--"})`);
+        if (spec.router.antennas) cLines.push(`Số lượng Ăng-ten: ${spec.router.antennas} râu`);
+      }
+      addGroup("Kết nối mạng", cLines);
+    }
+
+    // 11. Nhóm Tính năng mở rộng
+    if (spec.audio || spec.anc || spec.health || spec.hub || spec.gimbal || spec.tripod || spec.mic || spec.speed) {
+      const fLines = [];
+      if (spec.audio) fLines.push(`Âm thanh: Màng loa ${spec.audio.driver || "--"}, Tần số ${spec.audio.frequency || "--"}, Trở kháng ${spec.audio.impedance || "--"}`);
+      if (spec.anc) fLines.push(`Khử tiếng ồn ANC: ${spec.anc.supported ? "Có" : "Không"} / Xuyên âm: ${spec.anc.transparency ? "Có" : "Không"}`);
+      if (spec.health) {
+        const hList = [spec.health.heartRate ? "Nhịp tim" : null, spec.health.spo2 ? "SpO2" : null, spec.health.sleep ? "Theo dõi giấc ngủ" : null, spec.health.ecg ? "ECG" : null].filter(Boolean);
+        if (hList.length) fLines.push(`Theo dõi sức khỏe: ${hList.join(", ")}`);
+      }
+      if (spec.hub) fLines.push(`Cổng Hub: Chia ${spec.hub.totalPorts} cổng (Type-C: ${spec.hub.usbc || 0}, USB-A: ${spec.hub.usba || 0}, HDMI: ${spec.hub.hdmi || 0})`);
+      if (spec.gimbal) fLines.push(`Gimbal: ${spec.gimbal.axes || "--"} trục, Tải trọng tối đa ${spec.gimbal.payload || "--"}`);
+      if (spec.tripod) fLines.push(`Tripod: Cao tối đa ${spec.tripod.maxHeight || "--"}, Chịu tải ${spec.tripod.maxLoad || "--"}`);
+      if (spec.mic) fLines.push(`Microphone: Hướng thu ${spec.mic.pattern || "--"}, Khoảng cách hoạt động ${spec.mic.range || "--"}`);
+      if (spec.speed?.read || spec.speed?.write) fLines.push(`Tốc độ ổ cứng: Đọc ${spec.speed.read || "--"} / Ghi ${spec.speed.write || "--"}`);
+      addGroup("Tính năng khác", fLines);
+    }
+
+    if (rows.length === 0 && product.thongSo) {
+      Object.entries(product.thongSo).forEach(([k, v]) => {
+        if (v && typeof v !== "object") rows.push({ label: k, value: String(v) });
+      });
+    }
+    return rows;
+  };
+
+  const allSpecs = getAllSpecs();
+
   const handleAddToCart = e => {
     e.stopPropagation();
     const savedCart = localStorage.getItem("cart");
     let cartItems = savedCart ? JSON.parse(savedCart) : [];
-    const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
-
-    if (existingItemIndex !== -1) {
-      cartItems[existingItemIndex].quantity += 1;
-    } else {
-      cartItems.push({
-        ...product,
-        quantity: 1,
-      });
-    }
-
-    // 3. Lưu lại vào kho
+    const idx = cartItems.findIndex(item => item.id === product.id);
+    if (idx !== -1) cartItems[idx].quantity += 1;
+    else cartItems.push({ ...product, quantity: 1 });
     localStorage.setItem("cart", JSON.stringify(cartItems));
-    setTimeout(() => {
+    setTimeout(() => window.dispatchEvent(new Event("cartUpdated")), 0);
+  };
+
+  const handleBuyNow = () => {
+    const savedCart = localStorage.getItem("cart");
+    const cart = savedCart ? JSON.parse(savedCart) : [];
+    const idx = cart.findIndex(item => item.id === product.id);
+    if (idx < 0) {
+      cart.push({ ...product, quantity: 1 });
+      localStorage.setItem("cart", JSON.stringify(cart));
       window.dispatchEvent(new Event("cartUpdated"));
-    }, 0);
+    }
+    navigate("/cart");
   };
 
   return (
-    <div className="detail-container">
-      <button className="back-button" onClick={() => navigate(-1)}>
+    <div className="detail-page">
+      <button className="back-btn" onClick={() => navigate(-1)}>
         ← Quay lại
       </button>
 
-      <div className="detail-card">
-        <div className="detail-image">
-        <img
-    src={imageMap[product?.imageKey] || "https://dummyimage.com/500x500/f8fafc/475569&text=Chưa+có+ảnh"}
-    alt={product?.name || "Sản phẩm"}
-  />
+      {/* ===== CARD CHÍNH ===== */}
+      <div className="detail-top">
+        {/* ẢNH */}
+        <div className="detail-image-col">
+          {discountPercent && <span className="img-discount-badge">-{discountPercent}%</span>}
+          <img src={imageMap[product?.imageKey] || "https://dummyimage.com/500x500/f8fafc/475569&text=Chưa+có+ảnh"} alt={product?.name || "Sản phẩm"} />
         </div>
 
-        <div className="detail-info">
-          {/* Tên sản phẩm */}
-          <h2>{product.name}</h2>
-
-          {/* Thông số kỹ thuật dạng bảng 2 cột */}
-          <div className="product-specs-table">
-            <div className="specs-header">Thông số kỹ thuật</div>
-            {getQuickSpecs(product)?.map((spec, index) => (
-              <div key={index} className="specs-row">
-                <span className="specs-label">{spec.label}</span>
-                <span className="specs-value">{spec.value}</span>
-              </div>
-            ))}
+        {/* INFO */}
+        <div className="detail-info-col">
+          {/* Tên + Còn hàng */}
+          <div className="detail-price-row">
+  <h1 className="detail-product-name">{product.name}</h1>
+            <span className="detail-stock-badge">
+              <i className="bi bi-check2-circle" /> Còn hàng
+            </span>
           </div>
 
-          {/* Giá chi tiết (có giá gốc + discount) */}
-          <p className="detail-price">
-            <span className="current-price">{product.currentPrice ? product.currentPrice.toLocaleString("vi-VN") + " ₫" : "Đang cập nhật"}</span>
-            {product.originalPrice && <span className="original-price">{product.originalPrice.toLocaleString("vi-VN")}&#8363;</span>}
-            {product.discount && <span className="discount">{product.discount}</span>}
-          </p>
+          {/* Giá*/}
+          <div className="detail-price-block">
+              <span className="detail-current-price">{product.currentPrice ? product.currentPrice.toLocaleString("vi-VN") + " ₫" : "Đang cập nhật"}</span>
+              {product.originalPrice && <span className="detail-original-price">{product.originalPrice.toLocaleString("vi-VN")}₫</span>}
+            </div>
 
-          {/* Đánh giá & lượt bán */}
-          <div className="detail-meta">
-            {product.rating && <span>{product.rating}</span>}
-            {product.sold && <span>Đã bán {product.sold}</span>}
+
+
+          {/* Rating & sold */}
+          {(product.rating || product.sold) && (
+            <div className="detail-meta-row">
+              {product.rating && (
+                <span className="detail-rating">
+                  <i className="bi bi-star-fill" /> {product.rating}
+                </span>
+              )}
+              {product.sold && <span className="detail-sold">Đã bán: {product.sold}</span>}
+            </div>
+          )}
+
+          {/* Chọn phiên bản */}
+          {(colors.length > 0 || memoryOptions.length > 0) && (
+            <>
+              <p className="detail-variant-label">Chọn phiên bản để xem giá:</p>
+
+              {colors.length > 0 && (
+                <div className="detail-variant-row">
+                  <span className="variant-key">Màu sắc</span>
+                  <div className="variant-chips">
+                    {colors.map((color, i) => (
+                      <button key={i} className={`variant-chip ${selectedColor === color ? "active" : ""}`} onClick={() => setSelectedColor(color)}>
+                        {color}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {memoryOptions.length > 0 && (
+                <div className="detail-variant-row">
+                  <span className="variant-key">Bộ nhớ</span>
+                  <div className="variant-chips">
+                    {memoryOptions.map((mem, i) => (
+                      <button key={i} className={`variant-chip ${selectedMemory === mem ? "active" : ""}`} onClick={() => setSelectedMemory(mem)}>
+                        {mem}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+
+          <div className="detail-divider" />
+
+          {/* Bảo hành & giao hàng */}
+          <div className="detail-policy-list">
+            <div className="policy-item">
+              <i className="bi bi-shield-check" />
+              Thời gian bảo hành: <strong>BH Thường 12 Tháng Chính Hãng</strong>
+            </div>
+            <div className="policy-item">
+              <i className="bi bi-truck" />
+              Giao hàng tận nơi miễn phí trong 30 phút
+            </div>
           </div>
 
-          {/* Hành động: thêm giỏ hàng + mua ngay */}
-          <div className="product-actions">
-            {/* Thêm vào giỏ hàng */}
-            <button className="add-to-cart-btn" onClick={handleAddToCart} title="Thêm vào giỏ hàng">
-              <i className="bi bi-cart-plus"></i>
+          {/* Khuyến mãi */}
+          <div className="detail-promo-box">
+            <div className="promo-title">Khuyến mãi</div>
+            <ul className="promo-list">
+              {isLoggedIn ? (
+                <li>
+                  Xin chào <strong>{userName}</strong>! Bạn có thể kiểm tra trạng thái đơn hàng trong trang cá nhân.
+                </li>
+              ) : (
+                <li>
+                  Quý khách{" "}
+                  <Link to="/login" style={{ color: "inherit", textDecoration: "underline" }}>
+                    <strong>Đăng nhập</strong>
+                  </Link>{" "}
+                  để kiểm tra đơn hàng
+                </li>
+              )}
+              <li>Chat online hỗ trợ 24/7</li>
+              <li>Đổi trả miễn phí trong 30 ngày</li>
+            </ul>
+          </div>
+
+          {/* Nút hành động */}
+          <div className="detail-actions">
+            <button className="btn-add-cart" onClick={handleAddToCart}>
+              <i className="bi bi-cart-plus" />
+              Thêm vào giỏ
             </button>
-
-            {/* Mua ngay */}
-            <button
-              className="buy-now-button"
-              onClick={() => {
-                const savedCart = localStorage.getItem("cart");
-                const cart = savedCart ? JSON.parse(savedCart) : [];
-                const existingItemIndex = cart.findIndex(item => item.id === product.id);
-                if (existingItemIndex >= 0) {
-                  navigate("/cart");
-                } else {
-                  cart.push({ ...product, quantity: 1 });
-                  localStorage.setItem("cart", JSON.stringify(cart));
-                  window.dispatchEvent(new Event("cartUpdated"));
-                  navigate("/cart");
-                }
-              }}
-            >
+            <button className="btn-buy-now" onClick={handleBuyNow}>
               Mua ngay
             </button>
           </div>
         </div>
       </div>
+
+      {/* ===== BẢNG THÔNG SỐ CHI TIẾT ===== */}
+      {allSpecs.length > 0 && (
+        <div className="detail-full-specs">
+          <div className="full-specs-title">Thông số kỹ thuật</div>
+          <div className="full-specs-table">
+            {allSpecs.map((row, i) => (
+              <div key={i} className={`full-specs-row ${i % 2 === 0 ? "even" : "odd"}`}>
+                <span className="full-specs-label">{row.label}</span>
+                <span className="full-specs-value">{row.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

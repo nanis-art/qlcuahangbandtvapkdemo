@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { imageMap } from "../../utils/productImages";
+import { isEligibleItem, getEligibleSubTotal, calculateCartTotals } from "../../utils/cartUtils";
 import "./Cart.css";
 
 const Cart = () => {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   const [selectedIds, setSelectedIds] = useState([]);
-
-  // State quản lý Voucher
   const [vouchersData, setVouchersData] = useState([]);
   const [voucherCode, setVoucherCode] = useState("");
   const [appliedVoucher, setAppliedVoucher] = useState(null);
@@ -16,17 +15,15 @@ const Cart = () => {
   const [showVoucherList, setShowVoucherList] = useState(false);
 
   useEffect(() => {
-    // Kéo giỏ hàng
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
       try { setCartItems(JSON.parse(savedCart)); } catch (e) { setCartItems([]); }
     }
 
-    // Kéo data Voucher từ public/vouchers.json
     fetch('/vouchers.json')
       .then(res => res.json())
       .then(data => setVouchersData(data))
-      .catch(err => console.error("Lỗi kéo data voucher:", err));
+      .catch(err => console.error(err));
   }, []);
 
   const updateCart = newCart => {
@@ -55,31 +52,13 @@ const Cart = () => {
   };
 
   const removeItem = productId => updateCart(cartItems.filter(item => item.id !== productId));
+
   const removeSelected = () => {
     if (selectedIds.length === 0) return;
     updateCart(cartItems.filter(item => !selectedIds.includes(item.id)));
     setSelectedIds([]);
   };
 
-  // Hàm check xem item có nằm trong danh sách hãng áp dụng hay không
-  const isEligibleItem = (itemName, applicableBrands) => {
-    if (!applicableBrands || applicableBrands.length === 0) return true; // Áp dụng mọi sp
-    const nameLower = itemName.toLowerCase();
-    return applicableBrands.some(brand => nameLower.includes(brand.toLowerCase()));
-  };
-
-  // Tính tổng tiền CỦA CÁC SẢN PHẨM HỢP LỆ với 1 mã
-  const getEligibleSubTotal = (brands) => {
-    return cartItems.reduce((acc, item) => {
-      if (selectedIds.includes(item.id) && isEligibleItem(item.name, brands)) {
-        const price = parseFloat(String(item.currentPrice).replace(/[^\d]/g, "")) || 0;
-        return acc + price * item.quantity;
-      }
-      return acc;
-    }, 0);
-  };
-
-  // Nút Áp dụng thủ công
   const handleApplyVoucher = () => {
     const code = voucherCode.trim().toUpperCase();
     if (!code) return;
@@ -91,7 +70,7 @@ const Cart = () => {
       return;
     }
 
-    const eligibleSub = getEligibleSubTotal(foundVoucher.applicableBrands);
+    const eligibleSub = getEligibleSubTotal(cartItems, selectedIds, foundVoucher.applicableBrands);
     if (eligibleSub < foundVoucher.minOrderValue) {
       setAppliedVoucher(null);
       setVoucherMessage({ type: "error", text: `Đơn sản phẩm hợp lệ chưa đạt ${new Intl.NumberFormat("vi-VN").format(foundVoucher.minOrderValue)}đ` });
@@ -102,10 +81,9 @@ const Cart = () => {
     setVoucherMessage({ type: "success", text: "Áp dụng thành công!" });
   };
 
-  // Lắng nghe: Nếu User tick/bỏ tick hoặc xoá SP làm tổng tiền hợp lệ rớt, đá văng Voucher
   useEffect(() => {
     if (appliedVoucher) {
-      const eligibleSub = getEligibleSubTotal(appliedVoucher.applicableBrands);
+      const eligibleSub = getEligibleSubTotal(cartItems, selectedIds, appliedVoucher.applicableBrands);
       if (eligibleSub < appliedVoucher.minOrderValue) {
         setAppliedVoucher(null);
         setVoucherMessage({ type: "error", text: "Giỏ hàng thay đổi, không đủ điều kiện áp dụng mã!" });
@@ -113,31 +91,8 @@ const Cart = () => {
     }
   }, [cartItems, selectedIds]);
 
-  const { subTotal, discountAmount, finalTotal } = useMemo(() => {
-    let sub = 0;
-    let eligibleSub = 0; // Chỉ tính tiền cho đồ xài được mã
-
-    cartItems.forEach(item => {
-      if (selectedIds.includes(item.id)) {
-        const price = parseFloat(String(item.currentPrice).replace(/[^\d]/g, "")) || 0;
-        sub += price * item.quantity;
-
-        if (appliedVoucher && isEligibleItem(item.name, appliedVoucher.applicableBrands)) {
-          eligibleSub += price * item.quantity;
-        }
-      }
-    });
-
-    let discount = 0;
-    if (appliedVoucher && eligibleSub >= appliedVoucher.minOrderValue) {
-      if (appliedVoucher.type === "fixed") discount = appliedVoucher.value;
-      else if (appliedVoucher.type === "percent") {
-        discount = eligibleSub * (appliedVoucher.value / 100);
-        if (appliedVoucher.maxDiscount && discount > appliedVoucher.maxDiscount) discount = appliedVoucher.maxDiscount;
-      }
-    }
-
-    return { subTotal: sub, discountAmount: discount, finalTotal: Math.max(0, sub - discount) };
+  const { subTotal, shippingFee, productDiscount, shippingDiscount, finalTotal } = useMemo(() => {
+    return calculateCartTotals(cartItems, selectedIds, appliedVoucher);
   }, [cartItems, selectedIds, appliedVoucher]);
 
   const formatPrice = price => new Intl.NumberFormat("vi-VN").format(price) + "đ";
@@ -158,14 +113,22 @@ const Cart = () => {
     <div className="cart-container">
       <div className="cart-header-top">
         <h1 className="cart-title">Giỏ hàng của bạn</h1>
-        <div className="select-all-header">
-          <input type="checkbox" className="custom-checkbox" checked={selectedIds.length === cartItems.length && cartItems.length > 0} onChange={toggleSelectAll} />
-          <span className="select-all-text">Chọn tất cả ({cartItems.length})</span>
-        </div>
       </div>
 
       <div className="cart-content">
         <div className="cart-main">
+          {cartItems.length > 0 && (
+            <div className="cart-list-header">
+              <input
+                type="checkbox"
+                className="custom-checkbox"
+                checked={selectedIds.length === cartItems.length && cartItems.length > 0}
+                onChange={toggleSelectAll}
+              />
+              <span className="select-all-text">Chọn tất cả ({cartItems.length} sản phẩm)</span>
+            </div>
+          )}
+
           <div className="cart-items">
             {cartItems.map(item => {
               const price = parseFloat(String(item.currentPrice).replace(/[^\d]/g, "")) || 0;
@@ -181,7 +144,7 @@ const Cart = () => {
                   </div>
                   <div className="cart-item-info">
                     <h3 className="cart-item-name">{item.name}</h3>
-                    <p className="cart-item-price">{item.currentPrice}</p>
+                    <p className="cart-item-price">{formatPrice(price)}</p>
                   </div>
                   <div className="cart-item-quantity">
                     <button className="quantity-btn minus" onClick={() => decreaseQuantity(item.id)}>-</button>
@@ -210,6 +173,10 @@ const Cart = () => {
             <span>Tạm tính:</span>
             <span>{formatPrice(subTotal)}</span>
           </div>
+          <div className="summary-row">
+            <span>Phí vận chuyển:</span>
+            <span>{formatPrice(shippingFee)}</span>
+          </div>
 
           <div className="voucher-section">
             <div className="voucher-input-group">
@@ -232,7 +199,7 @@ const Cart = () => {
                 </div>
                 <div className="voucher-items">
                   {vouchersData.length > 0 ? vouchersData.map(v => {
-                    const elSub = getEligibleSubTotal(v.applicableBrands);
+                    const elSub = getEligibleSubTotal(cartItems, selectedIds, v.applicableBrands);
                     const isEligible = elSub >= v.minOrderValue;
                     const brandsText = v.applicableBrands && v.applicableBrands.length > 0 ? v.applicableBrands.join(', ') : "Tất cả sản phẩm";
 
@@ -267,10 +234,17 @@ const Cart = () => {
             )}
           </div>
 
-          {discountAmount > 0 && (
+          {productDiscount > 0 && (
             <div className="summary-row discount-row">
-              <span>Giảm giá:</span>
-              <span className="discount-amount">-{formatPrice(discountAmount)}</span>
+              <span>Giảm giá sản phẩm:</span>
+              <span className="discount-amount">-{formatPrice(productDiscount)}</span>
+            </div>
+          )}
+
+          {shippingDiscount > 0 && (
+            <div className="summary-row discount-row">
+              <span>Giảm phí vận chuyển:</span>
+              <span className="discount-amount">-{formatPrice(shippingDiscount)}</span>
             </div>
           )}
 

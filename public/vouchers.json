@@ -96,53 +96,6 @@
     "applicableBrands": [],
     "description": "Giảm 50% (Tối đa 3 Triệu) đơn từ 10Tr"
   },
-
-  {
-    "code": "APPLE100",
-    "type": "fixed",
-    "value": 100000,
-    "minOrderValue": 2000000,
-    "maxDiscount": null,
-    "applicableBrands": ["Apple", "iPhone", "MacBook", "iPad"],
-    "description": "Giảm 100k cho đồ Apple từ 2Tr"
-  },
-  {
-    "code": "APPLE500",
-    "type": "fixed",
-    "value": 500000,
-    "minOrderValue": 15000000,
-    "maxDiscount": null,
-    "applicableBrands": ["Apple", "iPhone", "MacBook", "iPad"],
-    "description": "Giảm 500k cho đồ Apple từ 15Tr"
-  },
-  {
-    "code": "MACBOOK2M",
-    "type": "fixed",
-    "value": 2000000,
-    "minOrderValue": 30000000,
-    "maxDiscount": null,
-    "applicableBrands": ["MacBook"],
-    "description": "Giảm 2 Triệu cho MacBook từ 30Tr"
-  },
-  {
-    "code": "IPHONEVIP",
-    "type": "percent",
-    "value": 10,
-    "minOrderValue": 20000000,
-    "maxDiscount": 1500000,
-    "applicableBrands": ["iPhone", "Apple"],
-    "description": "Giảm 10% iPhone (Max 1.5Tr) từ 20Tr"
-  },
-  {
-    "code": "AIRPODS50",
-    "type": "fixed",
-    "value": 50000,
-    "minOrderValue": 3000000,
-    "maxDiscount": null,
-    "applicableBrands": ["AirPods"],
-    "description": "Giảm 50k cho AirPods từ 3Tr"
-  },
-
   {
     "code": "SAM200",
     "type": "fixed",

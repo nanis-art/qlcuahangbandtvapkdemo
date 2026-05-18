@@ -741,31 +741,31 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: rgba(15, 23, 42, 0.65); 
+    background: rgba(15, 23, 42, 0.65);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem;
     backdrop-filter: blur(3px);
   }
-  
+
   .ruang-modal {
     background: #ffffff;
     border-radius: 4px;
     max-width: 420px;
     width: 100%;
     border: 1px solid #e2e8f0;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Bóng đổ xịn */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
     display: flex;
     flex-direction: column;
-    animation: modalFadeIn 0.2s ease-out; 
+    animation: modalFadeIn 0.2s ease-out;
   }
-  
+
   @keyframes modalFadeIn {
     from { opacity: 0; transform: translateY(-15px) scale(0.98); }
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
-  
+
   .ruang-modal_header {
     display: flex;
     align-items: center;
@@ -773,14 +773,14 @@
     padding: 1.25rem 1.5rem;
     border-bottom: 1px solid #e2e8f0;
   }
-  
+
   .ruang-modal_header h5 {
     margin: 0;
     font-weight: 800;
     font-size: 1.1rem;
     color: #0f172a;
   }
-  
+
   .ruang-modal_close {
     width: 2rem;
     height: 2rem;
@@ -794,12 +794,12 @@
     border-radius: 4px;
     transition: all 0.15s;
   }
-  
+
   .ruang-modal_close:hover {
     background: #f1f5f9;
     color: #ef4444;
   }
-  
+
   .ruang-modal_body {
     padding: 1.5rem;
     font-size: 0.95rem;
@@ -807,7 +807,7 @@
     color: #475569;
     line-height: 1.5;
   }
-  
+
   .ruang-modal_footer {
     display: flex;
     justify-content: flex-end;
@@ -827,20 +827,20 @@
     transition: all 0.15s ease-in-out;
     outline: none;
   }
-  
+
   /* Nút Hủy (Màu trắng xám) */
   .ruang-modal_footer button:first-child {
     background: #ffffff;
     color: #475569;
     border: 1px solid #cbd5e1;
   }
-  
+
   .ruang-modal_footer button:first-child:hover {
     background: #f1f5f9;
     border-color: #94a3b8;
     color: #0f172a;
   }
-  
+
   /* Nút Đăng xuất (Màu đỏ báo động Alert) */
   .ruang-modal_footer button:last-child {
     background: #ef4444;
@@ -848,7 +848,7 @@
     border: 1px solid #ef4444;
     box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
   }
-  
+
   .ruang-modal_footer button:last-child:hover {
     background: #dc2626;
     border-color: #dc2626;

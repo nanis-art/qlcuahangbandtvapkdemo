@@ -71,7 +71,7 @@ const ProductCard = ({ product }) => {
       </button>
 
       <div className="product-image-container">
-        <img src={product.image || "https://via.placeholder.com/300x200"} alt={product.name} className="product-image" />
+        <img src={product.image || "https://via.placeholder.com/300x200"} alt={product.name} className="product-image" loading="lazy"/>
       </div>
       <h3 className="product-name">{product.name}</h3>
 

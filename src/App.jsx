@@ -9,7 +9,8 @@ import Login from "./components/Pages/Login";
 import Signup from "./components/Pages/Signup";
 import ForgotPassword from "./components/Pages/ForgotPassword";
 import Favorite from "./components/Pages/Favorites";
-import Admin from "./components/Pages/Admin";
+import Admin from "./components/Admin/Admin";
+import Banner from "./components/Banner/Banner";
 function App() {
   const location = useLocation();
 
@@ -26,8 +27,8 @@ function App() {
       {!hideChrome && <Header />}
       <Routes>
         {/* Trang chủ và danh sách sản phẩm */}
-        <Route path="/" element={<ProductList category="all" />} />
-        <Route path="/products" element={<ProductList category="all" />} />
+        <Route path="/" element={<><Banner /><ProductList category="all" /></>} />
+        <Route path="/products" element={<><Banner /><ProductList category="all" /></>} />
 
         {/* Giỏ hàng và Yêu thích */}
         <Route path="/cart" element={<Cart />} />

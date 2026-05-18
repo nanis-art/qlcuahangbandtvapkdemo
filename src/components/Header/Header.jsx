@@ -23,7 +23,7 @@ const Header = () => {
   const navigate = useNavigate();
 
 const searchMatches = rankProductsBySearch(products, q, 5);
- 
+
   const updateCartCount = () => {
     const savedCart = localStorage.getItem("cart");
     if (!savedCart) {
@@ -393,9 +393,6 @@ const searchMatches = rankProductsBySearch(products, q, 5);
 
             <Link to="/promotions" className="nav-link">
               KHUYẾN MÃI
-            </Link>
-            <Link to="/about" className="nav-link">
-              VỀ CHÚNG TÔI
             </Link>
           </div>
         </nav>
