@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import "./Header.css";
 import logoImage from "../../images/logo.png";
 import { imageMap } from "../../utils/productImages";
+import { rankProductsBySearch } from "../../utils/productSearch";
+
 const jsonBase = import.meta.env.BASE_URL || "/";
 
 const Header = () => {
@@ -20,8 +22,8 @@ const Header = () => {
 
   const navigate = useNavigate();
 
-  const searchMatches = products.filter(p => p.name?.toLowerCase().includes(q.toLowerCase())).slice(0, 5);
-
+const searchMatches = rankProductsBySearch(products, q, 5);
+ 
   const updateCartCount = () => {
     const savedCart = localStorage.getItem("cart");
     if (!savedCart) {
@@ -281,6 +283,7 @@ const Header = () => {
                   )}
                 </ul>
               )}
+
             </div>
 
             <div className="right">

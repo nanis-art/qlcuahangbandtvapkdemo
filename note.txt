@@ -1,1 +1,6 @@
-upd => 400 (401)
+upd{
+    Thông số kỹ thuật:[Chipset, ram, rom];
+    Thông số chí tiết:[all]
+
+    (làm các trang admin)
+}
