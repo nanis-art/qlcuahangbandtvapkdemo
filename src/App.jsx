@@ -87,8 +87,6 @@
 // }
 
 // export default App;
-
-
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header/Header";
@@ -102,6 +100,7 @@ import ForgotPassword from "./components/Pages/ForgotPassword";
 import Favorite from "./components/Pages/Favorites";
 import Admin from "./components/Admin/Admin";
 import Banner from "./components/Banner/Banner";
+import ProductCompare from "./components/Products/ProductCompare";
 
 function App() {
   const location = useLocation();
@@ -148,6 +147,10 @@ function App() {
         <Route path="/admin/employee" element={<Admin />} />
         <Route path="/admin/invoicedetails" element={<Admin />} />
         <Route path="/admin/product" element={<Admin />} />
+
+        {/* Đã sửa path lại thành "/compare" cho khớp với Favorites.jsx */}
+        <Route path="/compare" element={<ProductCompare />} />
+
         <Route path="/dienthoai" element={<ProductList category="dienthoai" />} />
         <Route path="/may-tinh-bang" element={<ProductList category="tablet" />} />
         <Route path="/dong-ho-thong-minh" element={<ProductList category="smartwatch" />} />

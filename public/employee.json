@@ -8,10 +8,12 @@
   },
   {
     "id": 2,
-    "name": "Trần Thị Mai",
+    "idemployee": 2,
+    "name": "Lý Tấn Phát",
     "position": "Kế Toán",
-    "phone": "0902222333",
-    "email": "mai.tt@shop.com"
+    "role": "Kế Toán",
+    "phone": "0812344540",
+    "email": "duckydaily044@gmail.com"
   },
   {
     "id": 3,
