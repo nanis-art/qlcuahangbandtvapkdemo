@@ -1,4 +1,4 @@
-// 1. IMPORTS
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../Products/ProductCard";
@@ -7,13 +7,11 @@ import "./Home.css";
 
 const jsonBase = import.meta.env.BASE_URL || "/";
 
-// 2. MAIN COMPONENT
 const Home = () => {
-  // 2.1 State
+  
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 2.2 Load Data
   useEffect(() => {
     fetch(`${jsonBase}products.json`)
       .then(res => res.json())
@@ -32,7 +30,6 @@ const Home = () => {
       });
   }, []);
 
-  // 2.3 Derived Data
   const getNum = (val) => parseInt(val, 10) || 0;
 
   const bestSellers = [...products]
@@ -70,7 +67,6 @@ const Home = () => {
     return shuffle(list).slice(0, 10);
   }, [products]);
 
-  // 3. RENDER
   if (loading) return <div className="home-loading">Đang tải trang chủ...</div>;
 
   const renderSection = (title, items, linkAll) => {

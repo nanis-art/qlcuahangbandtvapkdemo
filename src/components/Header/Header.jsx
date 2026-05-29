@@ -302,12 +302,6 @@ const Header = () => {
 
                 <span className="action-separator">|</span>
 
-                {/* <div className="language-selector">
-                  <span className="lang-active">VN</span>
-                  <span className="lang-separator">|</span>
-                  <span className="lang-option">EN</span>
-                </div> */}
-
                 {currentUser ? (
                   <div className="header-user-menu" ref={userMenuRef}>
                     <button className="login-link header-user-menu_trigger" onClick={() => setUserMenuOpen(!userMenuOpen)}>

@@ -5,11 +5,6 @@ import "./Admin.css";
 
 const jsonBase = import.meta.env.BASE_URL || "/";
 
-/**
- * [THÊM MỚI SO VỚI FILE GỐC]
- * Công dụng: Khuôn mẫu thông số kỹ thuật (specifications) dạng Object lồng nhau cho 11 danh mục công nghệ.
- * Giúp form tự động sinh ra các ô nhập liệu tương ứng khi chọn danh mục, thay thế hoàn toàn cho các trường size S, M, L cũ.
- */
 const templates = {
   1: {
     display: { size: "", type: "", refreshRate: "", resolution: "", brightness: "" },
@@ -115,10 +110,6 @@ const templates = {
   },
 };
 
-/**
- * Công dụng: Trả về object chứa các trường dữ liệu trống để khởi tạo form thêm mới.
- * [THAY ĐỔI]: Xóa bỏ hoàn toàn các trường kích cỡ quần áo quần cũ, thêm brandid, series và specifications trống.
- */
 const emptyForm = () => ({
   id: "",
   name: "",
@@ -134,10 +125,6 @@ const emptyForm = () => ({
   specifications: {},
 });
 
-/**
- * Công dụng: Chuyển đổi dữ liệu của một sản phẩm từ JSON sang định dạng chuỗi (String) phù hợp để hiển thị lên Form điền.
- * [THAY ĐỔI]: Đọc song song cả hai kiểu đặt tên khóa (idcategory / categoryid) và sao chép sâu (deep copy) object cấu hình specifications.
- */
 function productToForm(p) {
   const catId = p.idcategory ?? p.categoryid ?? "";
   return {
@@ -156,10 +143,6 @@ function productToForm(p) {
   };
 }
 
-/**
- * Công dụng: Chuyển đổi dữ liệu thô từ Form nhập liệu về object đúng kiểu dữ liệu (Number, Trim String) trước khi lưu vào JSON.
- * [THAY ĐỔI]: Đồng bộ lưu song song đồng thời idcategory và categoryid để toàn bộ các file giao diện khác không bị lỗi đọc data.
- */
 function formToProduct(form, nextId) {
   const id = form.id ? Number(form.id) : nextId;
   const o = {
@@ -185,9 +168,6 @@ function formToProduct(form, nextId) {
 function AdminProduct({ embedded = false }) {
   const navigate = useNavigate();
 
-  /**
-   * Bộ các State lưu trữ dữ liệu chính của trang quản trị
-   */
   const [allowed, setAllowed] = useState(embedded);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -201,43 +181,24 @@ function AdminProduct({ embedded = false }) {
   const [searchIdInput, setSearchIdInput] = useState("");
   const [appliedSearchId, setAppliedSearchId] = useState("");
 
-  /**
-   * [THÊM MỚI SO VỚI FILE GỐC]
-   * State quản lý phân trang: currentPage (trang hiện tại), itemsPerPage (số lượng sản phẩm trên mỗi trang là 20).
-   */
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
-  /**
-   * Công dụng: Lọc danh sách sản phẩm theo ID nếu người dùng có nhập ô tìm kiếm.
-   */
   const displayedProducts = useMemo(() => {
     const q = appliedSearchId.trim();
     if (!q) return products;
     return products.filter(p => String(p.id) === q);
   }, [products, appliedSearchId]);
 
-  /**
-   * [THÊM MỚI SO VỚI FILE GỐC]
-   * Công dụng: Tính toán tổng số trang dựa trên danh sách sản phẩm sau khi đã lọc.
-   */
   const totalPages = useMemo(() => {
     return Math.ceil(displayedProducts.length / itemsPerPage) || 1;
   }, [displayedProducts]);
 
-  /**
-   * [THÊM MỚI SO VỚI FILE GỐC]
-   * Công dụng: Cắt mảng (Slice) lấy đúng 20 sản phẩm của trang hiện tại để render lên bảng UI, giúp trang mượt, không bị lag.
-   */
   const paginatedProducts = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
     return displayedProducts.slice(start, start + itemsPerPage);
   }, [displayedProducts, currentPage]);
 
-  /**
-   * Công dụng: Gọi API PUT gửi mảng dữ liệu mới lên hệ thống server proxy Vite để ghi đè vào file public/products.json.
-   * [THAY ĐỔI]: Cập nhật state UI trước để tối ưu trải nghiệm, bọc try-catch bắt lỗi chi tiết nếu chưa cài server backend.
-   */
   const persistProducts = useCallback(async nextList => {
     setSaving(true);
     setSaveError("");
@@ -257,17 +218,10 @@ function AdminProduct({ embedded = false }) {
     }
   }, []);
 
-  /**
-   * [THÊM MỚI SO VỚI FILE GỐC]
-   * Tự động đưa số trang về trang 1 mỗi khi người dùng thực hiện hành động tìm kiếm ID mới.
-   */
   useEffect(() => {
     setCurrentPage(1);
   }, [appliedSearchId]);
 
-  /**
-   * Công dụng: Kiểm tra quyền hạn đăng nhập, chỉ cho phép tài khoản có role là 'staff' hoặc chế độ nhúng (embedded) truy cập.
-   */
   useEffect(() => {
     if (embedded) {
       setAllowed(true);
@@ -290,9 +244,6 @@ function AdminProduct({ embedded = false }) {
     }
   }, [navigate, embedded]);
 
-  /**
-   * Công dụng: Tải toàn bộ dữ liệu file sản phẩm (products.json) và danh mục (category.json) từ thư mục public lên app.
-   */
   useEffect(() => {
     if (!allowed) return;
     const load = async () => {
@@ -348,11 +299,6 @@ function AdminProduct({ embedded = false }) {
     setForm(f => ({ ...f, [field]: value }));
   };
 
-  /**
-   * [THÊM MỚI SO VỚI FILE GỐC]
-   * Công dụng: Khi người dùng đổi danh mục ở ô Select, hàm này tự động tìm khuôn mẫu kỹ thuật tương ứng trong biến `templates`
-   * và nạp sâu cấu trúc rỗng đó vào biến form.specifications để sẵn sàng sinh giao diện nhập thông số.
-   */
   const handleCategoryChange = catId => {
     setForm(f => {
       const updated = { ...f, idcategory: catId };
@@ -363,11 +309,6 @@ function AdminProduct({ embedded = false }) {
     });
   };
 
-  /**
-   * [THÊM MỚI SO VỚI FILE GỐC]
-   * Công dụng: Xử lý thay đổi dữ liệu cho các ô nhập thông số lồng nhau sâu (ví dụ: specifications.display.size).
-   * Dùng mảng đường dẫn path để tìm vị trí chính xác trong Object và cập nhật giá trị mà không làm mất các trường xung quanh.
-   */
   const handleNestedChange = (path, value) => {
     setForm(prev => {
       const copy = JSON.parse(JSON.stringify(prev));
@@ -380,11 +321,6 @@ function AdminProduct({ embedded = false }) {
     });
   };
 
-  /**
-   * Công dụng: Chạy khi người dùng nhấn nút submit Form Lưu.
-   * [THAY ĐỔI CỰC KỲ QUAN TRỌNG]: Thay thế cơ chế tạo đè object rỗng cũ bằng Spread Operator (`...p`) khi sửa.
-   * Đảm bảo giữ lại nguyên vẹn 100% các thuộc tính nền ẩn có sẵn trong file JSON cũ của sản phẩm đó.
-   */
   const handleSubmitForm = e => {
     e.preventDefault();
     if (!form.name || !form.name.trim()) {
@@ -434,11 +370,6 @@ function AdminProduct({ embedded = false }) {
     setAppliedSearchId("");
   };
 
-  /**
-   * [THÊM MỚI SO VỚI FILE GỐC]
-   * Công dụng: Duyệt đệ quy qua Object `form.specifications`, tự động sinh thẻ `<h3>` làm tiêu đề nhóm (Màn hình, Vi xử lý...)
-   * và tạo các ô `<input type="text">` hoặc `<input type="checkbox">` tương ứng với kiểu dữ liệu của trường đó.
-   */
   const renderSpecsForm = () => {
     const specs = form.specifications;
     if (!specs) return null;
@@ -588,7 +519,6 @@ function AdminProduct({ embedded = false }) {
               </table>
             </div>
 
-            {/* [THÊM MỚI SO VỚI FILE GỐC] Giao diện thanh điều hướng phân trang gồm nút Trước, số trang hiện tại và nút Sau */}
             {totalPages > 1 && (
               <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "0.75rem", marginTop: "1.25rem" }}>
                 <button type="button" className="admin-btn admin-btn--ghost" onClick={() => setCurrentPage(p => Math.max(p - 1, 1))} disabled={currentPage === 1 || saving}>
@@ -660,7 +590,7 @@ function AdminProduct({ embedded = false }) {
                 Đã bán
                 <input value={form.sold} onChange={e => handleFormChange("sold", e.target.value)} />
               </label>
-              {/* Gọi hàm render thông số kỹ thuật động */}
+              
               {renderSpecsForm()}
             </div>
             <div className="admin-form-actions">

@@ -10,7 +10,6 @@ const Header = () => {
   const [q, setQ] = useState("");
   const navigate = useNavigate();
 
-  // Lấy số lượng món trong giỏ hàng (tổng quantity) và thông tin user
   useEffect(() => {
     const updateCartCount = () => {
       const savedCart = localStorage.getItem("cart");
@@ -44,11 +43,9 @@ const Header = () => {
       }
     };
 
-    // Cập nhật ngay khi load trang
     updateCartCount();
     updateCurrentUser();
 
-    // Lắng nghe khi giỏ hàng hoặc user được cập nhật
     window.addEventListener("cartUpdated", updateCartCount);
     window.addEventListener("userUpdated", updateCurrentUser);
     window.addEventListener("storage", () => {
@@ -66,7 +63,6 @@ const Header = () => {
     };
   }, []);
 
-  // Dropdown menu items
   const dienthoaiMenuItems = [
     { text: "Xiaomi", href: "/dien-thoai/xiaomi" },
     { text: "Samsung Galaxy", href: "/dien-thoai/samsung" },
@@ -115,12 +111,12 @@ const Header = () => {
 
   return (
     <header className="techshop-header">
-      {/* Top Section: Header Bar */}
+      
       <div className="header-top-bar">
         <div className="header-top-content">
-          {/* Left: Free Delivery Info */}
+          
           <div className="left">
-            {/* Center: Logo */}
+            
             <div className="header-logo-container">
               <div className="techshop-logo">
                 <a href="/">  <img src={logoImage} alt="Logo" className="header-logo-image" /></a>
@@ -137,18 +133,15 @@ const Header = () => {
           </div>
 
           <div className="right">
-            {/* tìm kiếm */}
 
-            {/* Right: User Actions */}
             <div className="header-user-actions">
-              {/* Yêu thích */}
+              
               <button className="favorite-button" onClick={() => navigate("/favorites")}>
                 <i className="bi bi-heart"></i>
                 <span>Yêu thích</span>
                 <span className="favorite-badge">0</span>
               </button>
 
-              {/* Giỏ hàng */}
               <button className="cart-button" onClick={() => navigate("/cart")}>
                 <i className="bi bi-cart3"></i>
                 <span>Giỏ hàng</span>
@@ -156,15 +149,13 @@ const Header = () => {
               </button>
 
               <span className="action-separator">|</span>
-              {/* ngôn ngữ */}
+              
               <div className="language-selector">
                 <span className="lang-active">VN</span>
                 <span className="lang-separator">|</span>
                 <span className="lang-option">EN</span>
               </div>
 
-              {/* tài khoản */}
-              {/* tài khoản */}
               <button className="login-link" onClick={() => navigate("/login")}>
                 <i className="bi bi-person-circle"></i>
                 <span>{currentUser ? currentUser.name || currentUser.user : "Đăng nhập"}</span>
@@ -174,14 +165,12 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Bottom Section: Navigation Bar */}
       <nav className="header-navigation">
         <div className="nav-content">
           <a href="/" className="nav-link">
             TRANG CHỦ
           </a>
 
-          {/* ĐIỆN THOẠI với Dropdown */}
           <div className="nav-item-with-dropdown" onMouseEnter={() => setHoveredMenu("dienthoai")} onMouseLeave={() => setHoveredMenu(null)}>
             <a href="/dienthoai" className={`nav-link ${hoveredMenu === "dienthoai" ? "active" : ""}`}>
               ĐIỆN THOẠI
@@ -197,7 +186,6 @@ const Header = () => {
             )}
           </div>
 
-          {/* MÁY TÍNH BẢN với Dropdown */}
           <div className="nav-item-with-dropdown" onMouseEnter={() => setHoveredMenu("maytinhbang")} onMouseLeave={() => setHoveredMenu(null)}>
             <a href="/may-tinh-bang" className={`nav-link ${hoveredMenu === "maytinhbang" ? "active" : ""}`}>
               MÁY TÍNH BẢNG
@@ -213,7 +201,6 @@ const Header = () => {
             )}
           </div>
 
-          {/* ĐỒNG HỒ THÔNG MINH với Dropdown */}
           <div className="nav-item-with-dropdown" onMouseEnter={() => setHoveredMenu("dongho")} onMouseLeave={() => setHoveredMenu(null)}>
             <a href="/dong-ho-thong-minh" className={`nav-link ${hoveredMenu === "dongho" ? "active" : ""}`}>
               ĐỒNG HỒ THÔNG MINH
@@ -228,7 +215,7 @@ const Header = () => {
               </div>
             )}
           </div>
-          {/* PHỤ KIỆN với Dropdown */}
+          
           <div className="nav-item-with-dropdown" onMouseEnter={() => setHoveredMenu("phukien")} onMouseLeave={() => setHoveredMenu(null)}>
             <a href="/phu-kien" className={`nav-link ${hoveredMenu === "phukien" ? "active" : ""}`}>
               PHỤ KIỆN

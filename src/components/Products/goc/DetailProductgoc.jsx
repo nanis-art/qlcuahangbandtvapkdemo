@@ -49,33 +49,29 @@ const DetailProduct = () => {
     return null;
   }
 
-  //THÊM VÀO GIỎ HÀNG
   const handleAddToCart = e => {
     e.stopPropagation();
 
-    // 1. Lôi giỏ hàng cũ từ kho ra
     const savedCart = localStorage.getItem("cart");
     let cartItems = savedCart ? JSON.parse(savedCart) : [];
 
-    // 2. Check có trong giỏ chưa
     const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
 
     if (existingItemIndex !== -1) {
-      // Có thì tăng số lượng
+      
       cartItems[existingItemIndex].quantity += 1;
     } else {
-      // Chưa có thì thêm mới, set số lượng = 1
+      
       cartItems.push({
         ...product,
         quantity: 1,
       });
     }
 
-    // 3. Lưu lại vào kho
     localStorage.setItem("cart", JSON.stringify(cartItems));
     setTimeout(() => {
       window.dispatchEvent(new Event("cartUpdated"));
-      // alert("Thêm vào giỏ hàng thành công!");
+      
     }, 0);
   };
 
@@ -91,27 +87,26 @@ const DetailProduct = () => {
         </div>
 
         <div className="detail-info">
-          {/* Tên sản phẩm */}
+          
           <h2>{product.name}</h2>
 
-          {/* Giá */}
           <p className="detail-price">
             <span className="current-price">          {product.currentPrice ? product.currentPrice.toLocaleString("vi-VN") + " ₫" : "Đang cập nhật"}</span>
             {product.originalPrice && <span className="original-price">{product.originalPrice.toLocaleString("vi-VN")}₫</span>}
             {product.discount && <span className="discount">{product.discount}</span>}
           </p>
-          {/* Đánh giá */}
+          
           <div className="detail-meta">
             {product.rating && <span> {product.rating}</span>}
             {product.sold && <span>Đã bán {product.sold}</span>}
           </div>
 
           <div className="product-actions">
-            {/* Thêm vào giỏ hàng */}
+            
             <button className="add-to-cart-btn" onClick={handleAddToCart} title="Thêm vào giỏ hàng">
               <i className="bi bi-cart-plus"></i>
             </button>
-            {/* Mua Ngay */}
+            
             <button
               className="buy-now-button"
               onClick={() => {
@@ -119,12 +114,12 @@ const DetailProduct = () => {
                 const cart = savedCart ? JSON.parse(savedCart) : [];
                 const existingItemIndex = cart.findIndex(item => item.id === product.id);
                 if (existingItemIndex >= 0) {
-                  // cart[existingItemIndex].quantity += selectedQuantity;
+                  
                   navigate('/cart');
                 } else {
                   cart.push({
                     ...product,
-                    // quantity: selectedQuantity,
+                    
                     quantity: 1,
                   });
                   localStorage.setItem('cart', JSON.stringify(cart));

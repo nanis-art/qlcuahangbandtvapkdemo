@@ -390,9 +390,6 @@ const ProductList = ({ category }) => {
         </aside>
 
         <div className="product-list-main">
-          {/* <div className="product-list-header">
-            <strong>Tìm thấy {filteredProducts.length} sản phẩm</strong>
-          </div> */}
 
           {filteredProducts.length === 0 ? (
             <div className="product-list-empty">

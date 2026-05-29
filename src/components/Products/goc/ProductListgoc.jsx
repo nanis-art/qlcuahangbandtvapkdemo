@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import { imageMap } from "../../utils/productImages";
 import "./ProductList.css";
 
-const PRODUCTS_PER_PAGE = 8; // giói hạn sp hiện trên trang
+const PRODUCTS_PER_PAGE = 8; 
 const jsonBase = import.meta.env.BASE_URL || "/";
 const ProductList = () => {
   const [products, setProducts] = useState([]);

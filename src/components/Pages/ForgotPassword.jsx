@@ -54,15 +54,8 @@ function ForgotPassword({ onBackToforgot }) {
           </div>
         )}
 
-        {/* Nút Quay xe về Đăng nhập */}
-        {/* <div className="footer">
-          <span className="link" onClick={onBackToforgot} style={{ cursor: "pointer" }}>
-            <i className="bi bi-arrow-left" style={{ marginRight: "6px" }}></i>
-            Quay lại Đăng nhập
-          </span>
-        </div> */}
         <div className="footer" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
-  {/* Đổi span thành Link, xài 'to' thay vì 'onClick' */}
+  
   <Link to="/login" className="link" style={{ textDecoration: "none", cursor: "pointer" }}>
     <i className="bi bi-arrow-left" style={{ marginRight: "6px" }}></i> 
     Quay lại Đăng nhập

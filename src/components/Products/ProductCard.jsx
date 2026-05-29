@@ -65,7 +65,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="product-card">
-      {/* NÚT YÊU THÍCH CHUẨN SHOPEE */}
+      
       <button className={`favorite-btn ${isFavorite ? "active" : ""}`} onClick={toggleFavorite} title={isFavorite ? "Bỏ yêu thích" : "Yêu thích sản phẩm"}>
         <i className={`bi ${isFavorite ? "bi-heart-fill" : "bi-heart"}`}></i>
       </button>
@@ -75,29 +75,14 @@ const ProductCard = ({ product }) => {
       </div>
       <h3 className="product-name">{product.name}</h3>
 
-      {/* <div className="product-ram-ssd">
-        <button className="ram-ssd-tag">{product.sizeS}</button>
-        <button className="ram-ssd-tag">{product.sizeM}</button>
-        <button className="ram-ssd-tag">{product.sizeL}</button>
-      </div> */}
-
-      {/* code cũ */}
-      {/* <div className="product-pricing">
-        <div className="current-price">{product.currentPrice}</div>
-        <div className="original-price-section">
-          <span className="original-price">{product.originalPrice}</span>
-          {product.discount && <span className="discount">{product.discount}</span>}
-        </div>
-      </div> */}
-
       <div className="product-pricing">
         <div className="current-price">
-          {/* thêm dấu chấm phân cách hàng nghìn và chữ ₫ */}
+          
           {product.currentPrice ? product.currentPrice.toLocaleString("vi-VN") + " ₫" : "Đang cập nhật"}
         </div>
 
         <div className="original-price-section">
-          {/* thêm dấu chấm phân cách hàng nghìn và chữ ₫ */}
+          
           {product.originalPrice && <span className="original-price">{product.originalPrice.toLocaleString("vi-VN")}₫</span>}
           {product.discount && <span className="discount">{product.discount}</span>}
         </div>
@@ -107,7 +92,6 @@ const ProductCard = ({ product }) => {
         <span className="sales">Đã bán {product.sold}</span>
       </div>
 
-      {/* KHU VỰC NÚT BẤM KÉP */}
       <div className="product-actions">
         <button className="compare-button" onClick={handleBuy} disabled={isLoading}>
           {isLoading ? "Đang mở..." : "Mua ngay"}

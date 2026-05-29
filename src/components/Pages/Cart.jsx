@@ -1,13 +1,12 @@
-// 1. IMPORTS
+
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { imageMap } from "../../utils/productImages";
 import { isEligibleItem, getEligibleSubTotal, calculateCartTotals } from "../../utils/cartUtils";
 import "./Cart.css";
 
-// 2. CART COMPONENT
 const Cart = () => {
-  // 2.1 State Declarations
+  
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   const [selectedIds, setSelectedIds] = useState([]);
@@ -17,7 +16,6 @@ const Cart = () => {
   const [voucherMessage, setVoucherMessage] = useState({ type: "", text: "" });
   const [showVoucherList, setShowVoucherList] = useState(false);
 
-  // 2.2 Effects (Data Loading)
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
@@ -30,7 +28,6 @@ const Cart = () => {
       .catch(err => console.error(err));
   }, []);
 
-  // 2.3 Core Cart Actions
   const updateCart = newCart => {
     setCartItems(newCart);
     localStorage.setItem("cart", JSON.stringify(newCart));
@@ -64,7 +61,6 @@ const Cart = () => {
     setSelectedIds([]);
   };
 
-  // 2.4 Voucher Handlers
   const handleApplyVoucher = () => {
     const code = voucherCode.trim().toUpperCase();
     if (!code) return;
@@ -97,16 +93,12 @@ const Cart = () => {
     }
   }, [cartItems, selectedIds]);
 
-  // 2.5 Derived Data (Totals)
   const { subTotal, shippingFee, productDiscount, shippingDiscount, finalTotal } = useMemo(() => {
     return calculateCartTotals(cartItems, selectedIds, appliedVoucher);
   }, [cartItems, selectedIds, appliedVoucher]);
 
   const formatPrice = price => new Intl.NumberFormat("vi-VN").format(price) + "đ";
 
-  // 3. RENDER
-  
-  // 3.1 Empty State
   if (cartItems.length === 0) {
     return (
       <div className="cart-container">
@@ -119,7 +111,6 @@ const Cart = () => {
     );
   }
 
-  // 3.2 Main Render
   return (
     <div className="cart-container">
       <div className="cart-content">
@@ -140,7 +131,6 @@ const Cart = () => {
               </label>
             )}
           </div>
-
 
           <div className="cart-items">
             {cartItems.map(item => {

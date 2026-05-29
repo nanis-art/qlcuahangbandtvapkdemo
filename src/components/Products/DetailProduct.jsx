@@ -8,7 +8,6 @@ const DetailProduct = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // ===== CHỖ THAY ĐỔI 1: KHỞI TẠO STATE RỖNG ĐỂ ÉP REACT RE-RENDER KHI ID ĐỔI
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,16 +15,13 @@ const DetailProduct = () => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedMemory, setSelectedMemory] = useState(null);
 
-  // ===== STATE ĐỒNG BỘ AUTH THEO HEADER
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("Quý khách");
 
-  // ===== CHỖ THAY ĐỔI 2: LẮNG NGHE URL (ID) ĐỔI TỪ THANH SEARCH LÀ CẬP NHẬT NGAY
   useEffect(() => {
-    // Reset lỗi mỗi khi URL thay đổi
+    
     setError(null);
 
-    // TRƯỜNG HỢP A: Bấm từ thanh Search (đã có cục state gửi qua)
     if (location.state?.product && String(location.state.product.id) === String(id)) {
       const found = location.state.product;
       setProduct({ ...found, image: imageMap[found.imageKey] || found.image });
@@ -33,7 +29,6 @@ const DetailProduct = () => {
       return;
     }
 
-    // TRƯỜNG HỢP B: Nhấn F5, gõ link trực tiếp (phải tự fetch data mới)
     setIsLoading(true);
     setProduct(null);
     const fetchProduct = async () => {
@@ -51,7 +46,7 @@ const DetailProduct = () => {
       }
     };
     fetchProduct();
-  }, [id, location.state]); // Cập nhật dependency list để React biết đường fetch lại
+  }, [id, location.state]); 
 
   useEffect(() => {
     if (!product) return;
@@ -63,7 +58,6 @@ const DetailProduct = () => {
     if (ram || rom) setSelectedMemory(`${ram || ""}${rom ? `/${rom}` : ""}`);
   }, [product]);
 
-  // ===== BỘ CHECK AUTH THEO ĐÚNG KEY "currentUser" CỦA HEADER
   const checkAuth = () => {
     const savedUser = localStorage.getItem("currentUser");
     if (savedUser) {
@@ -113,7 +107,6 @@ const DetailProduct = () => {
 
   const discountPercent = product.originalPrice && product.currentPrice ? Math.round((1 - product.currentPrice / product.originalPrice) * 100) : null;
 
-  // ===== CẤU TRÚC BỘ GOM NHÓM THÔNG SỐ
   const getAllSpecs = () => {
     if (!spec) return [];
     const rows = [];
@@ -134,7 +127,6 @@ const DetailProduct = () => {
       }
     };
 
-    // 1. Nhóm Màn hình
     if (spec.display) {
       addGroup("Màn hình", [
         [spec.display.type, spec.display.refreshRate, spec.display.brightness ? `Độ sáng ${spec.display.brightness}` : null].filter(Boolean).join(", "),
@@ -143,7 +135,6 @@ const DetailProduct = () => {
       ]);
     }
 
-    // 2. Nhóm Hệ điều hành & Phần mềm
     if (spec.software || spec.security) {
       addGroup("Hệ điều hành", [
         spec.software ? [spec.software.os, spec.software.version].filter(Boolean).join(" ") : null,
@@ -152,7 +143,6 @@ const DetailProduct = () => {
       ]);
     }
 
-    // 3. Nhóm Camera Sau
     if (spec.camera && (spec.camera.main || spec.camera.ultrawide || spec.camera.telephoto || spec.camera.macro || spec.camera.resolution)) {
       const camLines = [];
       if (spec.camera.resolution) camLines.push(`Độ phân giải: ${spec.camera.resolution}`);
@@ -163,12 +153,10 @@ const DetailProduct = () => {
       addGroup("Camera sau", camLines);
     }
 
-    // 4. Nhóm Camera Trước
     if (spec.camera?.front) {
       addGroup("Camera trước", [`Độ phân giải: ${spec.camera.front}`]);
     }
 
-    // 5. Nhóm CPU / Cấu hình
     if (spec.processor) {
       addGroup("CPU / Cấu hình", [
         spec.processor.chipset,
@@ -177,12 +165,10 @@ const DetailProduct = () => {
       ]);
     }
 
-    // 6. Nhóm RAM
     if (spec.memory?.ram) {
       addGroup("RAM", [[spec.memory.ram, spec.memory.type ? `Loại RAM: ${spec.memory.type}` : null].filter(Boolean).join(", ")]);
     }
 
-    // 7. Nhóm Bộ nhớ trong
     if (spec.memory?.rom || spec.storage?.capacity) {
       addGroup("Bộ nhớ trong", [
         [spec.memory?.rom || spec.storage?.capacity, spec.storage?.standard ? `Chuẩn tốc độ: ${spec.storage.standard}` : null].filter(Boolean).join(", "),
@@ -190,7 +176,6 @@ const DetailProduct = () => {
       ]);
     }
 
-    // 8. Nhóm Pin & Nguồn sạc
     if (spec.battery || spec.power || spec.powerBank || spec.cable) {
       const pLines = [];
       const dungLuong = spec.battery?.capacity || spec.powerBank?.capacity;
@@ -210,7 +195,6 @@ const DetailProduct = () => {
       addGroup("Dung lượng pin", pLines);
     }
 
-    // 9. Nhóm Thiết kế & Ngoại hình
     if (spec.design || spec.protection) {
       const dLines = [];
       if (spec.design?.material) dLines.push(`Chất liệu: ${spec.design.material}`);
@@ -224,7 +208,6 @@ const DetailProduct = () => {
       addGroup("Thiết kế", dLines);
     }
 
-    // 10. Nhóm Kết nối & Mạng
     if (spec.connectivity || spec.router) {
       const cLines = [];
       if (spec.connectivity?.sim) cLines.push(`Thẻ SIM: ${spec.connectivity.sim}`);
@@ -239,7 +222,6 @@ const DetailProduct = () => {
       addGroup("Kết nối mạng", cLines);
     }
 
-    // 11. Nhóm Tính năng mở rộng
     if (spec.audio || spec.anc || spec.health || spec.hub || spec.gimbal || spec.tripod || spec.mic || spec.speed) {
       const fLines = [];
       if (spec.audio) fLines.push(`Âm thanh: Màng loa ${spec.audio.driver || "--"}, Tần số ${spec.audio.frequency || "--"}, Trở kháng ${spec.audio.impedance || "--"}`);
@@ -295,17 +277,15 @@ const DetailProduct = () => {
         ← Quay lại
       </button>
 
-      {/* CARD CHÍNH */}
       <div className="detail-top">
-        {/* ẢNH */}
+        
         <div className="detail-image-col">
           {discountPercent && <span className="img-discount-badge">-{discountPercent}%</span>}
           <img src={imageMap[product?.imageKey] || "https://dummyimage.com/500x500/f8fafc/475569&text=Chưa+có+ảnh"} alt={product?.name || "Sản phẩm"} />
         </div>
 
-        {/* INFO */}
         <div className="detail-info-col">
-          {/* Tên + Còn hàng */}
+          
           <div className="detail-price-row">
   <h1 className="detail-product-name">{product.name}</h1>
             <span className="detail-stock-badge">
@@ -313,15 +293,11 @@ const DetailProduct = () => {
             </span>
           </div>
 
-          {/* Giá */}
           <div className="detail-price-block">
               <span className="detail-current-price">{product.currentPrice ? product.currentPrice.toLocaleString("vi-VN") + " ₫" : "Đang cập nhật"}</span>
               {product.originalPrice && <span className="detail-original-price">{product.originalPrice.toLocaleString("vi-VN")}₫</span>}
             </div>
 
-
-
-          {/* Rating & sold */}
           {(product.rating || product.sold) && (
             <div className="detail-meta-row">
               {product.rating && (
@@ -333,7 +309,6 @@ const DetailProduct = () => {
             </div>
           )}
 
-          {/* Chọn phiên bản */}
           {(colors.length > 0 || memoryOptions.length > 0) && (
             <>
               <p className="detail-variant-label">Chọn phiên bản để xem giá:</p>
@@ -368,7 +343,6 @@ const DetailProduct = () => {
 
           <div className="detail-divider" />
 
-          {/* Bảo hành & giao hàng */}
           <div className="detail-policy-list">
             <div className="policy-item">
               <i className="bi bi-shield-check" />
@@ -380,7 +354,6 @@ const DetailProduct = () => {
             </div>
           </div>
 
-          {/* Khuyến mãi */}
           <div className="detail-promo-box">
             <div className="promo-title">Khuyến mãi</div>
             <ul className="promo-list">
@@ -402,7 +375,6 @@ const DetailProduct = () => {
             </ul>
           </div>
 
-          {/* Nút hành động */}
           <div className="detail-actions">
             <button className="btn-add-cart" onClick={handleAddToCart}>
               <i className="bi bi-cart-plus" />
@@ -415,7 +387,6 @@ const DetailProduct = () => {
         </div>
       </div>
 
-      {/* BẢNG THÔNG SỐ CHI TIẾT */}
       {allSpecs.length > 0 && (
         <div className="detail-full-specs">
           <div className="full-specs-title">Thông số kỹ thuật</div>

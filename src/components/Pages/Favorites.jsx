@@ -1,30 +1,26 @@
-// 1. IMPORTS
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { imageMap } from "../../utils/productImages";
 import "./Favorites.css";
 
-// 2. FAVORITE COMPONENT
 const Favorite = () => {
-  // 2.1 State
+  
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
   const [selectedIds, setSelectedIds] = useState(new Set());
 
-  // 2.2 Helper Functions
   const loadData = () => {
     const data = JSON.parse(localStorage.getItem("Favorite") || "[]");
     setFavorites(data);
   };
 
-  // 2.3 Effects
   useEffect(() => {
     loadData();
     window.addEventListener("FavoriteUpdated", loadData);
     return () => window.removeEventListener("FavoriteUpdated", loadData);
   }, []);
 
-  // 2.4 Event Handlers
   const toggleSelect = (id, e) => {
     if (e) e.stopPropagation();
     const next = new Set(selectedIds);
@@ -88,7 +84,6 @@ const Favorite = () => {
 
   const totalPrice = favorites.filter(p => selectedIds.has(p.id)).reduce((sum, p) => sum + (p.currentPrice || 0), 0);
 
-  // 3. RENDER
   return (
     <div className="fav-container">
       <div className="fav-content-layout">

@@ -1,10 +1,9 @@
-// 1. IMPORTS
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Profile.css';
 
-// 2. HELPER FUNCTIONS
 function readStoredUser() {
   try {
     const raw = localStorage.getItem('currentUser');
@@ -15,9 +14,8 @@ function readStoredUser() {
   }
 }
 
-// 3. PROFILE COMPONENT
 const Profile = () => {
-  // 3.1 State & Routing
+  
   const navigate = useNavigate();
   const [user] = useState(() => readStoredUser());
   const [curPass, setCurPass] = useState('');
@@ -28,14 +26,12 @@ const Profile = () => {
   const [delPass, setDelPass] = useState('');
   const [delErr, setDelErr] = useState('');
 
-  // 3.2 Effects
   useEffect(() => {
     if (!user) {
       navigate('/login', { replace: true });
     }
   }, [navigate, user]);
 
-  // 3.3 Event Handlers
   const clearPasswordForm = () => {
     setCurPass('');
     setNewPass('');
@@ -109,7 +105,6 @@ const Profile = () => {
     }
   };
 
-  // 4. RENDER
   if (!user) {
     return null;
   }
@@ -122,7 +117,7 @@ const Profile = () => {
       </div>
 
       <div className="profile-grid">
-        {/* User Info Card */}
+        
         <div className="profile-card">
           <div className="profile-card-header">
             <div className="profile-icon-wrapper blue-icon">
@@ -156,7 +151,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Change Password Card */}
         <div className="profile-card">
           <div className="profile-card-header">
             <div className="profile-icon-wrapper indigo-icon">
@@ -210,7 +204,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Delete Account Card */}
         <div className="profile-card danger-zone">
           <div className="profile-card-header">
             <div className="profile-icon-wrapper red-icon">

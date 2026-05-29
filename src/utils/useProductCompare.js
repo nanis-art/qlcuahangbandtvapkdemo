@@ -22,7 +22,6 @@ export function useProductCompare() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    // Tải dữ liệu gốc
     useEffect(() => {
         const loadData = async () => {
             try {
@@ -43,12 +42,10 @@ export function useProductCompare() {
         loadData();
     }, []);
 
-    // Hứng dữ liệu từ trang Yêu Thích
     useEffect(() => {
         if (products.length > 0 && location.state && location.state.items) {
             const incomingItems = location.state.items;
 
-            // Tạo mã khóa để tránh React StrictMode chạy lại 2 lần gây mất dữ liệu
             const stateKey = JSON.stringify(incomingItems.map(i => i.id));
             if (processedStateKey.current === stateKey) return;
 

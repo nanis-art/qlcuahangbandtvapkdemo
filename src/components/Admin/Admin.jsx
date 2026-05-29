@@ -20,17 +20,14 @@ const SECTION_LABEL = {
   invoiceDetails: "Chi tiết hóa đơn",
 };
 
-// Format số 1,000,000
 function fmtNumber(n) {
   return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// Format tiền kèm chữ đ
 function fmtCurrency(n) {
   return `${fmtNumber(Number(n) || 0)} đ`;
 }
 
-// Map màu trạng thái bill
 const BILL_STATUS_MAP = {
   delivered: { label: "Đã giao hàng", cls: "done" },
   shipping: { label: "Vận chuyển", cls: "shipping" },
@@ -68,7 +65,6 @@ const Admin = () => {
   const [selectedBillId, setSelectedBillId] = useState(null);
   const userMenuRef = useRef(null);
 
-  // Check login quyền staff
   useEffect(() => {
     const raw = localStorage.getItem("currentUser");
     if (!raw) {
@@ -87,7 +83,6 @@ const Admin = () => {
     }
   }, [navigate]);
 
-  // 🔴 FIX LỖI SẬP WEB (Body stream already read): Đọc JSON 1 lần rồi mới check mảng
   useEffect(() => {
     if (!allowed) return;
     const load = async () => {
@@ -136,7 +131,6 @@ const Admin = () => {
     load();
   }, [allowed]);
 
-  // Click ra ngoài tự đóng menu user
   useEffect(() => {
     if (!userMenuOpen) return;
     const handler = e => {
@@ -148,7 +142,6 @@ const Admin = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, [userMenuOpen]);
 
-  // Tạo avatar chữ viết tắt
   const staffInitials = useMemo(() => {
     try {
       const raw = localStorage.getItem("currentUser");
@@ -175,9 +168,6 @@ const Admin = () => {
     }
   }, []);
 
-  /* PHẦN 1: XỬ LÝ LOGIC DỮ LIỆU ĐỂ HIỂN THỊ LÊN DASHBOARD */
-
-  // Tính 4 thẻ thống kê tổng quan
   const stats = useMemo(() => {
     const total = products.length;
     const soldSum = invoiceDetails.reduce((sum, item) => sum + Number(item.quantity || 0), 0);
@@ -188,7 +178,6 @@ const Admin = () => {
     return { total, soldSum, catCount, uncategorized, revenue, avgBill };
   }, [products, categories, invoiceDetails, bills]);
 
-  // Lọc Top 5 sản phẩm bán chạy nhất
   const topSoldProducts = useMemo(() => {
     const byProduct = invoiceDetails.reduce((map, item) => {
       const pid = Number(item.product_id);
@@ -212,7 +201,6 @@ const Admin = () => {
       });
   }, [products, invoiceDetails]);
 
-  // Gom doanh thu cộng dồn theo ngày
   const revenueByDate = useMemo(() => {
     const grouped = bills.reduce((acc, bill) => {
       const key = String(bill.date || "").slice(0, 10);
@@ -230,7 +218,6 @@ const Admin = () => {
     }));
   }, [bills]);
 
-  // Bảng Hóa Đơn: Render 6 hóa đơn mới nhất
   const billTableRows = useMemo(() => {
     const customerMap = new Map(customers.map(c => [Number(c.id), c.name]));
     const productMap = new Map(products.map(p => [Number(p.id), p.name]));
@@ -249,7 +236,6 @@ const Admin = () => {
         const firstProduct = details[0];
         const itemName = firstProduct ? productMap.get(Number(firstProduct.product_id)) || `Sản phẩm #${firstProduct.product_id}` : "-";
 
-        // 🔴 ĐÃ SỬA CHỖ NÀY: Bắt cả 'idcustomer' theo JSON
         const cid = Number(bill.idcustomer || bill.customer_id);
         const customerName = !isNaN(cid) && customerMap.has(cid) ? customerMap.get(cid) : isNaN(cid) ? "Khách lẻ" : `KH #${cid}`;
 
@@ -263,7 +249,6 @@ const Admin = () => {
       });
   }, [bills, customers, products, invoiceDetails]);
 
-  // Lọc Top 5 khách hàng VIP chi đậm nhất
   const vipCustomers = useMemo(() => {
     if (!bills.length) return [];
     const validBills = bills.filter(b => b.date && String(b.date) !== "undefined");
@@ -279,7 +264,6 @@ const Admin = () => {
     const grouped = validBills.reduce((map, bill) => {
       if (!String(bill.date).startsWith(targetMonth)) return map;
 
-      // 🔴 ĐÃ SỬA CHỖ NÀY: Bắt cả 'idcustomer' để cộng dồn tiền cho VIP
       const cid = Number(bill.idcustomer || bill.customer_id);
       if (isNaN(cid)) return map;
 
@@ -318,13 +302,10 @@ const Admin = () => {
     return <div className="ruang-boot" aria-hidden />;
   }
 
-  /* PHẦN 2: RENDER GIAO DIỆN HIỂN THỊ */
-
   return (
     <div className="ruang-layout">
       <div className={`ruang-overlay ${mobileSidebarOpen ? "is-visible" : ""}`} onClick={closeMobileNav} aria-hidden={!mobileSidebarOpen} />
 
-      {/* Sidebar điều hướng */}
       <aside className={`ruang-sidebar ${mobileSidebarOpen ? "is-open" : ""}`}>
         <div className="ruang-sidebar_brand">
           <span className="ruang-sidebar_brand-icon">
@@ -492,7 +473,7 @@ const Admin = () => {
             <div className="ruang-loading">Đang tải...</div>
           ) : (
             <>
-              {/* Grid 4 thẻ thống kê đầu trang */}
+              
               <div className="ruang-cards">
                 <div className="ruang-stat-card">
                   <div className="ruang-stat-card_body">
@@ -538,7 +519,6 @@ const Admin = () => {
                 </div>
               </div>
 
-              {/* Khu vực biểu đồ tiến độ */}
               <div className="ruang-dashboard-grid">
                 <div className="ruang-card">
                   <div className="ruang-card_title-bar">
@@ -587,7 +567,6 @@ const Admin = () => {
                 </div>
               </div>
 
-              {/* Khu vực bảng biểu chi tiết dưới cùng */}
               <div className="ruang-bottom-grid">
                 <div className="ruang-card">
                   <div className="ruang-card_title-bar">
@@ -666,7 +645,6 @@ const Admin = () => {
         </main>
       </div>
 
-      {/* Modal báo Logout */}
       {logoutModalOpen && (
         <div className="ruang-modal-backdrop" role="dialog" aria-modal="true">
           <div className="ruang-modal">
