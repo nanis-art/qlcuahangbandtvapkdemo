@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Sửa Màn Hình & Cảm Ứng",
+    "imageKey": "suamanhinhcamung",
+    "currentPrice": 500000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  },
+  {
+    "id": 2,
+    "name": "Thay Pin & Sửa Nguồn Thiết Bị",
+    "imageKey": "thaypinsuanguonthietbi",
+    "currentPrice": 400000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  },
+  {
+    "id": 3,
+    "name": "Sửa Camera & Âm Thanh",
+    "imageKey": "suacameraamthanh",
+    "currentPrice": 350000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  },
+  {
+    "id": 4,
+    "name": "Sửa Cổng Sạc & Kết Nối",
+    "imageKey": "suacongsacketnoi",
+    "currentPrice": 300000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  },
+  {
+    "id": 5,
+    "name": "Sửa Mainboard & Phần Cứng",
+    "imageKey": "suamainboardphancung",
+    "currentPrice": 900000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  },
+  {
+    "id": 6,
+    "name": "Cài Đặt Hệ Điều Hành & Phần Mềm",
+    "imageKey": "caiatheieuhanhphanmem",
+    "currentPrice": 200000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  },
+  {
+    "id": 7,
+    "name": "Vệ Sinh & Bảo Dưỡng Thiết Bị",
+    "imageKey": "vesinhbaoduongthietbi",
+    "currentPrice": 150000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  },
+  {
+    "id": 8,
+    "name": "Phục Hồi Dữ Liệu",
+    "imageKey": "phuchoidulieu",
+    "currentPrice": 800000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  },
+  {
+    "id": 9,
+    "name": "Kiểm Tra & Chẩn Đoán Lỗi",
+    "imageKey": "kiemtrachanoanloi",
+    "currentPrice": 100000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  },
+  {
+    "id": 10,
+    "name": "Nâng Cấp Linh Kiện Thiết Bị",
+    "imageKey": "nangcaplinhkienthietbi",
+    "currentPrice": 600000,
+    "brandid": "other",
+    "series": "other",
+    "idcategory": 12,
+    "originalPrice": null
+  }
+]

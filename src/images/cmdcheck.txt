@@ -1,0 +1,1 @@
+powershell -command "$f=Get-ChildItem -Filter *.jpg -Recurse -EA SilentlyContinue; $f|Select @{N='KB';E={[math]::Round($_.Length/1KB,2)}},FullName|Out-Host; $s=$f|Measure -Property Length -Sum; Write-Host '==' Total: $s.Count files, $([math]::Round($s.Sum/1KB,2)) KB"
