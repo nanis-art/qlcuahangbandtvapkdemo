@@ -252,9 +252,8 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="center" ref={searchBoxRef}>
+            <div className="center" ref={searchBoxRef}>///
               <form className="input-group-search" onSubmit={handleSearchSubmit}>
-                <i className="bi bi-search search-icon"></i>
                 <input type="text" placeholder="Tìm kiếm sản phẩm..." value={q} onChange={e => setQ(e.target.value)} onFocus={() => setSearchFocused(true)} autoComplete="off" />
                 <button type="submit">Tìm kiếm</button>
               </form>
@@ -322,7 +321,7 @@ const Header = () => {
                         >
                           Hồ sơ
                         </button>
-                        {currentUser.role === "staff" && (
+                        {currentUser.role === "admin" && (
                           <button
                             type="button"
                             className="header-user-dropdown_item"
@@ -385,9 +384,9 @@ const Header = () => {
               {renderDropdown(phukienMenuItems)}
             </div>
 
-            <Link to="/" className="nav-link">
-              Liên hệ
-            </Link>
+            <a href="/contact" className="nav-link">
+              LIÊN HỆ
+            </a>
           </div>
         </nav>
       </header>

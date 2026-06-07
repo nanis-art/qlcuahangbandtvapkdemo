@@ -7,8 +7,8 @@ const jsonBase = import.meta.env.BASE_URL || "/";
 
 const emptyForm = () => ({
   id: "",
-  bill_id: "",
-  product_id: "",
+  idbill: "",
+  idproducts: "",
   quantity: "",
   unit_price: "",
   price: "",
@@ -16,12 +16,12 @@ const emptyForm = () => ({
 
 function rowToForm(r) {
   const idVal = r.id ?? r.idinvoicedetails ?? "";
-  const bid = r.bill_id ?? r.billid ?? r.idbill ?? "";
-  const pid = r.product_id ?? r.productid ?? r.idproduct ?? r.SanPham_id ?? "";
+  const bid = r.idbill ?? "";
+  const pid = r.idproducts ?? r.SanPham_id ?? "";
   return {
     id: String(idVal),
-    bill_id: bid !== "" ? String(bid) : "",
-    product_id: pid !== "" ? String(pid) : "",
+    idbill: bid !== "" ? String(bid) : "",
+    idproducts: pid !== "" ? String(pid) : "",
     quantity: r.quantity != null ? String(r.quantity) : "",
     unit_price: r.unit_price != null ? String(r.unit_price) : "",
     price: r.price != null ? String(r.price) : "",
@@ -30,15 +30,13 @@ function rowToForm(r) {
 
 function formToRow(form, nextId) {
   const idNum = form.id ? Number(form.id) : nextId;
-  const bid = Number(form.bill_id);
-  const pid = Number(form.product_id);
+  const bid = Number(form.idbill);
+  const pid = Number(form.idproducts);
   return {
     id: idNum,
     idinvoicedetails: idNum,
-    bill_id: bid,
-    billid: bid,
-    product_id: pid,
-    productid: pid,
+    idbill: bid,
+    idproducts: pid,
     quantity: Number(form.quantity),
     unit_price: Number(form.unit_price),
     price: Number(form.price),
@@ -46,7 +44,7 @@ function formToRow(form, nextId) {
 }
 
 function validateNums(built) {
-  const keys = ["bill_id", "product_id", "quantity", "unit_price", "price"];
+  const keys = ["idbill", "idproducts", "quantity", "unit_price", "price"];
   for (const k of keys) {
     if (!Number.isFinite(built[k])) {
       return `Trường ${k} phải là số hợp lệ`;
@@ -76,7 +74,7 @@ function AdminInvoiceDetails({ embedded = false, filterBillId = null, clearFilte
     const q = appliedSearchId.trim();
     if (q) return rows.filter(r => String(r.id ?? r.idinvoicedetails) === q);
     if (filterBillId) {
-      return rows.filter(r => Number(r.bill_id ?? r.billid ?? r.idbill) === Number(filterBillId));
+      return rows.filter(r => Number(r.idbill) === Number(filterBillId));
     }
     return rows;
   }, [rows, appliedSearchId, filterBillId]);
@@ -299,8 +297,8 @@ function AdminInvoiceDetails({ embedded = false, filterBillId = null, clearFilte
                     </tr>
                   ) : (
                     paginatedRows.map(r => {
-                      const bid = r.bill_id ?? r.billid ?? r.idbill ?? "-";
-                      const pid = Number(r.product_id ?? r.productid ?? r.idproduct ?? r.SanPham_id);
+                      const bid = r.idbill ?? "-";
+                      const pid = Number(r.idproducts ?? r.SanPham_id);
                       const pName = productMap.get(pid) || "Chưa rõ";
                       return (
                         <tr key={r.id ?? r.idinvoicedetails}>
@@ -363,12 +361,12 @@ function AdminInvoiceDetails({ embedded = false, filterBillId = null, clearFilte
                 </label>
               )}
               <label>
-                Mã hóa đơn (bill_id)
-                <input type="number" value={form.bill_id} onChange={e => handleFormChange("bill_id", e.target.value)} required />
+                Mã hóa đơn (idbill)
+                <input type="number" value={form.idbill} onChange={e => handleFormChange("idbill", e.target.value)} required />
               </label>
               <label>
-                Mã sản phẩm (product_id)
-                <input type="number" value={form.product_id} onChange={e => handleFormChange("product_id", e.target.value)} required />
+                Mã sản phẩm (idproducts)
+                <input type="number" value={form.idproducts} onChange={e => handleFormChange("idproducts", e.target.value)} required />
               </label>
               <label>
                 Số lượng

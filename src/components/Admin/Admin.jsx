@@ -73,7 +73,7 @@ const Admin = () => {
     }
     try {
       const u = JSON.parse(raw);
-      if (u.role !== "staff") {
+      if (u.role !== "staff" && u.role !== "admin") {
         navigate("/");
         return;
       }
@@ -180,7 +180,7 @@ const Admin = () => {
 
   const topSoldProducts = useMemo(() => {
     const byProduct = invoiceDetails.reduce((map, item) => {
-      const pid = Number(item.product_id);
+      const pid = Number(item.idproducts);
       if (isNaN(pid)) return map;
       const quantity = Number(item.quantity || 0);
       map.set(pid, (map.get(pid) || 0) + quantity);
@@ -222,7 +222,7 @@ const Admin = () => {
     const customerMap = new Map(customers.map(c => [Number(c.id), c.name]));
     const productMap = new Map(products.map(p => [Number(p.id), p.name]));
     const detailByBill = invoiceDetails.reduce((map, item) => {
-      const key = Number(item.bill_id);
+      const key = Number(item.idbill);
       if (!map.has(key)) map.set(key, []);
       map.get(key).push(item);
       return map;
@@ -234,7 +234,7 @@ const Admin = () => {
       .map(bill => {
         const details = detailByBill.get(Number(bill.id)) || [];
         const firstProduct = details[0];
-        const itemName = firstProduct ? productMap.get(Number(firstProduct.product_id)) || `Sản phẩm #${firstProduct.product_id}` : "-";
+        const itemName = firstProduct ? productMap.get(Number(firstProduct.idproducts)) || `Sản phẩm #${firstProduct.idproducts}` : "-";
 
         const cid = Number(bill.idcustomer || bill.customer_id);
         const customerName = !isNaN(cid) && customerMap.has(cid) ? customerMap.get(cid) : isNaN(cid) ? "Khách lẻ" : `KH #${cid}`;
@@ -466,7 +466,7 @@ const Admin = () => {
           ) : adminSection === "employee" ? (
             <AdminEmployee embedded />
           ) : adminSection === "bill" ? (
-            <AdminBill embedded />
+            <AdminBill embedded onViewDetails={(id) => { setSelectedBillId(id); setAdminSection("invoiceDetails"); }} />
           ) : adminSection === "invoiceDetails" ? (
             <AdminInvoiceDetails embedded filterBillId={selectedBillId} clearFilter={() => setSelectedBillId(null)} />
           ) : loading ? (

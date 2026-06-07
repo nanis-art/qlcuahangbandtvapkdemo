@@ -40,12 +40,28 @@ function AdminCategory({ embedded = false }) {
   const [isNew, setIsNew] = useState(false);
   const [searchIdInput, setSearchIdInput] = useState('');
   const [appliedSearchId, setAppliedSearchId] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const ITEMS_PER_PAGE = 20;
 
   const displayedRows = useMemo(() => {
     const q = appliedSearchId.trim();
     if (!q) return rows;
     return rows.filter((r) => String(r.id ?? r.idcategory) === q);
   }, [rows, appliedSearchId]);
+
+  const totalPages = Math.ceil(displayedRows.length / ITEMS_PER_PAGE) || 1;
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
+
+  const paginatedRows = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    return displayedRows.slice(start, start + ITEMS_PER_PAGE);
+  }, [displayedRows, currentPage]);
 
   const persist = useCallback(async (nextList) => {
     setSaving(true);
@@ -171,10 +187,14 @@ function AdminCategory({ embedded = false }) {
     persist(rows.filter((r) => String(r.id ?? r.idcategory) !== String(id)));
   };
 
-  const applyIdSearch = () => setAppliedSearchId(searchIdInput.trim());
+  const applyIdSearch = () => {
+    setAppliedSearchId(searchIdInput.trim());
+    setCurrentPage(1);
+  };
   const clearIdSearch = () => {
     setSearchIdInput('');
     setAppliedSearchId('');
+    setCurrentPage(1);
   };
 
   const bodyContent = (
@@ -225,14 +245,14 @@ function AdminCategory({ embedded = false }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {displayedRows.length === 0 ? (
+                  {paginatedRows.length === 0 ? (
                     <tr>
                       <td colSpan={3} className="admin-table_empty">
                         {appliedSearchId.trim() ? `Không có danh mục với ID "${appliedSearchId.trim()}".` : 'Chưa có danh mục.'}
                       </td>
                     </tr>
                   ) : (
-                    displayedRows.map((r) => (
+                    paginatedRows.map((r) => (
                       <tr key={r.id ?? r.idcategory}>
                         <td>{r.id ?? r.idcategory}</td>
                         <td>{r.name}</td>
@@ -252,6 +272,25 @@ function AdminCategory({ embedded = false }) {
                 </tbody>
               </table>
             </div>
+            {totalPages > 1 && (
+              <div className="admin-pagination" style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '15px' }}>
+                <button 
+                  className="admin-btn" 
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))} 
+                  disabled={currentPage === 1 || saving}
+                >
+                  Trước
+                </button>
+                <span style={{ display: 'flex', alignItems: 'center', fontSize: '14px', fontWeight: '500' }}>Trang {currentPage} / {totalPages}</span>
+                <button 
+                  className="admin-btn" 
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} 
+                  disabled={currentPage === totalPages || saving}
+                >
+                  Sau
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <form className="admin-form-card" onSubmit={handleSubmitForm}>

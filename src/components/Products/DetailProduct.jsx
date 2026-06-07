@@ -372,6 +372,9 @@ const DetailProduct = () => {
               )}
               <li>Chat online hỗ trợ 24/7</li>
               <li>Đổi trả miễn phí trong 30 ngày</li>
+              {(product?.categoryid === 1 || product?.categoryid === 2 || product?.idcategory === 1 || product?.idcategory === 2) && (
+                <li>Tặng thêm 1 ốp lưng từ nhà sản xuất</li>
+              )}
             </ul>
           </div>
 

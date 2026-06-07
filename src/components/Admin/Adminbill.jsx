@@ -63,12 +63,14 @@ function validateRow(built) {
   return null;
 }
 
-function AdminBill({ embedded = false }) {
+function AdminBill({ embedded = false, onViewDetails = null }) {
   const navigate = useNavigate();
   const [allowed, setAllowed] = useState(embedded);
   const [rows, setRows] = useState([]);
   const [customers, setCustomers] = useState([]);
   const [employees, setEmployees] = useState([]);
+  const [invoiceDetails, setInvoiceDetails] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState('');
   const [saveError, setSaveError] = useState('');
@@ -78,12 +80,29 @@ function AdminBill({ embedded = false }) {
   const [isNew, setIsNew] = useState(false);
   const [searchIdInput, setSearchIdInput] = useState('');
   const [appliedSearchId, setAppliedSearchId] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [expandedBillId, setExpandedBillId] = useState(null);
+
+  const ITEMS_PER_PAGE = 20;
 
   const displayedRows = useMemo(() => {
     const q = appliedSearchId.trim();
     if (!q) return rows;
     return rows.filter((r) => String(r.id) === q);
   }, [rows, appliedSearchId]);
+
+  const totalPages = Math.ceil(displayedRows.length / ITEMS_PER_PAGE) || 1;
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
+
+  const paginatedRows = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    return displayedRows.slice(start, start + ITEMS_PER_PAGE);
+  }, [displayedRows, currentPage]);
 
   const customerMap = useMemo(() => {
     return new Map(customers.map((c) => [Number(c.id ?? c.idcustomer), c.name]));
@@ -92,6 +111,10 @@ function AdminBill({ embedded = false }) {
   const employeeMap = useMemo(() => {
     return new Map(employees.map((e) => [Number(e.id ?? e.idemployee), e.name]));
   }, [employees]);
+
+  const productMap = useMemo(() => {
+    return new Map(products.map((p) => [Number(p.id), p.name]));
+  }, [products]);
 
   const persist = useCallback(async (nextList) => {
     setSaving(true);
@@ -145,10 +168,12 @@ function AdminBill({ embedded = false }) {
       setLoading(true);
       setLoadError('');
       try {
-        const [bRes, cRes, eRes] = await Promise.all([
+        const [bRes, cRes, eRes, idRes, pRes] = await Promise.all([
           fetch(`${jsonBase}bill.json`),
           fetch(`${jsonBase}customer.json`),
           fetch(`${jsonBase}employee.json`),
+          fetch(`${jsonBase}invoicedetails.json`),
+          fetch(`${jsonBase}products.json`),
         ]);
         if (!bRes.ok) throw new Error('Không tải được bill.json');
         const bdata = await bRes.json();
@@ -161,6 +186,14 @@ function AdminBill({ embedded = false }) {
         if (eRes.ok) {
           const edata = await eRes.json();
           setEmployees(Array.isArray(edata) ? edata : []);
+        }
+        if (idRes.ok) {
+          const idData = await idRes.json();
+          setInvoiceDetails(Array.isArray(idData) ? idData : []);
+        }
+        if (pRes.ok) {
+          const pData = await pRes.json();
+          setProducts(Array.isArray(pData) ? pData : []);
         }
       } catch (e) {
         setLoadError(e.message || 'Lỗi tải dữ liệu');
@@ -231,10 +264,14 @@ function AdminBill({ embedded = false }) {
     persist(rows.filter((r) => String(r.id) !== String(id)));
   };
 
-  const applyIdSearch = () => setAppliedSearchId(searchIdInput.trim());
+  const applyIdSearch = () => {
+    setAppliedSearchId(searchIdInput.trim());
+    setCurrentPage(1);
+  };
   const clearIdSearch = () => {
     setSearchIdInput('');
     setAppliedSearchId('');
+    setCurrentPage(1);
   };
 
   const statusLabel = (v) => STATUS_OPTIONS.find((o) => o.value === v)?.label ?? v;
@@ -291,44 +328,110 @@ function AdminBill({ embedded = false }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {displayedRows.length === 0 ? (
+                  {paginatedRows.length === 0 ? (
                     <tr>
                       <td colSpan={7} className="admin-table_empty">
                         {appliedSearchId.trim() ? `Không có hóa đơn với ID "${appliedSearchId.trim()}".` : 'Chưa có hóa đơn.'}
                       </td>
                     </tr>
                   ) : (
-                    displayedRows.map((r) => {
+                    paginatedRows.map((r) => {
                       const cid = Number(r.idcustomer ?? r.customer_id ?? r.customerid);
                       const eid = Number(r.idemployee ?? r.employee_id ?? r.employeeid);
                       const stat = r.status ?? r.trangthai ?? '';
                       const cName = customerMap.get(cid) || 'Chưa rõ';
                       const eName = employeeMap.get(eid) || 'Chưa rõ';
+                      const isExpanded = expandedBillId === r.id;
+                      const billDetails = invoiceDetails.filter(d => Number(d.idbill) === Number(r.id));
+
                       return (
-                        <tr key={r.id}>
-                          <td>{r.id}</td>
-                          <td>{cid ? `${cid} - ${cName}` : '-'}</td>
-                          <td>{eid ? `${eid} - ${eName}` : '-'}</td>
-                          <td>{r.date}</td>
-                          <td>{r.total}</td>
-                          <td>{statusLabel(String(stat).toLowerCase()) || 'Chưa xác định'}</td>
-                          <td>
-                            <div className="admin-table_actions">
-                              <button type="button" className="admin-table_link" onClick={() => openEdit(r)} disabled={saving}>
-                                Sửa
-                              </button>
-                              <button type="button" className="admin-table_link admin-table_link--danger" onClick={() => handleDelete(r.id)} disabled={saving}>
-                                Xóa
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
+                        <React.Fragment key={r.id}>
+                          <tr>
+                            <td>{r.id}</td>
+                            <td>{cid ? `${cid} - ${cName}` : '-'}</td>
+                            <td>{eid ? `${eid} - ${eName}` : '-'}</td>
+                            <td>{r.date}</td>
+                            <td>{r.total}</td>
+                            <td>{statusLabel(String(stat).toLowerCase()) || 'Chưa xác định'}</td>
+                            <td>
+                              <div className="admin-table_actions" style={{ alignItems: 'center', flexWrap: 'nowrap' }}>
+                                <button type="button" className="ruang-mini-btn" onClick={() => setExpandedBillId(isExpanded ? null : r.id)} disabled={saving} style={{ color: isExpanded ? '#ef4444' : '#2563eb', borderColor: isExpanded ? '#fca5a5' : '#bfdbfe', padding: '0.35rem 0.6rem', whiteSpace: 'nowrap' }}>
+                                  {isExpanded ? 'Đóng' : 'Chi tiết'}
+                                </button>
+                                <button type="button" className="ruang-mini-btn" onClick={() => openEdit(r)} disabled={saving} style={{ padding: '0.35rem 0.6rem', whiteSpace: 'nowrap' }}>
+                                  Sửa
+                                </button>
+                                <button type="button" className="admin-table_link admin-table_link--danger" onClick={() => handleDelete(r.id)} disabled={saving} style={{ padding: '0.35rem 0.6rem', whiteSpace: 'nowrap', border: '1px solid #fca5a5', borderRadius: '4px', background: '#fff' }}>
+                                  Xóa
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          {isExpanded && (
+                            <tr>
+                              <td colSpan={7} style={{ padding: '0', backgroundColor: '#f8fafc', borderBottom: '2px solid #cbd5e1' }}>
+                                <div className="animate-slide-down" style={{ padding: '15px', borderLeft: '4px solid #3b82f6', overflowX: 'auto' }}>
+                                  <h4 style={{ margin: '0 0 10px 0', fontSize: '14px', color: '#334155' }}>Sản phẩm trong hóa đơn:</h4>
+                                  {billDetails.length === 0 ? (
+                                    <p style={{ margin: 0, fontSize: '13px', color: '#64748b' }}>Không có sản phẩm nào.</p>
+                                  ) : (
+                                    <div style={{ minWidth: '400px' }}>
+                                      <table className="admin-table" style={{ margin: 0, boxShadow: 'none', border: '1px solid #e2e8f0', width: '100%', tableLayout: 'fixed' }}>
+                                        <thead>
+                                          <tr>
+                                          <th style={{ backgroundColor: '#f1f5f9' }}>SP</th>
+                                          <th style={{ backgroundColor: '#f1f5f9' }}>SL</th>
+                                          <th style={{ backgroundColor: '#f1f5f9' }}>Đơn giá</th>
+                                          <th style={{ backgroundColor: '#f1f5f9' }}>Thành tiền</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {billDetails.map(detail => {
+                                          const pid = Number(detail.idproducts ?? detail.SanPham_id);
+                                          const pName = productMap.get(pid) || 'Chưa rõ';
+                                          return (
+                                            <tr key={detail.id ?? detail.idinvoicedetails}>
+                                              <td>{pid ? `${pid} - ${pName}` : '-'}</td>
+                                              <td>{detail.quantity}</td>
+                                              <td>{detail.unit_price}</td>
+                                              <td>{detail.price}</td>
+                                            </tr>
+                                          );
+                                        })}
+                                      </tbody>
+                                    </table>
+                                    </div>
+                                  )}
+                                </div>
+                              </td>
+                            </tr>
+                          )}
+                        </React.Fragment>
                       );
                     })
                   )}
                 </tbody>
               </table>
             </div>
+            {totalPages > 1 && (
+              <div className="admin-pagination" style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '15px' }}>
+                <button 
+                  className="admin-btn" 
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))} 
+                  disabled={currentPage === 1 || saving}
+                >
+                  Trước
+                </button>
+                <span style={{ display: 'flex', alignItems: 'center', fontSize: '14px', fontWeight: '500' }}>Trang {currentPage} / {totalPages}</span>
+                <button 
+                  className="admin-btn" 
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} 
+                  disabled={currentPage === totalPages || saving}
+                >
+                  Sau
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <form className="admin-form-card admin-form-card--wide" onSubmit={handleSubmitForm}>

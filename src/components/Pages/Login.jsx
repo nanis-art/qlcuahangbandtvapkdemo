@@ -50,7 +50,7 @@ function Login() {
 
       window.dispatchEvent(new Event("userUpdated"));
 
-      if (matchedAccount.role === "staff" || matchedAccount.role === "admin") {
+      if (matchedAccount.role === "admin") {
         navigate("/admin");
       } else {
         navigate("/");

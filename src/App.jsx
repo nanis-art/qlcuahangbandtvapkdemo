@@ -14,6 +14,7 @@ import Banner from "./components/Banner/Banner";
 import ProductCompare from "./components/Products/ProductCompare";
 import Profile from "./components/Pages/Profile";
 import Home from "./components/Pages/Home";
+import Contact from "./components/Pages/Contact";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/product/:id" element={<DetailProduct />} />
         <Route path="/promotions" element={<div>Khuyến mãi</div>} />
         <Route path="/about" element={<div>Về chúng tôi</div>} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/compare" element={<ProductCompare />} />
 

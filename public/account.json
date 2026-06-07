@@ -4,7 +4,8 @@
         "email": "adminduckit@gmail.com",
         "pass": "29062009duckit",
         "role": "admin",
-        "fullName": "Sếp"
+        "fullName": "Sếp",
+        "employeeId": 1
     },
     {
         "id": 2,
@@ -12,14 +13,16 @@
         "email": "nv@gmail.com",
         "pass": "...@~@...",
         "role": "staff",
-        "fullName": "Nhân Viên"
+        "fullName": "Nhân Viên",
+        "employeeId": 6
     },
     {
         "id": 3,
         "user": "khachhang",
-        "email": "khach@gmail.com",
+        "email": "nguyenvanan1@gmail.com",
         "pass": "123456",
         "role": "customer",
-        "fullName": "Khách hàng"
+        "fullName": "Khách hàng",
+        "customerId": 1
     }
 ]
