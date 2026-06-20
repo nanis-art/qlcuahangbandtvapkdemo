@@ -287,7 +287,7 @@ function AdminBill({ embedded = false, onViewDetails = null }) {
           <>
             <div className="admin-toolbar admin-toolbar--row">
               <button type="button" className="admin-btn" onClick={openCreate} disabled={saving}>
-                + Thêm hóa đơn
+                <i className="bi bi-plus-lg"></i> Thêm hóa đơn
               </button>
               <div className="admin-toolbar-search">
                 <label htmlFor="admin-bill-search-id">Tìm kiếm: </label>

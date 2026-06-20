@@ -443,7 +443,7 @@ function AdminProduct({ embedded = false }) {
           <>
             <div className="admin-toolbar admin-toolbar--row">
               <button type="button" className="admin-btn" onClick={openCreate} disabled={saving}>
-                + Thêm sản phẩm
+                <i className="bi bi-plus-lg"></i> Thêm sản phẩm
               </button>
               <div className="admin-toolbar-search">
                 <label htmlFor="admin-product-search-id">Tìm kiếm: </label>
@@ -590,7 +590,7 @@ function AdminProduct({ embedded = false }) {
                 Đã bán
                 <input value={form.sold} onChange={e => handleFormChange("sold", e.target.value)} />
               </label>
-              
+
               {renderSpecsForm()}
             </div>
             <div className="admin-form-actions">

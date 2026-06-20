@@ -47,7 +47,7 @@ function ForgotPassword({ onBackToforgot }) {
             <button
               className="btn-forgot"
               style={{ backgroundColor: "#10b981", marginTop: "15px" }}
-              onClick={() => alert("Chuyển hướng mở tab Gmail...")}
+              onClick={() => alert("Đang chuyển hướng đến Gmail.")}
             >
               Mở ứng dụng Mail
             </button>
@@ -55,9 +55,9 @@ function ForgotPassword({ onBackToforgot }) {
         )}
 
         <div className="footer" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
-  
+
   <Link to="/login" className="link" style={{ textDecoration: "none", cursor: "pointer" }}>
-    <i className="bi bi-arrow-left" style={{ marginRight: "6px" }}></i> 
+    <i className="bi bi-arrow-left" style={{ marginRight: "6px" }}></i>
     Quay lại Đăng nhập
   </Link>
   <Link to="/" className="link" style={{ textDecoration: "underline" }}>

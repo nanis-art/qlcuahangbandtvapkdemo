@@ -209,7 +209,7 @@ function AdminCustomer({ embedded = false }) {
           <>
             <div className="admin-toolbar admin-toolbar--row">
               <button type="button" className="admin-btn" onClick={openCreate} disabled={saving}>
-                + Thêm khách hàng
+                <i className="bi bi-plus-lg"></i> Thêm khách hàng
               </button>
               <div className="admin-toolbar-search">
                 <label htmlFor="admin-customer-search-id">Tìm kiếm: </label>

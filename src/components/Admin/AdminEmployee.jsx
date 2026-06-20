@@ -218,7 +218,7 @@ function AdminEmployee({ embedded = false }) {
           <>
             <div className="admin-toolbar admin-toolbar--row">
               <button type="button" className="admin-btn" onClick={openCreate} disabled={saving}>
-                + Thêm nhân viên
+                <i className="bi bi-plus-lg"></i> Thêm nhân viên
               </button>
               <div className="admin-toolbar-search">
                 <label htmlFor="admin-employee-search-id">Tìm kiếm: </label>

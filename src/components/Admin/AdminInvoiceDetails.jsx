@@ -242,7 +242,7 @@ function AdminInvoiceDetails({ embedded = false, filterBillId = null, clearFilte
             <div className="admin-toolbar admin-toolbar--row">
               <div style={{ display: "flex", gap: "0.5rem" }}>
                 <button type="button" className="admin-btn" onClick={openCreate} disabled={saving}>
-                  + Thêm dòng
+                  <i className="bi bi-plus-lg"></i> Thêm dòng
                 </button>
                 {filterBillId && !appliedSearchId.trim() && clearFilter && (
                   <button type="button" className="admin-btn admin-btn--ghost" onClick={clearFilter} disabled={saving}>

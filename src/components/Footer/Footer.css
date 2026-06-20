@@ -1,5 +1,5 @@
 .techshop-footer {
-  background-color: #1d1d1f;
+  background-color: #0b1120;
   color: #f5f5f7;
   padding: 60px;
   position: relative;
@@ -7,6 +7,7 @@
   box-sizing: border-box;
   min-height: 300px;
 }
+
 .footer-green-strip {
   width: 100%;
   height: 4px;
@@ -15,6 +16,7 @@
   top: 0;
   left: 0;
 }
+
 .footer-content {
   max-width: 1300px;
   margin: 0 auto;
@@ -25,15 +27,18 @@
   align-items: start;
   box-sizing: border-box;
 }
+
 .footer-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
 }
+
 .footer-logo {
   display: block;
 }
+
 .footer-logo-img {
   width: 110px;
   height: auto;
@@ -41,21 +46,25 @@
   object-fit: contain;
   border-radius: 8px;
 }
+
 .footer-copyright {
   font-size: 12px;
   color: #d7d7d7;
   margin: 0;
   line-height: 1.5;
 }
+
 .footer-middle {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
+
 .footer-column {
   display: flex;
   flex-direction: column;
 }
+
 .footer-column-title {
   font-size: 13px;
   font-weight: bold;
@@ -65,29 +74,35 @@
   color: #f5f5f7;
   letter-spacing: 0.5px;
 }
+
 .footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .footer-links li {
   margin-bottom: 10px;
 }
+
 .footer-links a {
   color: #cecece;
   text-decoration: none;
   font-size: 13px;
   transition: color 0.2s;
 }
+
 .footer-links a:hover {
   color: #0071e3;
 }
+
 .footer-right {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
 }
+
 .footer-social-icons {
   display: flex;
   gap: 12px;
@@ -95,6 +110,7 @@
   margin-bottom: 0;
   flex-wrap: wrap;
 }
+
 .social-icon {
   width: 38px;
   height: 38px;
@@ -112,6 +128,7 @@
     background-color 0.2s,
     box-shadow 0.2s;
 }
+
 .social-icon:hover {
   transform: scale(1.1);
   background-color: #0071e3;
@@ -119,10 +136,12 @@
   color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 113, 227, 0.4);
 }
+
 .footer-map {
   width: 100%;
   margin-top: 1.25rem;
 }
+
 .footer-map-iframe {
   display: block;
   width: 100%;
@@ -131,6 +150,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
+
 .footer-map-link {
   display: inline-block;
   margin-top: 0.5rem;
@@ -139,10 +159,12 @@
   text-decoration: none;
   opacity: 0.95;
 }
+
 .footer-map-link:hover {
   text-decoration: underline;
   opacity: 1;
 }
+
 .footer-chat-icon {
   position: fixed;
   bottom: 30px;
@@ -156,19 +178,22 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 113, 227, 0.4);
-  z-index: 999; 
+  z-index: 999;
   transition:
     transform 0.2s,
     background-color 0.2s;
 }
+
 .footer-chat-icon:hover {
   transform: scale(1.2);
   background-color: #005bb5;
 }
+
 .footer-chat-icon i {
   font-size: 22px;
   color: #ffffff;
 }
+
 .footer-chat-icon::before {
   content: "";
   position: absolute;
@@ -178,6 +203,7 @@
   background: radial-gradient(circle, rgba(0, 113, 227, 0.15) 0%, transparent 70%);
   pointer-events: none;
 }
+
 .footer-bottom-bar {
   max-width: 1300px;
   margin: 40px auto 0;
@@ -192,14 +218,17 @@
   gap: 8px;
   box-sizing: border-box;
 }
+
 .footer-bottom-bar a {
   color: #86868b;
   text-decoration: none;
   transition: color 0.2s;
 }
+
 .footer-bottom-bar a:hover {
   color: #0071e3;
 }
+
 .footer-bottom-legal {
   border-top: 1px solid #e0e0e0;
   padding: 20px 0;
@@ -209,46 +238,57 @@
   color: #666;
   line-height: 1.6;
 }
+
 .footer-bottom-legal p {
   margin: 0 0 5px 0;
   color: rgb(196, 196, 196);
 }
+
 .footer-bottom-legal a {
   color: #0071e3;
   text-decoration: none;
 }
+
 .footer-bottom-legal a:hover {
   text-decoration: underline;
 }
+
 @media (max-width: 1024px) {
   .footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
+
   .footer-left {
     grid-column: 1 / -1;
   }
+
   .footer-middle {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 }
+
 @media (max-width: 768px) {
   .footer-content {
     grid-template-columns: 1fr;
     gap: 28px;
   }
+
   .footer-left {
     grid-column: auto;
   }
+
   .footer-middle {
     grid-template-columns: 1fr;
     gap: 24px;
   }
+
   .footer-social-icons {
     flex-wrap: wrap;
   }
-  .footer-chat-icon{
+
+  .footer-chat-icon {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -261,11 +301,12 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 113, 227, 0.4);
-    z-index: 999; 
+    z-index: 999;
     transition:
       transform 0.2s,
       background-color 0.2s;
   }
+
   .footer-chat-icon i {
     font-size: 12px;
     color: #ffffff;

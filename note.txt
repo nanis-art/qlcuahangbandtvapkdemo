@@ -1,1 +1,0 @@
-fix lỗi chủ yếu ở admin ( rất nhiều lỗi)

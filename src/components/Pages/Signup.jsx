@@ -55,7 +55,7 @@ function Signup() {
         dob: formData.dob,
         address: formData.address
       });
-      alert("Đăng ký thành công!");
+      alert("Đăng ký tài khoản thành công.");
       navigate("/login");
     } catch (err) {
       const msg =

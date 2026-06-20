@@ -1,5 +1,4 @@
-[
-    {
+﻿[{
         "id": 1,
         "name": "Xiaomi 17 Ultra",
         "imageKey": "xiaomi17ultra",
@@ -8099,7 +8098,7 @@
             "design": {
                 "weight": "198g",
                 "dimensions": "166.4 x 75.8 x 7.8 mm (Mở) / 85.5 x 75.8 x 16.5 mm (Đóng)",
-                "material": "Kính & Khung nhôm",
+                "material": "Kính \u0026 Khung nhôm",
                 "waterResistance": "IPX4",
                 "colors": [
                     "Vàng",
@@ -8166,7 +8165,7 @@
             "design": {
                 "weight": "239g",
                 "dimensions": "153.4 x 143.1 x 5.8 mm (Mở) / 153.4 x 73.3 x 11.7 mm (Đóng)",
-                "material": "Kính/Da mặt sau & Khung nhôm",
+                "material": "Kính/Da mặt sau \u0026 Khung nhôm",
                 "waterResistance": "IPX4",
                 "colors": [
                     "Vàng",
@@ -8367,7 +8366,7 @@
             "design": {
                 "weight": "182g",
                 "dimensions": "161.1 x 74.7 x 7.5 mm",
-                "material": "Kính & Khung nhựa",
+                "material": "Kính \u0026 Khung nhựa",
                 "waterResistance": "IP64",
                 "colors": [
                     "Xám",
@@ -8434,7 +8433,7 @@
             "design": {
                 "weight": "185g",
                 "dimensions": "162.4 x 74.1 x 7.6 mm",
-                "material": "Kính & Khung hợp kim",
+                "material": "Kính \u0026 Khung hợp kim",
                 "waterResistance": "IP65",
                 "colors": [
                     "Đen",
@@ -8501,7 +8500,7 @@
             "design": {
                 "weight": "181g",
                 "dimensions": "161.1 x 74.7 x 7.5 mm",
-                "material": "Kính & Khung nhựa",
+                "material": "Kính \u0026 Khung nhựa",
                 "waterResistance": "IP64",
                 "colors": [
                     "Xám",
@@ -8567,7 +8566,7 @@
             "design": {
                 "weight": "181g",
                 "dimensions": "161.1 x 74.7 x 7.5 mm",
-                "material": "Kính & Khung nhựa",
+                "material": "Kính \u0026 Khung nhựa",
                 "waterResistance": "IP64",
                 "colors": [
                     "Đen",
@@ -9629,7 +9628,7 @@
             "design": {
                 "weight": "213g",
                 "dimensions": "163.4 x 77.0 x 8.1 mm",
-                "material": "Kính Gorilla Glass 7i & Khung nhôm",
+                "material": "Kính Gorilla Glass 7i \u0026 Khung nhôm",
                 "waterResistance": "IP68/IP69",
                 "colors": [
                     "Đen",
@@ -9696,7 +9695,7 @@
             "design": {
                 "weight": "213g",
                 "dimensions": "164.2 x 76.5 x 8.5 mm",
-                "material": "Kính & Khung nhôm",
+                "material": "Kính \u0026 Khung nhôm",
                 "waterResistance": "IP68/IP69",
                 "colors": [
                     "Trắng",
@@ -9763,7 +9762,7 @@
             "design": {
                 "weight": "199g",
                 "dimensions": "163.3 x 75.3 x 8.0 mm",
-                "material": "Kính & Khung hợp kim",
+                "material": "Kính \u0026 Khung hợp kim",
                 "waterResistance": "IP65",
                 "colors": [
                     "Đen",
@@ -9829,7 +9828,7 @@
             "design": {
                 "weight": "185g",
                 "dimensions": "150.8 x 71.7 x 8.2 mm",
-                "material": "Crystal Shield Glass & Khung nhôm",
+                "material": "Crystal Shield Glass \u0026 Khung nhôm",
                 "waterResistance": "IP65",
                 "colors": [
                     "Xám",
@@ -9896,7 +9895,7 @@
             "design": {
                 "weight": "220g",
                 "dimensions": "164.3 x 75.8 x 9.2 mm",
-                "material": "Kính & Khung nhôm",
+                "material": "Kính \u0026 Khung nhôm",
                 "waterResistance": "IP65",
                 "colors": [
                     "Đen",
@@ -9963,7 +9962,7 @@
             "design": {
                 "weight": "207g",
                 "dimensions": "163.3 x 75.3 x 8.8 mm",
-                "material": "Kính & Khung nhôm",
+                "material": "Kính \u0026 Khung nhôm",
                 "waterResistance": "IP64",
                 "colors": [
                     "Xám",
@@ -10029,7 +10028,7 @@
             "design": {
                 "weight": "185g",
                 "dimensions": "150.8 x 71.7 x 8.2 mm",
-                "material": "Crystal Shield Glass & Khung nhôm",
+                "material": "Crystal Shield Glass \u0026 Khung nhôm",
                 "waterResistance": "IP65",
                 "colors": [
                     "Xanh",
@@ -10096,7 +10095,7 @@
             "design": {
                 "weight": "220g",
                 "dimensions": "164.3 x 75.8 x 9.2 mm",
-                "material": "Kính & Khung nhôm",
+                "material": "Kính \u0026 Khung nhôm",
                 "waterResistance": "IP65",
                 "colors": [
                     "Đen",
@@ -10163,7 +10162,7 @@
             "design": {
                 "weight": "210g",
                 "dimensions": "162.9 x 75.6 x 8.5 mm",
-                "material": "Kính/Gốm & Khung nhôm",
+                "material": "Kính/Gốm \u0026 Khung nhôm",
                 "waterResistance": "IP68",
                 "colors": [
                     "Đen",
@@ -10229,7 +10228,7 @@
             "design": {
                 "weight": "205g",
                 "dimensions": "162.9 x 75.6 x 8.4 mm",
-                "material": "Kính & Khung nhôm",
+                "material": "Kính \u0026 Khung nhôm",
                 "waterResistance": "IP65",
                 "colors": [
                     "Trắng",
@@ -10296,7 +10295,7 @@
             "design": {
                 "weight": "207g",
                 "dimensions": "163.3 x 75.3 x 8.9 mm",
-                "material": "Kính/Gốm/Da & Khung kim loại",
+                "material": "Kính/Gốm/Da \u0026 Khung kim loại",
                 "waterResistance": "IP65",
                 "colors": [
                     "Trắng",
@@ -10363,7 +10362,7 @@
             "design": {
                 "weight": "207g",
                 "dimensions": "163.3 x 75.3 x 8.8 mm",
-                "material": "Kính & Khung kim loại",
+                "material": "Kính \u0026 Khung kim loại",
                 "waterResistance": "IP64",
                 "colors": [
                     "Đen",
@@ -10430,7 +10429,7 @@
             "design": {
                 "weight": "200g",
                 "dimensions": "162.7 x 75.2 x 8.4 mm",
-                "material": "Kính & Khung nhựa",
+                "material": "Kính \u0026 Khung nhựa",
                 "waterResistance": "IP65",
                 "colors": [
                     "Xám",
@@ -10761,7 +10760,7 @@
             "design": {
                 "weight": "230g",
                 "dimensions": "153.4 x 143.1 x 4.3 mm (Mở) / 153.4 x 73.3 x 9.2 mm (Đóng)",
-                "material": "Kính/Sợi carbon & Khung hợp kim titan",
+                "material": "Kính/Sợi carbon \u0026 Khung hợp kim titan",
                 "waterResistance": "IPX8",
                 "colors": [
                     "Đen",
@@ -10827,7 +10826,7 @@
             "design": {
                 "weight": "239g",
                 "dimensions": "153.4 x 143.1 x 5.8 mm (Mở) / 153.4 x 73.3 x 11.7 mm (Đóng)",
-                "material": "Kính/Da mặt sau & Khung nhôm",
+                "material": "Kính/Da mặt sau \u0026 Khung nhôm",
                 "waterResistance": "IPX4",
                 "colors": [
                     "Đen",
@@ -10893,7 +10892,7 @@
             "design": {
                 "weight": "222.8g",
                 "dimensions": "162.5 x 76.9 x 8.6 mm",
-                "material": "Kính & Khung nhôm",
+                "material": "Kính \u0026 Khung nhôm",
                 "waterResistance": "IP68/IP69",
                 "colors": [
                     "Cam hỏa tinh",
@@ -10960,7 +10959,7 @@
             "design": {
                 "weight": "199g",
                 "dimensions": "162.5 x 76.9 x 8.4 mm",
-                "material": "Kính & Khung nhôm",
+                "material": "Kính \u0026 Khung nhôm",
                 "waterResistance": "IP68",
                 "colors": [
                     "Cam",
@@ -11026,7 +11025,7 @@
             "design": {
                 "weight": "218g",
                 "dimensions": "161.7 x 75.1 x 9.2 mm",
-                "material": "Da công nghiệp/Kính & Khung nhôm",
+                "material": "Da công nghiệp/Kính \u0026 Khung nhôm",
                 "waterResistance": "IP64",
                 "colors": [
                     "Cam",
@@ -11093,7 +11092,7 @@
             "design": {
                 "weight": "205g",
                 "dimensions": "163.1 x 75.4 x 8.9 mm",
-                "material": "Kính & Khung nhựa",
+                "material": "Kính \u0026 Khung nhựa",
                 "waterResistance": "",
                 "colors": [
                     "Bạc",
@@ -11424,7 +11423,7 @@
             "design": {
                 "weight": "199g",
                 "dimensions": "163.9 x 75.8 x 8.9 mm",
-                "material": "Kính & Khung nhựa",
+                "material": "Kính \u0026 Khung nhựa",
                 "waterResistance": "",
                 "colors": [
                     "Đen",
@@ -11491,7 +11490,7 @@
             "design": {
                 "weight": "199g",
                 "dimensions": "163.9 x 75.8 x 8.9 mm",
-                "material": "Kính & Khung nhựa",
+                "material": "Kính \u0026 Khung nhựa",
                 "waterResistance": "",
                 "colors": [
                     "Trắng",
@@ -11755,7 +11754,7 @@
             "design": {
                 "weight": "190g",
                 "dimensions": "161.5 x 74.0 x 8.8 mm",
-                "material": "Da công nghiệp & Khung nhựa",
+                "material": "Da công nghiệp \u0026 Khung nhựa",
                 "waterResistance": "IP65",
                 "colors": [
                     "Xanh",
@@ -11821,7 +11820,7 @@
             "design": {
                 "weight": "188g",
                 "dimensions": "161.5 x 74.0 x 8.4 mm",
-                "material": "Da công nghiệp & Khung nhựa",
+                "material": "Da công nghiệp \u0026 Khung nhựa",
                 "waterResistance": "IP65",
                 "colors": [
                     "Tím",
@@ -11954,7 +11953,7 @@
             "design": {
                 "weight": "190g",
                 "dimensions": "161.3 x 73.9 x 8.2 mm",
-                "material": "Da công nghiệp / Kính & Khung nhựa",
+                "material": "Da công nghiệp / Kính \u0026 Khung nhựa",
                 "waterResistance": "IP65",
                 "colors": [
                     "Vàng",
@@ -12020,7 +12019,7 @@
             "design": {
                 "weight": "188g",
                 "dimensions": "161.3 x 73.9 x 8.2 mm",
-                "material": "Da công nghiệp / Kính & Khung nhựa",
+                "material": "Da công nghiệp / Kính \u0026 Khung nhựa",
                 "waterResistance": "IP65",
                 "colors": [
                     "Tím",
@@ -12152,7 +12151,7 @@
             "design": {
                 "weight": "196g",
                 "dimensions": "161.5 x 74.0 x 8.8 mm",
-                "material": "Da công nghiệp & Khung nhựa",
+                "material": "Da công nghiệp \u0026 Khung nhựa",
                 "waterResistance": "IP65",
                 "colors": [
                     "Xanh dương",
@@ -12218,7 +12217,7 @@
             "design": {
                 "weight": "190g",
                 "dimensions": "161.5 x 74.0 x 8.8 mm",
-                "material": "Da công nghiệp & Khung nhựa",
+                "material": "Da công nghiệp \u0026 Khung nhựa",
                 "waterResistance": "IP65",
                 "colors": [
                     "Xanh dương",
@@ -12482,7 +12481,7 @@
             "design": {
                 "weight": "225g",
                 "dimensions": "Chưa công bố chi tiết",
-                "material": "Kính Gorilla Armor & Khung Titanium",
+                "material": "Kính Gorilla Armor \u0026 Khung Titanium",
                 "waterResistance": "IP68",
                 "colors": [
                     "Đen Titan",
@@ -12549,7 +12548,7 @@
             "design": {
                 "weight": "195g",
                 "dimensions": "Chưa công bố chi tiết",
-                "material": "Kính Gorilla & Khung nhôm Armor",
+                "material": "Kính Gorilla \u0026 Khung nhôm Armor",
                 "waterResistance": "IP68",
                 "colors": [
                     "Đen",
@@ -12616,7 +12615,7 @@
             "design": {
                 "weight": "167g",
                 "dimensions": "Chưa công bố chi tiết",
-                "material": "Kính Gorilla & Khung nhôm Armor",
+                "material": "Kính Gorilla \u0026 Khung nhôm Armor",
                 "waterResistance": "IP68",
                 "colors": [
                     "Đen",
@@ -12684,7 +12683,7 @@
             "design": {
                 "weight": "219g",
                 "dimensions": "162.8 x 77.6 x 8.2 mm",
-                "material": "Kính Gorilla Armor & Khung Titanium",
+                "material": "Kính Gorilla Armor \u0026 Khung Titanium",
                 "waterResistance": "IP68",
                 "colors": [
                     "Titan Đen",
@@ -12752,7 +12751,7 @@
             "design": {
                 "weight": "195g",
                 "dimensions": "158.4 x 75.7 x 7.3 mm",
-                "material": "Kính Gorilla Victus 2 & Khung nhôm Armor",
+                "material": "Kính Gorilla Victus 2 \u0026 Khung nhôm Armor",
                 "waterResistance": "IP68",
                 "colors": [
                     "Đen",
@@ -12820,7 +12819,7 @@
             "design": {
                 "weight": "167g",
                 "dimensions": "146.9 x 70.4 x 7.2 mm",
-                "material": "Kính Gorilla Victus 2 & Khung nhôm Armor",
+                "material": "Kính Gorilla Victus 2 \u0026 Khung nhôm Armor",
                 "waterResistance": "IP68",
                 "colors": [
                     "Đen",
@@ -15592,7 +15591,7 @@
             "design": {
                 "weight": "538g",
                 "dimensions": "255.1 x 188.0 x 6.89 mm",
-                "material": "Nhựa & Kim loại",
+                "material": "Nhựa \u0026 Kim loại",
                 "colors": [
                     "Không gian xám",
                     "Bạc"
@@ -15654,7 +15653,7 @@
             "design": {
                 "weight": "440g",
                 "dimensions": "245.1 x 154.8 x 6.94 mm",
-                "material": "Nhựa & Hợp kim nhôm",
+                "material": "Nhựa \u0026 Hợp kim nhôm",
                 "colors": [
                     "Xám sương mù",
                     "Bạc bạc"
@@ -15838,7 +15837,7 @@
             "design": {
                 "weight": "532g",
                 "dimensions": "255.1 x 188.0 x 6.89 mm",
-                "material": "Nhựa & Kim loại",
+                "material": "Nhựa \u0026 Kim loại",
                 "colors": [
                     "Xanh bạc hà"
                 ]
@@ -17937,7 +17936,7 @@
                 ]
             },
             "compatibility": {
-                "android": "Hỗ trợ (Yêu cầu Android 11.0 trở lên, RAM > 1.5GB)",
+                "android": "Hỗ trợ (Yêu cầu Android 11.0 trở lên, RAM \u003e 1.5GB)",
                 "ios": "Không hỗ trợ"
             }
         },
@@ -17992,7 +17991,7 @@
                 ]
             },
             "compatibility": {
-                "android": "Hỗ trợ (Yêu cầu Android 10.0 trở lên, RAM > 1.5GB)",
+                "android": "Hỗ trợ (Yêu cầu Android 10.0 trở lên, RAM \u003e 1.5GB)",
                 "ios": "Không hỗ trợ"
             }
         },
@@ -18048,7 +18047,7 @@
                 ]
             },
             "compatibility": {
-                "android": "Hỗ trợ (Yêu cầu Android 10.0 trở lên, RAM > 1.5GB)",
+                "android": "Hỗ trợ (Yêu cầu Android 10.0 trở lên, RAM \u003e 1.5GB)",
                 "ios": "Không hỗ trợ"
             }
         },
@@ -18103,7 +18102,7 @@
                 ]
             },
             "compatibility": {
-                "android": "Hỗ trợ (Yêu cầu Android 8.0 trở lên, RAM > 1.5GB)",
+                "android": "Hỗ trợ (Yêu cầu Android 8.0 trở lên, RAM \u003e 1.5GB)",
                 "ios": "Không hỗ trợ"
             }
         },
@@ -18160,7 +18159,7 @@
                 ]
             },
             "compatibility": {
-                "android": "Hỗ trợ (Yêu cầu Android 8.0 trở lên, RAM > 1.5GB)",
+                "android": "Hỗ trợ (Yêu cầu Android 8.0 trở lên, RAM \u003e 1.5GB)",
                 "ios": "Không hỗ trợ"
             }
         },
@@ -18216,7 +18215,7 @@
                 ]
             },
             "compatibility": {
-                "android": "Hỗ trợ (Yêu cầu Android 11.0 trở lên, RAM > 1.5GB)",
+                "android": "Hỗ trợ (Yêu cầu Android 11.0 trở lên, RAM \u003e 1.5GB)",
                 "ios": "Không hỗ trợ"
             }
         },
@@ -18272,7 +18271,7 @@
                 ]
             },
             "compatibility": {
-                "android": "Hỗ trợ (Yêu cầu Android 11.0 trở lên, RAM > 1.5GB)",
+                "android": "Hỗ trợ (Yêu cầu Android 11.0 trở lên, RAM \u003e 1.5GB)",
                 "ios": "Không hỗ trợ"
             }
         },
@@ -18328,7 +18327,7 @@
                 ]
             },
             "compatibility": {
-                "android": "Hỗ trợ (Yêu cầu Android 11.0 trở lên, RAM > 1.5GB)",
+                "android": "Hỗ trợ (Yêu cầu Android 11.0 trở lên, RAM \u003e 1.5GB)",
                 "ios": "Không hỗ trợ"
             }
         },
@@ -19863,29 +19862,81 @@
         "discount": ""
     },
     {
-        "id": 313,
-        "name": "Vivo Wireless Bluetooth Speaker 2",
-        "imageKey": "vivowirelessbluetoothspeaker2",
-        "currentPrice": 1790000,
+        "name": "Vivo TWS Air 2",
+        "imageKey": "vivotwsair2",
+        "currentPrice": 690000,
         "brandid": "vivo",
-        "series": "other",
+        "series": "tws",
         "idcategory": 4,
-        "originalPrice": 2330000,
+        "originalPrice": 990000,
         "specifications": {
             "audio": {
-                "driver": "Chưa công bố chi tiết",
-                "frequency": "Chưa công bố",
+                "driver": "14.2mm Dynamic",
+                "frequency": "20Hz - 20kHz",
                 "impedance": "Chưa công bố",
                 "sensitivity": "Chưa công bố"
             },
             "battery": {
-                "earphone": "Khoảng 12 giờ",
-                "case": "",
-                "total": "12 giờ"
+                "earphone": "Khoảng 6 giờ",
+                "case": "Khoảng 24 giờ",
+                "total": "30 giờ"
             },
             "connectivity": {
-                "type": "Loa Bluetooth di động",
-                "bluetooth": "5.1",
+                "type": "True Wireless",
+                "bluetooth": "5.3",
+                "codec": [
+                    "SBC",
+                    "AAC",
+                    "LC3"
+                ],
+                "multipoint": false
+            },
+            "anc": {
+                "supported": false,
+                "transparency": false
+            },
+            "design": {
+                "type": "Semi-in-ear",
+                "weight": "Khoảng 3.6g mỗi tai",
+                "waterResistance": "IP54",
+                "colors": [
+                    "Trắng",
+                    "Xanh"
+                ]
+            },
+            "features": {
+                "mic": true,
+                "touchControl": true,
+                "voiceAssistant": true,
+                "wirelessCharging": false
+            }
+        },
+        "discount": "",
+        "id": 313
+    },
+    {
+        "name": "Vivo Wireless Sport Lite",
+        "imageKey": "vivowirelesssportlite",
+        "currentPrice": 490000,
+        "brandid": "vivo",
+        "series": "other",
+        "idcategory": 4,
+        "originalPrice": 690000,
+        "specifications": {
+            "audio": {
+                "driver": "11.2mm Dynamic",
+                "frequency": "20Hz - 20kHz",
+                "impedance": "32Ω",
+                "sensitivity": "95dB"
+            },
+            "battery": {
+                "earphone": "Khoảng 18 giờ",
+                "case": "",
+                "total": "18 giờ"
+            },
+            "connectivity": {
+                "type": "Bluetooth neckband",
+                "bluetooth": "5.0",
                 "codec": [
                     "SBC",
                     "AAC"
@@ -19897,62 +19948,12 @@
                 "transparency": false
             },
             "design": {
-                "type": "Loa di động kèm đèn LED",
-                "weight": "Chưa công bố",
-                "waterResistance": "Chống nước nhẹ",
-                "colors": [
-                    "Đen"
-                ]
-            },
-            "features": {
-                "mic": true,
-                "touchControl": true,
-                "voiceAssistant": true,
-                "wirelessCharging": false
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 314,
-        "name": "Vivo Wireless Bluetooth Speaker",
-        "imageKey": "vivowirelessbluetoothspeaker",
-        "currentPrice": 1490000,
-        "brandid": "vivo",
-        "series": "other",
-        "idcategory": 4,
-        "originalPrice": 1940000,
-        "specifications": {
-            "audio": {
-                "driver": "Chưa công bố chi tiết",
-                "frequency": "Chưa công bố",
-                "impedance": "Chưa công bố",
-                "sensitivity": "Chưa công bố"
-            },
-            "battery": {
-                "earphone": "Khoảng 10 giờ",
-                "case": "",
-                "total": "10 giờ"
-            },
-            "connectivity": {
-                "type": "Loa Bluetooth di động",
-                "bluetooth": "5.0",
-                "codec": [
-                    "SBC"
-                ],
-                "multipoint": false
-            },
-            "anc": {
-                "supported": false,
-                "transparency": false
-            },
-            "design": {
-                "type": "Loa di động nhỏ gọn",
-                "weight": "Chưa công bố",
-                "waterResistance": "IPX6",
+                "type": "Neckband",
+                "weight": "Khoảng 23.9g",
+                "waterResistance": "IPX4",
                 "colors": [
                     "Đen",
-                    "Đỏ"
+                    "Xanh"
                 ]
             },
             "features": {
@@ -19962,7 +19963,8 @@
                 "wirelessCharging": false
             }
         },
-        "discount": ""
+        "discount": "",
+        "id": 314
     },
     {
         "id": 315,
@@ -21044,7 +21046,9 @@
             "connectivity": {
                 "type": "Có dây",
                 "bluetooth": "",
-                "codec": [],
+                "codec": [
+
+                ],
                 "multipoint": false
             },
             "anc": {
@@ -21571,7 +21575,9 @@
             "connectivity": {
                 "type": "Có dây",
                 "bluetooth": "",
-                "codec": [],
+                "codec": [
+
+                ],
                 "multipoint": false
             },
             "anc": {
@@ -22461,7 +22467,9 @@
                 "total": 0
             },
             "standard": {
-                "fastCharge": [],
+                "fastCharge": [
+
+                ],
                 "pd": false,
                 "qc": false
             },
@@ -22512,7 +22520,9 @@
                 "total": 0
             },
             "standard": {
-                "fastCharge": [],
+                "fastCharge": [
+
+                ],
                 "pd": false,
                 "qc": false
             },
@@ -23002,7 +23012,9 @@
                 "total": 0
             },
             "standard": {
-                "fastCharge": [],
+                "fastCharge": [
+
+                ],
                 "pd": false,
                 "qc": false
             },
@@ -23163,7 +23175,9 @@
                 "total": 3
             },
             "standard": {
-                "fastCharge": [],
+                "fastCharge": [
+
+                ],
                 "pd": false,
                 "qc": false
             },
@@ -23217,7 +23231,9 @@
                 "total": 1
             },
             "standard": {
-                "fastCharge": [],
+                "fastCharge": [
+
+                ],
                 "pd": false,
                 "qc": false
             },
@@ -23644,7 +23660,9 @@
                 "total": 0
             },
             "standard": {
-                "fastCharge": [],
+                "fastCharge": [
+
+                ],
                 "pd": false,
                 "qc": false
             },
@@ -23677,62 +23695,8 @@
     },
     {
         "id": 385,
-        "name": "Vivo Flash Charge Power Bank 80W",
-        "imageKey": "vivoflashchargepowerbank80w",
-        "currentPrice": 1290000,
-        "brandid": "vivo",
-        "series": "flashcharge",
-        "idcategory": 5,
-        "originalPrice": 1680000,
-        "specifications": {
-            "power": {
-                "maxWatt": 80,
-                "input": "Type-C",
-                "output": "Type-C, USB-A"
-            },
-            "ports": {
-                "usbc": 1,
-                "usba": 1,
-                "total": 2
-            },
-            "standard": {
-                "fastCharge": [
-                    "FlashCharge"
-                ],
-                "pd": false,
-                "qc": false
-            },
-            "cable": {
-                "length": "",
-                "type": "",
-                "maxCurrent": "",
-                "material": ""
-            },
-            "powerBank": {
-                "capacity": "10000mAh",
-                "input": "Chưa công bố",
-                "output": "Tối đa 80W",
-                "passthrough": false,
-                "display": false
-            },
-            "design": {
-                "weight": "Chưa công bố",
-                "dimensions": "Chưa công bố",
-                "colors": [
-                    "Đen",
-                    "Trắng"
-                ]
-            },
-            "compatibility": [
-                "Điện thoại Vivo/iQOO hỗ trợ FlashCharge 80W/66W/44W"
-            ]
-        },
-        "discount": ""
-    },
-    {
-        "id": 386,
-        "name": "Vivo Flash Charge Power Bank 44W",
-        "imageKey": "vivoflashchargepowerbank44w",
+        "name": "Vivo Flash Charge Power Bank 45W",
+        "imageKey": "vivoflashchargepowerbank45w",
         "currentPrice": 890000,
         "brandid": "vivo",
         "series": "flashcharge",
@@ -23763,9 +23727,9 @@
                 "material": ""
             },
             "powerBank": {
-                "capacity": "10000mAh",
+                "capacity": "20000mAh",
                 "input": "Chưa công bố",
-                "output": "Tối đa 44W",
+                "output": "Tối đa 45W",
                 "passthrough": true,
                 "display": false
             },
@@ -23778,13 +23742,13 @@
                 ]
             },
             "compatibility": [
-                "Điện thoại Vivo/iQOO hỗ trợ 44W"
+                "Điện thoại Vivo/iQOO hỗ trợ 45W"
             ]
         },
         "discount": ""
     },
     {
-        "id": 387,
+        "id": 386,
         "name": "Vivo Flash Charge Power Bank 33W",
         "imageKey": "vivoflashchargepowerbank33w",
         "currentPrice": 690000,
@@ -23838,7 +23802,7 @@
         "discount": ""
     },
     {
-        "id": 388,
+        "id": 387,
         "name": "Vivo iQOO FlashCharge 200W",
         "imageKey": "iqooflashcharge200w",
         "currentPrice": 1490000,
@@ -23892,7 +23856,7 @@
         "discount": ""
     },
     {
-        "id": 389,
+        "id": 388,
         "name": "Vivo iQOO FlashCharge 120W",
         "imageKey": "iqooflashcharge120w",
         "currentPrice": 1190000,
@@ -23946,7 +23910,7 @@
         "discount": ""
     },
     {
-        "id": 390,
+        "id": 389,
         "name": "Vivo iQOO FlashCharge 80W",
         "imageKey": "iqooflashcharge80w",
         "currentPrice": 890000,
@@ -23999,7 +23963,7 @@
         "discount": ""
     },
     {
-        "id": 391,
+        "id": 390,
         "name": "Vivo iQOO FlashCharge 44W",
         "imageKey": "iqooflashcharge44w",
         "currentPrice": 590000,
@@ -24052,9 +24016,9 @@
         "discount": ""
     },
     {
-        "id": 392,
-        "name": "Vivo iQOO 6A Gaming Cable",
-        "imageKey": "iqoo6agamingcable",
+        "id": 391,
+        "name": "Vivo iQOO 6A Cable",
+        "imageKey": "iqoo6acable",
         "currentPrice": 290000,
         "brandid": "iqoo",
         "series": "other",
@@ -24072,15 +24036,17 @@
                 "total": 0
             },
             "standard": {
-                "fastCharge": [],
+                "fastCharge": [
+
+                ],
                 "pd": false,
                 "qc": false
             },
             "cable": {
                 "length": "1.5m",
-                "type": "Type-C to Type-C (Đầu chữ L chống gập)",
+                "type": "Type-C to Type-C",
                 "maxCurrent": "6A",
-                "material": "Dây bện dù siêu bền"
+                "material": "Dây bền"
             },
             "powerBank": {
                 "capacity": "",
@@ -24103,7 +24069,7 @@
         "discount": ""
     },
     {
-        "id": 393,
+        "id": 392,
         "name": "Vivo iQOO Flash Charge Power Bank 44W",
         "imageKey": "iqooflashchargepowerbank44w",
         "currentPrice": 890000,
@@ -24157,7 +24123,7 @@
         "discount": ""
     },
     {
-        "id": 394,
+        "id": 393,
         "name": "Vivo iQOO Flash Charge Power Bank 33W",
         "imageKey": "iqooflashchargepowerbank33w",
         "currentPrice": 690000,
@@ -24211,7 +24177,7 @@
         "discount": ""
     },
     {
-        "id": 395,
+        "id": 394,
         "name": "Oppo SuperVOOC 240W",
         "imageKey": "opposupervooc240w",
         "currentPrice": 1590000,
@@ -24265,7 +24231,7 @@
         "discount": ""
     },
     {
-        "id": 396,
+        "id": 395,
         "name": "Oppo SuperVOOC 100W",
         "imageKey": "opposupervooc100w",
         "currentPrice": 1190000,
@@ -24318,7 +24284,7 @@
         "discount": ""
     },
     {
-        "id": 397,
+        "id": 396,
         "name": "Oppo SuperVOOC 80W",
         "imageKey": "opposupervooc80w",
         "currentPrice": 990000,
@@ -24371,7 +24337,7 @@
         "discount": ""
     },
     {
-        "id": 398,
+        "id": 397,
         "name": "Oppo SuperVOOC 65W",
         "imageKey": "opposupervooc65w",
         "currentPrice": 790000,
@@ -24424,7 +24390,7 @@
         "discount": ""
     },
     {
-        "id": 399,
+        "id": 398,
         "name": "Oppo SuperVOOC 33W",
         "imageKey": "opposupervooc33w",
         "currentPrice": 490000,
@@ -24477,7 +24443,7 @@
         "discount": ""
     },
     {
-        "id": 400,
+        "id": 399,
         "name": "Oppo SuperVOOC 6A Type-C Cable",
         "imageKey": "opposupervooc6atypeccable",
         "currentPrice": 290000,
@@ -24531,7 +24497,7 @@
         "discount": ""
     },
     {
-        "id": 401,
+        "id": 400,
         "name": "Oppo SuperVOOC Power Bank 80W",
         "imageKey": "opposupervoocpowerbank80w",
         "currentPrice": 1190000,
@@ -24585,7 +24551,7 @@
         "discount": ""
     },
     {
-        "id": 402,
+        "id": 401,
         "name": "Oppo SuperVOOC Power Bank 50W",
         "imageKey": "opposupervoocpowerbank50w",
         "currentPrice": 990000,
@@ -24642,7 +24608,7 @@
         "discount": ""
     },
     {
-        "id": 403,
+        "id": 402,
         "name": "Oppo SuperVOOC Power Bank 33W",
         "imageKey": "opposupervoocpowerbank33w",
         "currentPrice": 790000,
@@ -24696,7 +24662,7 @@
         "discount": ""
     },
     {
-        "id": 404,
+        "id": 403,
         "name": "OnePlus SuperVOOC 125W",
         "imageKey": "oneplussupervooc125w",
         "currentPrice": 1390000,
@@ -24749,7 +24715,7 @@
         "discount": ""
     },
     {
-        "id": 405,
+        "id": 404,
         "name": "OnePlus SuperVOOC 100W",
         "imageKey": "oneplussupervooc100w",
         "currentPrice": 1190000,
@@ -24802,7 +24768,7 @@
         "discount": ""
     },
     {
-        "id": 406,
+        "id": 405,
         "name": "OnePlus SuperVOOC 80W",
         "imageKey": "oneplussupervooc80w",
         "currentPrice": 990000,
@@ -24855,7 +24821,7 @@
         "discount": ""
     },
     {
-        "id": 407,
+        "id": 406,
         "name": "OnePlus SuperVOOC 65W",
         "imageKey": "oneplussupervooc65w",
         "currentPrice": 790000,
@@ -24908,63 +24874,7 @@
         "discount": ""
     },
     {
-        "id": 408,
-        "name": "OnePlus Warp Charge Cable",
-        "imageKey": "onepluswarpchargecable",
-        "currentPrice": 290000,
-        "brandid": "oneplus",
-        "series": "other",
-        "idcategory": 5,
-        "originalPrice": 380000,
-        "specifications": {
-            "power": {
-                "maxWatt": 0,
-                "input": "",
-                "output": ""
-            },
-            "ports": {
-                "usbc": 0,
-                "usba": 0,
-                "total": 0
-            },
-            "standard": {
-                "fastCharge": [
-                    "Warp Charge",
-                    "SuperVOOC"
-                ],
-                "pd": false,
-                "qc": false
-            },
-            "cable": {
-                "length": "1m",
-                "type": "USB-A to Type-C",
-                "maxCurrent": "6.5A",
-                "material": "TPE, thiết kế dẹt chống rối"
-            },
-            "powerBank": {
-                "capacity": "",
-                "input": "",
-                "output": "",
-                "passthrough": false,
-                "display": false
-            },
-            "design": {
-                "weight": "Chưa công bố",
-                "dimensions": "Chưa công bố",
-                "colors": [
-                    "Đỏ",
-                    "Trắng"
-                ]
-            },
-            "compatibility": [
-                "Điện thoại OnePlus",
-                "Thiết bị cổng Type-C"
-            ]
-        },
-        "discount": ""
-    },
-    {
-        "id": 409,
+        "id": 407,
         "name": "OnePlus Type-C to Type-C Cable",
         "imageKey": "oneplustypectotypeccable",
         "currentPrice": 250000,
@@ -25019,7 +24929,7 @@
         "discount": ""
     },
     {
-        "id": 410,
+        "id": 408,
         "name": "OnePlus Power Bank 10000",
         "imageKey": "onepluspowerbank10000",
         "currentPrice": 690000,
@@ -25074,7 +24984,7 @@
         "discount": ""
     },
     {
-        "id": 411,
+        "id": 409,
         "name": "OnePlus Magnetic Power Bank",
         "imageKey": "oneplusmagneticpowerbank",
         "currentPrice": 990000,
@@ -25128,7 +25038,7 @@
         "discount": ""
     },
     {
-        "id": 412,
+        "id": 410,
         "name": "Samsung Power Adapter 65W Trio",
         "imageKey": "samsungpoweradapter65wtrio",
         "currentPrice": 1190000,
@@ -25184,7 +25094,7 @@
         "discount": ""
     },
     {
-        "id": 413,
+        "id": 411,
         "name": "Samsung Power Adapter 45W",
         "imageKey": "samsungpoweradapter45w",
         "currentPrice": 890000,
@@ -25238,7 +25148,7 @@
         "discount": ""
     },
     {
-        "id": 414,
+        "id": 412,
         "name": "Samsung Power Adapter 25W",
         "imageKey": "samsungpoweradapter25w",
         "currentPrice": 590000,
@@ -25292,7 +25202,7 @@
         "discount": ""
     },
     {
-        "id": 415,
+        "id": 413,
         "name": "Samsung Power Adapter 15W",
         "imageKey": "samsungpoweradapter15w",
         "currentPrice": 390000,
@@ -25346,7 +25256,7 @@
         "discount": ""
     },
     {
-        "id": 416,
+        "id": 414,
         "name": "Samsung 5A C-to-C Cable",
         "imageKey": "samsung5actoccable",
         "currentPrice": 290000,
@@ -25400,7 +25310,7 @@
         "discount": ""
     },
     {
-        "id": 417,
+        "id": 415,
         "name": "Samsung 3A C-to-C Cable",
         "imageKey": "samsung3actoccable",
         "currentPrice": 190000,
@@ -25454,7 +25364,7 @@
         "discount": ""
     },
     {
-        "id": 418,
+        "id": 416,
         "name": "Samsung Wireless Battery Pack 10000",
         "imageKey": "samsungwirelessbatterypack10000",
         "currentPrice": 990000,
@@ -25510,7 +25420,7 @@
         "discount": ""
     },
     {
-        "id": 419,
+        "id": 417,
         "name": "Samsung Battery Pack 10000",
         "imageKey": "samsungbatterypack10000",
         "currentPrice": 690000,
@@ -25564,7 +25474,7 @@
         "discount": ""
     },
     {
-        "id": 420,
+        "id": 418,
         "name": "Samsung Battery Pack 45W 20000",
         "imageKey": "samsungbatterypack45w20000",
         "currentPrice": 1290000,
@@ -25619,7 +25529,7 @@
         "discount": ""
     },
     {
-        "id": 421,
+        "id": 419,
         "name": "Samsung Battery Pack 25W 10000",
         "imageKey": "samsungbatterypack25w10000",
         "currentPrice": 890000,
@@ -25673,1090 +25583,13 @@
         "discount": ""
     },
     {
-        "id": 422,
-        "name": "Kính Cường Lực HD Clear Xiaomi 17 Ultra",
-        "imageKey": "kinhcuongluchdclearxiaomi16ultra",
-        "currentPrice": 190000,
-        "brandid": "xiaomi",
-        "series": "other",
-        "idcategory": 6,
-        "originalPrice": 380000,
-        "specifications": {
-            "material": {
-                "type": "Kính cường lực",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Chống vỡ màn hình",
-                "standard": "9H",
-                "thickness": "0.33mm",
-                "hardness": "9H"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Keo toàn màn"
-            },
-            "compatibility": {
-                "model": [
-                    "Xiaomi 17 Ultra"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 423,
-        "name": "Kính Cường Lực Gaming Matte Xiaomi 17",
-        "imageKey": "kinhcuonglucgamingmattexiaomi16",
-        "currentPrice": 220000,
-        "brandid": "xiaomi",
-        "series": "other",
-        "idcategory": 6,
-        "originalPrice": 440000,
-        "specifications": {
-            "material": {
-                "type": "Kính Matte Ceramic",
-                "finish": "Nhám"
-            },
-            "protection": {
-                "dropResistance": "Chống sốc",
-                "standard": "9H",
-                "thickness": "0.3mm",
-                "hardness": "9H"
-            },
-            "design": {
-                "colors": [
-                    "Nhám viền đen"
-                ],
-                "transparent": true,
-                "texture": "Truyền sáng tốt dù kính nhám"
-            },
-            "compatibility": {
-                "model": [
-                    "Xiaomi 17"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 424,
-        "name": "Miếng Dán PPF Xiaomi Mix Fold 5",
-        "imageKey": "miengdanppfxiaomimixfold5",
-        "currentPrice": 290000,
-        "brandid": "xiaomi",
-        "series": "mix fold",
-        "idcategory": 6,
-        "originalPrice": 580000,
-        "specifications": {
-            "material": {
-                "type": "Keo 3M PPF",
-                "finish": "Trong suốt nguyên bản"
-            },
-            "protection": {
-                "dropResistance": "Chống xước dăm cực tốt",
-                "standard": "Chưa công bố",
-                "thickness": "0.18mm",
-                "hardness": "Mềm dẻo"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Không để lại keo khi bóc"
-            },
-            "compatibility": {
-                "model": [
-                    "Xiaomi Mix Fold 5"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": true,
-                "antifingerprint": false
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 425,
-        "name": "Kính Cường Lực Privacy Redmi Note 15 Pro",
-        "imageKey": "kinhcuonglucprivacyredminote15pro",
-        "currentPrice": 250000,
-        "brandid": "redmi",
-        "series": "note",
-        "idcategory": 6,
-        "originalPrice": 500000,
-        "specifications": {
-            "material": {
-                "type": "Kính cường lực Privacy",
-                "finish": "Bóng/Tối"
-            },
-            "protection": {
-                "dropResistance": "Chống xước tuyệt đối, che góc nhìn",
-                "standard": "9H",
-                "thickness": "0.3mm",
-                "hardness": "9H"
-            },
-            "design": {
-                "colors": [
-                    "Tối một chiều"
-                ],
-                "transparent": true,
-                "texture": "Che màn hình khi nhìn ngang 30 độ"
-            },
-            "compatibility": {
-                "model": [
-                    "Redmi Note 15 Pro"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 426,
-        "name": "Kính Cường Lực Gaming Matte POCO F8 Pro",
-        "imageKey": "kinhcuonglucgamingmattepocof8pro",
-        "currentPrice": 220000,
-        "brandid": "poco",
-        "series": "f",
-        "idcategory": 6,
-        "originalPrice": 440000,
-        "specifications": {
-            "material": {
-                "type": "Kính Ceramic",
-                "finish": "Nhám"
-            },
-            "protection": {
-                "dropResistance": "Hạn chế chói, Bảo vệ mắt",
-                "standard": "Chưa công bố",
-                "thickness": "0.3mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Nhám"
-                ],
-                "transparent": true,
-                "texture": "Chống vân tay"
-            },
-            "compatibility": {
-                "model": [
-                    "POCO F8 Pro"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 427,
-        "name": "Kính Cường Lực HD Clear Vivo X200 Pro",
-        "imageKey": "kinhcuongluchdclearvivox200pro",
-        "currentPrice": 190000,
-        "brandid": "vivo",
-        "series": "x",
-        "idcategory": 6,
-        "originalPrice": 380000,
-        "specifications": {
-            "material": {
-                "type": "Kính chịu lực",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Chống xước, chịu lực cường độ cao",
-                "standard": "Chưa công bố",
-                "thickness": "0.3mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Phủ Oleophobic"
-            },
-            "compatibility": {
-                "model": [
-                    "Vivo X200 Pro"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 428,
-        "name": "Kính Cường Lực Privacy Vivo V50 Pro",
-        "imageKey": "kinhcuonglucprivacyvivov50pro",
-        "currentPrice": 250000,
-        "brandid": "vivo",
-        "series": "v",
-        "idcategory": 6,
-        "originalPrice": 500000,
-        "specifications": {
-            "material": {
-                "type": "Kính Film cong Privacy",
-                "finish": "Trong tâm, tối góc"
-            },
-            "protection": {
-                "dropResistance": "Chống xước, chống va đập",
-                "standard": "Chưa công bố",
-                "thickness": "0.2mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Trong tâm, tối góc"
-                ],
-                "transparent": true,
-                "texture": "Tương thích ốp lưng dày, Không cấn góc"
-            },
-            "compatibility": {
-                "model": [
-                    "Vivo V50 Pro"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 429,
-        "name": "Miếng Dán PPF Vivo X Fold 5",
-        "imageKey": "miengdanppfvivoxfold5",
-        "currentPrice": 290000,
-        "brandid": "vivo",
-        "series": "x fold",
-        "idcategory": 6,
-        "originalPrice": 580000,
-        "specifications": {
-            "material": {
-                "type": "Film Hydrogel dẻo",
-                "finish": "Trong HD"
-            },
-            "protection": {
-                "dropResistance": "Bảo vệ màn hình",
-                "standard": "Chưa công bố",
-                "thickness": "0.15mm",
-                "hardness": "Mềm dẻo"
-            },
-            "design": {
-                "colors": [
-                    "Trong HD"
-                ],
-                "transparent": true,
-                "texture": "Hiển thị chuẩn màu"
-            },
-            "compatibility": {
-                "model": [
-                    "Vivo X Fold 5"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": true,
-                "antifingerprint": false
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 430,
-        "name": "Kính Cường Lực Gaming Matte iQOO 15",
-        "imageKey": "kinhcuonglucgamingmatteiqoo15",
-        "currentPrice": 220000,
-        "brandid": "iqoo",
-        "series": "other",
-        "idcategory": 6,
-        "originalPrice": 440000,
-        "specifications": {
-            "material": {
-                "type": "Kính AG (Anti-Glare)",
-                "finish": "Nhám"
-            },
-            "protection": {
-                "dropResistance": "Chống phản quang, bảo vệ máy",
-                "standard": "Chưa công bố",
-                "thickness": "0.33mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Nhám mờ đục"
-                ],
-                "transparent": true,
-                "texture": "Dành cho E-Sport"
-            },
-            "compatibility": {
-                "model": [
-                    "iQOO 15"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 431,
-        "name": "Kính Cường Lực Gaming Matte iQOO Neo 10",
-        "imageKey": "kinhcuonglucgamingmatteiqooneo10",
-        "currentPrice": 220000,
-        "brandid": "iqoo",
-        "series": "neo",
-        "idcategory": 6,
-        "originalPrice": 440000,
-        "specifications": {
-            "material": {
-                "type": "Kính cường lực",
-                "finish": "Nhám"
-            },
-            "protection": {
-                "dropResistance": "Bảo vệ màn hình",
-                "standard": "9H",
-                "thickness": "0.25mm",
-                "hardness": "9H"
-            },
-            "design": {
-                "colors": [
-                    "Nhám"
-                ],
-                "transparent": true,
-                "texture": "Vuốt êm không rít, Chống chói"
-            },
-            "compatibility": {
-                "model": [
-                    "iQOO Neo 10"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 432,
-        "name": "Kính Cường Lực HD Clear Oppo Find X9 Ultra",
-        "imageKey": "kinhcuongluchdclearoppofindx9ultra",
-        "currentPrice": 190000,
-        "brandid": "oppo",
-        "series": "find x",
-        "idcategory": 6,
-        "originalPrice": 380000,
-        "specifications": {
-            "material": {
-                "type": "Kính cường lực Aluminosilicate",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Bảo vệ màn hình",
-                "standard": "Chưa công bố",
-                "thickness": "0.25mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt viền đen"
-                ],
-                "transparent": true,
-                "texture": "Độ trong HD, Ôm cong 3D"
-            },
-            "compatibility": {
-                "model": [
-                    "Oppo Find X9 Ultra"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 433,
-        "name": "Kính Cường Lực Privacy Oppo Reno 15 Pro Plus",
-        "imageKey": "kinhcuonglucprivacyopporeno15proplus",
-        "currentPrice": 250000,
-        "brandid": "oppo",
-        "series": "reno",
-        "idcategory": 6,
-        "originalPrice": 500000,
-        "specifications": {
-            "material": {
-                "type": "Kính Privacy cong",
-                "finish": "Mờ khi nghiêng"
-            },
-            "protection": {
-                "dropResistance": "Bảo mật màn hình, chống vỡ",
-                "standard": "Chưa công bố",
-                "thickness": "0.25mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Đen mờ khi nghiêng"
-                ],
-                "transparent": true,
-                "texture": "Hỗ trợ vân tay tốt"
-            },
-            "compatibility": {
-                "model": [
-                    "Oppo Reno 15 Pro Plus"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 434,
-        "name": "Miếng Dán PPF Oppo Find N7",
-        "imageKey": "miengdanppfoppofindn7",
-        "currentPrice": 290000,
-        "brandid": "oppo",
-        "series": "find n",
-        "idcategory": 6,
-        "originalPrice": 580000,
-        "specifications": {
-            "material": {
-                "type": "Hydrogel Film cao cấp",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Ôm sát mép cong, chống trầy",
-                "standard": "Chưa công bố",
-                "thickness": "0.13mm",
-                "hardness": "Mềm dẻo"
-            },
-            "design": {
-                "colors": [
-                    "Trong HD"
-                ],
-                "transparent": true,
-                "texture": "Mỏng nhẹ, hiển thị sắc nét"
-            },
-            "compatibility": {
-                "model": [
-                    "Oppo Find N7"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": true,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 435,
-        "name": "Miếng Dán PPF Oppo Find N7 Flip",
-        "imageKey": "miengdanppfoppofindn7flip",
-        "currentPrice": 290000,
-        "brandid": "oppo",
-        "series": "find n",
-        "idcategory": 6,
-        "originalPrice": 580000,
-        "specifications": {
-            "material": {
-                "type": "PPF tự phục hồi USA",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Chống va đập nhẹ",
-                "standard": "Chưa công bố",
-                "thickness": "0.15mm",
-                "hardness": "Mềm dẻo"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Bền bỉ với thao tác gập"
-            },
-            "compatibility": {
-                "model": [
-                    "Oppo Find N7 Flip"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": true,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 436,
-        "name": "Kính Cường Lực HD Clear OnePlus 13",
-        "imageKey": "kinhcuongluchdclearoneplus13",
-        "currentPrice": 190000,
-        "brandid": "oneplus",
-        "series": "other",
-        "idcategory": 6,
-        "originalPrice": 380000,
-        "specifications": {
-            "material": {
-                "type": "Kính Asahi Glass Nhật Bản",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Chống xước, chịu lực",
-                "standard": "Chưa công bố",
-                "thickness": "0.33mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Cạnh vát 2.5D, Không cấn tay"
-            },
-            "compatibility": {
-                "model": [
-                    "OnePlus 13"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 437,
-        "name": "Kính Cường Lực Privacy OnePlus Nord 5",
-        "imageKey": "kinhcuonglucprivacyoneplusnord5",
-        "currentPrice": 250000,
-        "brandid": "oneplus",
-        "series": "nord",
-        "idcategory": 6,
-        "originalPrice": 500000,
-        "specifications": {
-            "material": {
-                "type": "Kính cường lực chống nhìn trộm",
-                "finish": "Bóng"
-            },
-            "protection": {
-                "dropResistance": "Bảo vệ màn hình",
-                "standard": "9H+",
-                "thickness": "0.33mm",
-                "hardness": "9H+"
-            },
-            "design": {
-                "colors": [
-                    "Đen chống nhìn trộm"
-                ],
-                "transparent": true,
-                "texture": "Phủ Nano, Không bong bóng khi dán"
-            },
-            "compatibility": {
-                "model": [
-                    "OnePlus Nord 5"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 438,
-        "name": "Miếng Dán PPF OnePlus Open 2",
-        "imageKey": "miengdanppfoneplusopen2",
-        "currentPrice": 290000,
-        "brandid": "oneplus",
-        "series": "open",
-        "idcategory": 6,
-        "originalPrice": 580000,
-        "specifications": {
-            "material": {
-                "type": "PPF chống bám bẩn",
-                "finish": "Trong suốt / Nhám"
-            },
-            "protection": {
-                "dropResistance": "Chống trầy xước",
-                "standard": "Chưa công bố",
-                "thickness": "0.15mm",
-                "hardness": "Mềm dẻo"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt",
-                    "Nhám"
-                ],
-                "transparent": true,
-                "texture": "Cắt sẵn chuẩn xác CNC"
-            },
-            "compatibility": {
-                "model": [
-                    "OnePlus Open 2"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": true,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 439,
-        "name": "Kính Cường Lực HD Clear Realme GT 7 Pro",
-        "imageKey": "kinhcuongluchdclearrealmegt7pro",
-        "currentPrice": 190000,
-        "brandid": "realme",
-        "series": "gt",
-        "idcategory": 6,
-        "originalPrice": 380000,
-        "specifications": {
-            "material": {
-                "type": "Kính cường lực",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Chống vỡ, chống xước",
-                "standard": "Chưa công bố",
-                "thickness": "0.3mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Keo bám dính tốt, Chống chói nhẹ"
-            },
-            "compatibility": {
-                "model": [
-                    "Realme GT 7 Pro"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 440,
-        "name": "Kính Cường Lực Gaming Matte Realme 14 Pro Plus",
-        "imageKey": "kinhcuonglucgamingmatterealme14proplus",
-        "currentPrice": 220000,
-        "brandid": "realme",
-        "series": "other",
-        "idcategory": 6,
-        "originalPrice": 440000,
-        "specifications": {
-            "material": {
-                "type": "Kính cong 3D",
-                "finish": "Nhám"
-            },
-            "protection": {
-                "dropResistance": "Bảo vệ toàn màn hình (Keo UV)",
-                "standard": "Chưa công bố",
-                "thickness": "0.2mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Nhám có viền đen mỏng"
-                ],
-                "transparent": true,
-                "texture": "Ôm cạnh cong"
-            },
-            "compatibility": {
-                "model": [
-                    "Realme 14 Pro Plus"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 441,
-        "name": "Kính Cường Lực HD Clear Samsung Galaxy S26 Ultra",
-        "imageKey": "kinhcuongluchdclearsamsunggalaxys26ultra",
-        "currentPrice": 190000,
-        "brandid": "samsung",
-        "series": "galaxy s",
-        "idcategory": 6,
-        "originalPrice": 380000,
-        "specifications": {
-            "material": {
-                "type": "Kính cường lực",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Chống vỡ, Phủ nano chống xước",
-                "standard": "9H",
-                "thickness": "0.33mm",
-                "hardness": "9H"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Láng mịn"
-            },
-            "compatibility": {
-                "model": [
-                    "Galaxy S26 Ultra"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 442,
-        "name": "Kính Cường Lực HD Clear Samsung Galaxy S26 Plus",
-        "imageKey": "kinhcuongluchdclearsamsunggalaxys26plus",
-        "currentPrice": 190000,
-        "brandid": "samsung",
-        "series": "galaxy s",
-        "idcategory": 6,
-        "originalPrice": 380000,
-        "specifications": {
-            "material": {
-                "type": "Kính cường lực",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Chống xước",
-                "standard": "9H",
-                "thickness": "0.33mm",
-                "hardness": "9H"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Láng mịn, Cảm ứng mượt"
-            },
-            "compatibility": {
-                "model": [
-                    "Samsung Galaxy S26 Plus"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 443,
-        "name": "Kính Cường Lực Privacy Samsung Galaxy S26",
-        "imageKey": "kinhcuonglucprivacysamsunggalaxys26",
-        "currentPrice": 250000,
-        "brandid": "samsung",
-        "series": "galaxy s",
-        "idcategory": 6,
-        "originalPrice": 500000,
-        "specifications": {
-            "material": {
-                "type": "Kính chống nhìn trộm",
-                "finish": "Bóng/Tối màu"
-            },
-            "protection": {
-                "dropResistance": "Bảo vệ riêng tư, chống xước",
-                "standard": "Chưa công bố",
-                "thickness": "0.33mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Tối màu góc nghiêng"
-                ],
-                "transparent": true,
-                "texture": "Góc chống nhìn 28 độ"
-            },
-            "compatibility": {
-                "model": [
-                    "Samsung Galaxy S26"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 444,
-        "name": "Kính Cường Lực Gaming Matte Samsung Galaxy S25 FE",
-        "imageKey": "kinhcuonglucgamingmattesamsunggalaxys25fe",
-        "currentPrice": 220000,
-        "brandid": "samsung",
-        "series": "galaxy s",
-        "idcategory": 6,
-        "originalPrice": 440000,
-        "specifications": {
-            "material": {
-                "type": "Kính nhám",
-                "finish": "Nhám mờ"
-            },
-            "protection": {
-                "dropResistance": "Bảo vệ màn hình",
-                "standard": "Chưa công bố",
-                "thickness": "0.33mm",
-                "hardness": "Cứng"
-            },
-            "design": {
-                "colors": [
-                    "Nhám mờ"
-                ],
-                "transparent": true,
-                "texture": "Chuyên game, Trượt siêu mượt"
-            },
-            "compatibility": {
-                "model": [
-                    "Samsung Galaxy S25 FE"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": false,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 445,
-        "name": "Miếng Dán PPF Samsung Galaxy Z Fold 8",
-        "imageKey": "miengdanppfsamsunggalaxyzfold8",
-        "currentPrice": 290000,
-        "brandid": "samsung",
-        "series": "galaxy z fold",
-        "idcategory": 6,
-        "originalPrice": 580000,
-        "specifications": {
-            "material": {
-                "type": "PPF (Polyurethane Film)",
-                "finish": "Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Tự phục hồi vết xước dăm",
-                "standard": "Chưa công bố",
-                "thickness": "0.15mm",
-                "hardness": "Mềm dẻo (Đàn hồi)"
-            },
-            "design": {
-                "colors": [
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Dán full 2 mặt và bản lề"
-            },
-            "compatibility": {
-                "model": [
-                    "Samsung Galaxy Z Fold 8"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": true,
-                "antifingerprint": false
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 446,
-        "name": "Miếng Dán PPF Samsung Galaxy Z Flip 8",
-        "imageKey": "miengdanppfsamsunggalaxyzflip8",
-        "currentPrice": 290000,
-        "brandid": "samsung",
-        "series": "galaxy z flip",
-        "idcategory": 6,
-        "originalPrice": 580000,
-        "specifications": {
-            "material": {
-                "type": "PPF dẻo dai",
-                "finish": "Nhám mờ hoặc Trong suốt"
-            },
-            "protection": {
-                "dropResistance": "Tránh hằn nếp gấp, bảo vệ khớp bản lề",
-                "standard": "Chưa công bố",
-                "thickness": "0.15mm",
-                "hardness": "Mềm dẻo"
-            },
-            "design": {
-                "colors": [
-                    "Nhám mờ",
-                    "Trong suốt"
-                ],
-                "transparent": true,
-                "texture": "Bám dính tốt"
-            },
-            "compatibility": {
-                "model": [
-                    "Samsung Galaxy Z Flip 8"
-                ],
-                "wirelessCharging": true,
-                "magsafe": false
-            },
-            "features": {
-                "cardSlot": false,
-                "kickstand": false,
-                "antiyellow": true,
-                "antifingerprint": true
-            }
-        },
-        "discount": ""
-    },
-    {
-        "id": 447,
+        "id": 420,
         "name": "Xiaomi Smart Pen Gen 2",
         "imageKey": "xiaomismartpengen2",
         "currentPrice": 1490000,
         "brandid": "xiaomi",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút cảm ứng đầu đàn hồi Elastomer",
@@ -26799,13 +25632,13 @@
         "discount": ""
     },
     {
-        "id": 448,
+        "id": 421,
         "name": "Xiaomi Focus Pen",
         "imageKey": "xiaomifocuspen",
         "currentPrice": 1990000,
         "brandid": "xiaomi",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút cảm ứng thông minh",
@@ -26847,13 +25680,13 @@
         "discount": ""
     },
     {
-        "id": 449,
+        "id": 422,
         "name": "Xiaomi Pad 6 Keyboard",
         "imageKey": "xiaomipad6keyboard",
         "currentPrice": 1990000,
         "brandid": "xiaomi",
         "series": "pad",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím kiêm bao da bảo vệ",
@@ -26897,13 +25730,13 @@
         "discount": ""
     },
     {
-        "id": 450,
+        "id": 423,
         "name": "Xiaomi Pad 6S Pro Touchpad Keyboard",
         "imageKey": "xiaomipad6sprotouchpadkeyboard",
         "currentPrice": 3290000,
         "brandid": "xiaomi",
         "series": "pad",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím Cover có Touchpad",
@@ -26945,13 +25778,13 @@
         "discount": ""
     },
     {
-        "id": 451,
+        "id": 424,
         "name": "Vivo Pencil 2",
         "imageKey": "vivopencil2",
         "currentPrice": 1690000,
         "brandid": "vivo",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút kim loại cảm ứng",
@@ -26994,13 +25827,13 @@
         "discount": ""
     },
     {
-        "id": 452,
+        "id": 425,
         "name": "Vivo Pad Keyboard",
         "imageKey": "vivopadkeyboard",
         "currentPrice": 2490000,
         "brandid": "vivo",
         "series": "pad",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím bao da",
@@ -27043,13 +25876,13 @@
         "discount": ""
     },
     {
-        "id": 453,
+        "id": 426,
         "name": "Oppo Pad 3 Pro Smart Keyboard",
         "imageKey": "oppopad3prosmartkeyboard",
         "currentPrice": 2990000,
         "brandid": "oppo",
         "series": "pad",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím từ tính tháo rời",
@@ -27091,13 +25924,13 @@
         "discount": ""
     },
     {
-        "id": 454,
+        "id": 427,
         "name": "Oppo Pencil 2",
         "imageKey": "oppopencil2",
         "currentPrice": 1690000,
         "brandid": "oppo",
         "series": "pencil",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút stylus cảm ứng",
@@ -27140,13 +25973,13 @@
         "discount": ""
     },
     {
-        "id": 455,
+        "id": 428,
         "name": "OnePlus Stylo 2",
         "imageKey": "oneplusstylo2",
         "currentPrice": 1690000,
         "brandid": "oneplus",
         "series": "stylo",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút cảm ứng thiết kế bọc da",
@@ -27188,13 +26021,13 @@
         "discount": ""
     },
     {
-        "id": 456,
+        "id": 429,
         "name": "OnePlus Pad 2 Smart Keyboard",
         "imageKey": "onepluspad2smartkeyboard",
         "currentPrice": 2990000,
         "brandid": "oneplus",
         "series": "pad",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím Touchpad 2 mảnh",
@@ -27236,16 +26069,16 @@
         "discount": ""
     },
     {
-        "id": 457,
+        "id": 430,
         "name": "Samsung Galaxy Tab S10 Ultra Book Cover Keyboard",
         "imageKey": "samsunggalaxytabs10ultrabookcoverkeyboard",
         "currentPrice": 4990000,
         "brandid": "samsung",
         "series": "galaxy tab",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
-            "type": "Bao da kiêm bàn phím & Touchpad",
+            "type": "Bao da kiêm bàn phím \u0026 Touchpad",
             "connectivity": {
                 "type": "Từ tính",
                 "bluetooth": "",
@@ -27284,13 +26117,13 @@
         "discount": ""
     },
     {
-        "id": 458,
+        "id": 431,
         "name": "Samsung Galaxy Tab S10 Plus Book Cover Keyboard",
         "imageKey": "samsunggalaxytabs10plusbookcoverkeyboard",
         "currentPrice": 3990000,
         "brandid": "samsung",
         "series": "galaxy tab",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bao da kiêm bàn phím có Touchpad",
@@ -27332,13 +26165,13 @@
         "discount": ""
     },
     {
-        "id": 459,
+        "id": 432,
         "name": "Samsung S Pen Pro",
         "imageKey": "samsungspenpro",
         "currentPrice": 2490000,
         "brandid": "samsung",
         "series": "s pen",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút Stylus cỡ lớn công thái học",
@@ -27382,13 +26215,13 @@
         "discount": ""
     },
     {
-        "id": 460,
+        "id": 433,
         "name": "Samsung S Pen Creator Edition",
         "imageKey": "samsungspencreatoredition",
         "currentPrice": 1990000,
         "brandid": "samsung",
         "series": "s pen",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút vẽ thiết kế nguyên khối",
@@ -27430,13 +26263,13 @@
         "discount": ""
     },
     {
-        "id": 461,
+        "id": 434,
         "name": "Baseus Smooth Writing Stylus",
         "imageKey": "baseussmoothwritingstylus",
         "currentPrice": 390000,
         "brandid": "baseus",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút cảm ứng Active Stylus",
@@ -27478,13 +26311,13 @@
         "discount": ""
     },
     {
-        "id": 462,
+        "id": 435,
         "name": "Baseus Creator Wireless Keyboard",
         "imageKey": "baseuscreatorwirelesskeyboard",
         "currentPrice": 690000,
         "brandid": "baseus",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím mỏng",
@@ -27531,13 +26364,13 @@
         "discount": ""
     },
     {
-        "id": 463,
+        "id": 436,
         "name": "Logitech K480",
         "imageKey": "logitechk480",
         "currentPrice": 890000,
         "brandid": "logitech",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím có khe đỡ máy",
@@ -27584,13 +26417,13 @@
         "discount": ""
     },
     {
-        "id": 464,
+        "id": 437,
         "name": "Logitech K380s",
         "imageKey": "logitechk380s",
         "currentPrice": 990000,
         "brandid": "logitech",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím Bluetooth phím tròn (Pebble Keys 2)",
@@ -27639,13 +26472,13 @@
         "discount": ""
     },
     {
-        "id": 465,
+        "id": 438,
         "name": "Logitech Keys-To-Go 2",
         "imageKey": "logitechkeystogo2",
         "currentPrice": 1790000,
         "brandid": "logitech",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím di động siêu mỏng có nắp gập",
@@ -27689,13 +26522,13 @@
         "discount": ""
     },
     {
-        "id": 466,
+        "id": 439,
         "name": "Bow HB318",
         "imageKey": "bowhb318",
         "currentPrice": 490000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bàn phím mini gấp ba khúc",
@@ -27740,13 +26573,13 @@
         "discount": ""
     },
     {
-        "id": 467,
+        "id": 440,
         "name": "Goojodoq Stylus Pen Gen 13",
         "imageKey": "goojodoqstyluspengen13",
         "currentPrice": 490000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút cảm ứng thế hệ mới",
@@ -27788,13 +26621,13 @@
         "discount": ""
     },
     {
-        "id": 468,
+        "id": 441,
         "name": "Goojodoq Stylus Pen Gen 12",
         "imageKey": "goojodoqstyluspengen12",
         "currentPrice": 390000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút cảm ứng ngòi POM",
@@ -27837,13 +26670,13 @@
         "discount": ""
     },
     {
-        "id": 469,
+        "id": 442,
         "name": "Nillkin Crayon K2",
         "imageKey": "nillkincrayonk2",
         "currentPrice": 450000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 7,
+        "idcategory": 6,
         "originalPrice": 0,
         "specifications": {
             "type": "Bút vát 1 cạnh chống lăn",
@@ -27885,13 +26718,13 @@
         "discount": ""
     },
     {
-        "id": 470,
+        "id": 443,
         "name": "Xiaomi Mi Selfie Stick Tripod",
         "imageKey": "xiaomimiselfiesticktripod",
         "currentPrice": 390000,
         "brandid": "xiaomi",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Gậy tự sướng kiêm chân đế Tripod",
@@ -27946,13 +26779,13 @@
         "discount": ""
     },
     {
-        "id": 471,
+        "id": 444,
         "name": "Baseus Mini Bluetooth Folding Tripod",
         "imageKey": "baseusminibluetoothfoldingtripod",
         "currentPrice": 350000,
         "brandid": "baseus",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Gậy selfie mini gấp gọn kiêm Tripod",
@@ -28006,13 +26839,13 @@
         "discount": ""
     },
     {
-        "id": 472,
+        "id": 445,
         "name": "DJI Osmo Mobile 6",
         "imageKey": "djiosmomobile6",
         "currentPrice": 3290000,
         "brandid": "dji",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Gimbal chống rung 3 trục",
@@ -28066,13 +26899,13 @@
         "discount": ""
     },
     {
-        "id": 473,
+        "id": 446,
         "name": "DJI Osmo Mobile SE",
         "imageKey": "djiosmomobilese",
         "currentPrice": 2390000,
         "brandid": "dji",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Gimbal chống rung 3 trục",
@@ -28125,13 +26958,13 @@
         "discount": ""
     },
     {
-        "id": 474,
+        "id": 447,
         "name": "Insta360 Flow",
         "imageKey": "insta360flow",
         "currentPrice": 3690000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Gimbal chống rung tích hợp Tripod",
@@ -28185,13 +27018,13 @@
         "discount": ""
     },
     {
-        "id": 475,
+        "id": 448,
         "name": "Hohem iSteady M6",
         "imageKey": "hohemisteadym6",
         "currentPrice": 3990000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Gimbal chuyên nghiệp kèm cảm biến AI",
@@ -28244,13 +27077,13 @@
         "discount": ""
     },
     {
-        "id": 476,
+        "id": 449,
         "name": "Zhiyun Smooth 5S",
         "imageKey": "zhiyunsmooth5s",
         "currentPrice": 4190000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Gimbal chống rung 3 trục chuyên nghiệp",
@@ -28304,13 +27137,13 @@
         "discount": ""
     },
     {
-        "id": 477,
+        "id": 450,
         "name": "DJI Mic 2",
         "imageKey": "djimic2",
         "currentPrice": 8990000,
         "brandid": "dji",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Micro thu âm không dây",
@@ -28364,13 +27197,13 @@
         "discount": ""
     },
     {
-        "id": 478,
+        "id": 451,
         "name": "Rode Wireless PRO",
         "imageKey": "rodewirelesspro",
         "currentPrice": 11990000,
         "brandid": "rode",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Micro thu âm chuyên nghiệp",
@@ -28423,13 +27256,13 @@
         "discount": ""
     },
     {
-        "id": 479,
+        "id": 452,
         "name": "Rode Wireless GO II",
         "imageKey": "rodewirelessgoii",
         "currentPrice": 6990000,
         "brandid": "rode",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Micro thu âm không dây",
@@ -28482,13 +27315,13 @@
         "discount": ""
     },
     {
-        "id": 480,
+        "id": 453,
         "name": "Saramonic Blink 500 ProX",
         "imageKey": "saramonicblink500prox",
         "currentPrice": 3990000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": null,
         "specifications": {
             "type": "Hệ thống Micro thu âm (2 TX + 1 RX)",
@@ -28543,13 +27376,13 @@
         "discount": ""
     },
     {
-        "id": 481,
+        "id": 454,
         "name": "Boya BY V20",
         "imageKey": "boyabyv20",
         "currentPrice": 1290000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": null,
         "specifications": {
             "type": "Micro thu âm cho điện thoại",
@@ -28603,13 +27436,13 @@
         "discount": ""
     },
     {
-        "id": 482,
+        "id": 455,
         "name": "Ulanzi MT 44",
         "imageKey": "ulanzimt44",
         "currentPrice": 390000,
         "brandid": "ulanzi",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Tripod kiêm gậy nối dài vlog",
@@ -28665,13 +27498,13 @@
         "discount": ""
     },
     {
-        "id": 483,
+        "id": 456,
         "name": "Ulanzi MT 33",
         "imageKey": "ulanzimt33",
         "currentPrice": 290000,
         "brandid": "ulanzi",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Tripod chân nhện uốn dẻo (Bạch tuộc)",
@@ -28726,13 +27559,13 @@
         "discount": ""
     },
     {
-        "id": 484,
+        "id": 457,
         "name": "Yunteng VCT 5208",
         "imageKey": "yuntengvct5208",
         "currentPrice": 290000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 8,
+        "idcategory": 7,
         "originalPrice": 0,
         "specifications": {
             "type": "Chân máy ảnh Tripod 3 chân",
@@ -28787,13 +27620,13 @@
         "discount": ""
     },
     {
-        "id": 485,
+        "id": 458,
         "name": "Samsung EVO Plus MicroSDXC 512GB",
         "imageKey": "samsungevoplusmicrosdxc512gb",
         "currentPrice": 1190000,
         "brandid": "samsung",
         "series": "evo plus",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Thẻ nhớ MicroSD",
@@ -28840,13 +27673,13 @@
         "discount": ""
     },
     {
-        "id": 486,
+        "id": 459,
         "name": "Samsung PRO Plus MicroSDXC 256GB",
         "imageKey": "samsungproplusmicrosdxc256gb",
         "currentPrice": 790000,
         "brandid": "samsung",
         "series": "pro plus",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Thẻ nhớ MicroSD",
@@ -28893,13 +27726,13 @@
         "discount": ""
     },
     {
-        "id": 487,
+        "id": 460,
         "name": "SanDisk Extreme Pro MicroSDXC 256GB",
         "imageKey": "sandiskextremepromicrosdxc256gb",
         "currentPrice": 990000,
         "brandid": "sandisk",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Thẻ nhớ MicroSD",
@@ -28946,13 +27779,13 @@
         "discount": ""
     },
     {
-        "id": 488,
+        "id": 461,
         "name": "Kingston Canvas Go Plus MicroSD 128GB",
         "imageKey": "kingstoncanvasgoplusmicrosd128gb",
         "currentPrice": 390000,
         "brandid": "kingston",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Thẻ nhớ MicroSD",
@@ -28999,13 +27832,13 @@
         "discount": ""
     },
     {
-        "id": 489,
+        "id": 462,
         "name": "Lexar Professional 1066x MicroSD 256GB",
         "imageKey": "lexarprofessional1066xmicrosd256gb",
         "currentPrice": 690000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Thẻ nhớ MicroSD",
@@ -29052,13 +27885,13 @@
         "discount": ""
     },
     {
-        "id": 490,
+        "id": 463,
         "name": "Samsung Type C USB Flash Drive",
         "imageKey": "samsungtypecusbflashdrive",
         "currentPrice": 590000,
         "brandid": "samsung",
         "series": "usb flash drive",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "USB Flash Drive",
@@ -29108,19 +27941,19 @@
         "discount": ""
     },
     {
-        "id": 491,
+        "id": 464,
         "name": "SanDisk Ultra Dual Drive Luxe Type C",
         "imageKey": "sandiskultradualdriveluxetypec",
         "currentPrice": 490000,
         "brandid": "sandisk",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "USB Flash Drive",
             "storage": {
                 "capacity": "128GB",
-                "interface": "Dual USB Type-C & Type-A",
+                "interface": "Dual USB Type-C \u0026 Type-A",
                 "standard": "USB 3.1 Gen 1",
                 "formFactor": "USB Drive"
             },
@@ -29163,13 +27996,13 @@
         "discount": ""
     },
     {
-        "id": 492,
+        "id": 465,
         "name": "Kingston DataTraveler Max Type C",
         "imageKey": "kingstondatatravelermaxtypec",
         "currentPrice": 790000,
         "brandid": "kingston",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "USB Flash Drive",
@@ -29218,13 +28051,13 @@
         "discount": ""
     },
     {
-        "id": 493,
+        "id": 466,
         "name": "Samsung T9 Portable SSD",
         "imageKey": "samsungt9portablessd",
         "currentPrice": 3990000,
         "brandid": "samsung",
         "series": "t portable ssd",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Portable SSD",
@@ -29274,13 +28107,13 @@
         "discount": ""
     },
     {
-        "id": 494,
+        "id": 467,
         "name": "Samsung T7 Shield Portable SSD",
         "imageKey": "samsungt7shieldportablessd",
         "currentPrice": 2990000,
         "brandid": "samsung",
         "series": "t portable ssd",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Portable SSD",
@@ -29332,13 +28165,13 @@
         "discount": ""
     },
     {
-        "id": 495,
+        "id": 468,
         "name": "SanDisk Extreme Portable SSD V2",
         "imageKey": "sandiskextremeportablessdv2",
         "currentPrice": 3190000,
         "brandid": "sandisk",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Portable SSD",
@@ -29388,13 +28221,13 @@
         "discount": ""
     },
     {
-        "id": 496,
+        "id": 469,
         "name": "Kingston XS2000 Portable SSD",
         "imageKey": "kingstonxs2000portablessd",
         "currentPrice": 2890000,
         "brandid": "kingston",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Portable SSD",
@@ -29443,13 +28276,13 @@
         "discount": ""
     },
     {
-        "id": 497,
+        "id": 470,
         "name": "WD My Passport SSD",
         "imageKey": "wdmypassportssd",
         "currentPrice": 2790000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "Portable SSD",
@@ -29500,13 +28333,13 @@
         "discount": ""
     },
     {
-        "id": 498,
+        "id": 471,
         "name": "Baseus Type C OTG Adapter",
         "imageKey": "baseustypecotgadapter",
         "currentPrice": 190000,
         "brandid": "baseus",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "OTG Adapter",
@@ -29554,13 +28387,13 @@
         "discount": ""
     },
     {
-        "id": 499,
+        "id": 472,
         "name": "Ugreen USB C OTG Adapter",
         "imageKey": "ugreenusbcotgadapter",
         "currentPrice": 190000,
         "brandid": "ugreen",
         "series": "other",
-        "idcategory": 9,
+        "idcategory": 8,
         "originalPrice": null,
         "specifications": {
             "type": "OTG Adapter",
@@ -29608,13 +28441,13 @@
         "discount": ""
     },
     {
-        "id": 500,
+        "id": 473,
         "name": "Xiaomi Smart Camera C500 Pro",
         "imageKey": "xiaomismartcamerac500pro",
         "currentPrice": 1290000,
         "brandid": "xiaomi",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 1680000,
         "specifications": {
             "type": "Camera an ninh",
@@ -29680,13 +28513,13 @@
         "discount": ""
     },
     {
-        "id": 501,
+        "id": 474,
         "name": "Xiaomi Outdoor Camera AW300",
         "imageKey": "xiaomioutdoorcameraaw300",
         "currentPrice": 1490000,
         "brandid": "xiaomi",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 1940000,
         "specifications": {
             "type": "Camera ngoài trời",
@@ -29751,13 +28584,13 @@
         "discount": ""
     },
     {
-        "id": 502,
+        "id": 475,
         "name": "Xiaomi Router AX3000T",
         "imageKey": "xiaomirouterax3000t",
         "currentPrice": 1290000,
         "brandid": "xiaomi",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 1680000,
         "specifications": {
             "type": "Bộ phát Wi-Fi (Router)",
@@ -29769,7 +28602,7 @@
             },
             "router": {
                 "standard": "Wi-Fi 6 (802.11ax)",
-                "band": "Dual-Band 2.4GHz & 5GHz",
+                "band": "Dual-Band 2.4GHz \u0026 5GHz",
                 "speed": "2976Mbps (AX3000)",
                 "ports": "1x WAN, 3x LAN Gigabit",
                 "antennas": 4,
@@ -29777,9 +28610,13 @@
                 "beamforming": true
             },
             "smarthome": {
-                "protocol": [],
+                "protocol": [
+
+                ],
                 "hub": false,
-                "voice": []
+                "voice": [
+
+                ]
             },
             "bulb": {
                 "watt": 0,
@@ -29817,13 +28654,13 @@
         "discount": ""
     },
     {
-        "id": 503,
+        "id": 476,
         "name": "TP Link Archer AX53",
         "imageKey": "tplinkarcherax53",
         "currentPrice": 1790000,
         "brandid": "tplink",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 2330000,
         "specifications": {
             "type": "Router Wi-Fi",
@@ -29835,7 +28672,7 @@
             },
             "router": {
                 "standard": "Wi-Fi 6",
-                "band": "Dual-Band 2.4GHz & 5GHz",
+                "band": "Dual-Band 2.4GHz \u0026 5GHz",
                 "speed": "Lên đến 2402 Mbps (5GHz), 574 Mbps (2.4GHz)",
                 "ports": "1x Gigabit WAN, 4x Gigabit LAN",
                 "antennas": 4,
@@ -29843,9 +28680,13 @@
                 "beamforming": true
             },
             "smarthome": {
-                "protocol": [],
+                "protocol": [
+
+                ],
                 "hub": false,
-                "voice": []
+                "voice": [
+
+                ]
             },
             "bulb": {
                 "watt": 0,
@@ -29883,13 +28724,13 @@
         "discount": ""
     },
     {
-        "id": 504,
+        "id": 477,
         "name": "Asus RT AX58U",
         "imageKey": "asusrtax58u",
         "currentPrice": 3290000,
         "brandid": "asus",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 4280000,
         "specifications": {
             "type": "Router Gaming / Doanh nghiệp",
@@ -29901,7 +28742,7 @@
             },
             "router": {
                 "standard": "Wi-Fi 6 (802.11ax)",
-                "band": "Dual-Band 2.4GHz & 5GHz",
+                "band": "Dual-Band 2.4GHz \u0026 5GHz",
                 "speed": "AX3000 (2402Mbps + 574Mbps)",
                 "ports": "1x WAN Gigabit, 4x LAN Gigabit, 1x USB 3.0",
                 "antennas": 4,
@@ -29909,9 +28750,13 @@
                 "beamforming": true
             },
             "smarthome": {
-                "protocol": [],
+                "protocol": [
+
+                ],
                 "hub": false,
-                "voice": []
+                "voice": [
+
+                ]
             },
             "bulb": {
                 "watt": 0,
@@ -29949,13 +28794,13 @@
         "discount": ""
     },
     {
-        "id": 505,
+        "id": 478,
         "name": "Huawei WiFi AX3 Pro",
         "imageKey": "huaweiwifiax3pro",
         "currentPrice": 1490000,
         "brandid": "huawei",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 1940000,
         "specifications": {
             "type": "Bộ phát Wi-Fi",
@@ -29979,7 +28824,9 @@
                     "HarmonyOS"
                 ],
                 "hub": false,
-                "voice": []
+                "voice": [
+
+                ]
             },
             "bulb": {
                 "watt": 0,
@@ -30017,13 +28864,13 @@
         "discount": ""
     },
     {
-        "id": 506,
+        "id": 479,
         "name": "Xiaomi Smart Plug 2",
         "imageKey": "xiaomismartplug2",
         "currentPrice": 350000,
         "brandid": "xiaomi",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 460000,
         "specifications": {
             "type": "Ổ cắm điện thông minh",
@@ -30088,13 +28935,13 @@
         "discount": ""
     },
     {
-        "id": 507,
+        "id": 480,
         "name": "Xiaomi Smart Bulb Essential",
         "imageKey": "xiaomismartbulbessential",
         "currentPrice": 290000,
         "brandid": "xiaomi",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 380000,
         "specifications": {
             "type": "Bóng đèn thông minh",
@@ -30160,13 +29007,13 @@
         "discount": ""
     },
     {
-        "id": 508,
-        "name": "Xiaomi Temperature & Humidity Sensor",
+        "id": 481,
+        "name": "Xiaomi Temperature \u0026 Humidity Sensor",
         "imageKey": "xiaomitemperaturehumiditysensor",
         "currentPrice": 250000,
         "brandid": "xiaomi",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 330000,
         "specifications": {
             "type": "Cảm biến môi trường",
@@ -30190,7 +29037,9 @@
                     "Mi Home"
                 ],
                 "hub": false,
-                "voice": []
+                "voice": [
+
+                ]
             },
             "bulb": {
                 "watt": 0,
@@ -30229,13 +29078,13 @@
         "discount": ""
     },
     {
-        "id": 509,
+        "id": 482,
         "name": "TP Link Tapo C320WS",
         "imageKey": "tplinktapoc320ws",
         "currentPrice": 1390000,
         "brandid": "tplink",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 1810000,
         "specifications": {
             "type": "Camera ngoài trời",
@@ -30301,13 +29150,13 @@
         "discount": ""
     },
     {
-        "id": 510,
+        "id": 483,
         "name": "TP Link Tapo C225",
         "imageKey": "tplinktapoc225",
         "currentPrice": 990000,
         "brandid": "tplink",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 1290000,
         "specifications": {
             "type": "Camera an ninh quay quét",
@@ -30373,13 +29222,13 @@
         "discount": ""
     },
     {
-        "id": 511,
+        "id": 484,
         "name": "TP Link Tapo P100 Smart Plug",
         "imageKey": "tplinktapop100smartplug",
         "currentPrice": 290000,
         "brandid": "tplink",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 380000,
         "specifications": {
             "type": "Ổ cắm mini thông minh",
@@ -30445,13 +29294,13 @@
         "discount": ""
     },
     {
-        "id": 512,
+        "id": 485,
         "name": "Ezviz H8c",
         "imageKey": "ezvizh8c",
         "currentPrice": 1590000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 2070000,
         "specifications": {
             "type": "Camera PTZ Ngoài trời",
@@ -30517,13 +29366,13 @@
         "discount": ""
     },
     {
-        "id": 513,
+        "id": 486,
         "name": "Ezviz C6N",
         "imageKey": "ezvizc6n",
         "currentPrice": 590000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 10,
+        "idcategory": 9,
         "originalPrice": 770000,
         "specifications": {
             "type": "Camera giám sát",
@@ -30589,13 +29438,13 @@
         "discount": ""
     },
     {
-        "id": 514,
+        "id": 487,
         "name": "Baseus 8 in 1 USB C Hub",
         "imageKey": "baseus8in1usbchub",
         "currentPrice": 990000,
         "brandid": "baseus",
         "series": "other",
-        "idcategory": 11,
+        "idcategory": 10,
         "originalPrice": 1290000,
         "specifications": {
             "type": "Hub chuyển đổi USB-C",
@@ -30652,13 +29501,13 @@
         "discount": ""
     },
     {
-        "id": 515,
+        "id": 488,
         "name": "Baseus 6 in 1 USB C Hub",
         "imageKey": "baseus6in1usbchub",
         "currentPrice": 690000,
         "brandid": "baseus",
         "series": "other",
-        "idcategory": 11,
+        "idcategory": 10,
         "originalPrice": 900000,
         "specifications": {
             "type": "Hub chuyển đổi USB-C",
@@ -30714,13 +29563,13 @@
         "discount": ""
     },
     {
-        "id": 516,
+        "id": 489,
         "name": "Ugreen 7 in 1 USB C Hub",
         "imageKey": "ugreen7in1usbchub",
         "currentPrice": 890000,
         "brandid": "ugreen",
         "series": "other",
-        "idcategory": 11,
+        "idcategory": 10,
         "originalPrice": 1160000,
         "specifications": {
             "type": "Hub chuyển đổi USB-C",
@@ -30774,13 +29623,13 @@
         "discount": ""
     },
     {
-        "id": 517,
+        "id": 490,
         "name": "Anker PowerExpand Plus 7 in 1",
         "imageKey": "ankerpowerexpandplus7in1",
         "currentPrice": 1490000,
         "brandid": "anker",
         "series": "other",
-        "idcategory": 11,
+        "idcategory": 10,
         "originalPrice": 1940000,
         "specifications": {
             "type": "Hub chuyển đổi USB-C",
@@ -30836,13 +29685,13 @@
         "discount": ""
     },
     {
-        "id": 518,
+        "id": 491,
         "name": "iQOO Magnetic Cooling Back Clip 2",
         "imageKey": "iqoomagneticcoolingbackclip2",
         "currentPrice": 990000,
         "brandid": "iqoo",
         "series": "other",
-        "idcategory": 11,
+        "idcategory": 10,
         "originalPrice": 1290000,
         "specifications": {
             "type": "Tản nhiệt từ tính mặt lưng",
@@ -30881,7 +29730,9 @@
                 "devices": [
                     "Đa số smartphone"
                 ],
-                "os": []
+                "os": [
+
+                ]
             },
             "features": {
                 "passthrough": false,
@@ -30892,13 +29743,13 @@
         "discount": ""
     },
     {
-        "id": 519,
+        "id": 492,
         "name": "RedMagic Magnetic Cooler 5 Pro",
         "imageKey": "redmagicmagneticcooler5pro",
         "currentPrice": 1290000,
         "brandid": "redmagic",
         "series": "other",
-        "idcategory": 11,
+        "idcategory": 10,
         "originalPrice": 1680000,
         "specifications": {
             "type": "Quạt tản nhiệt từ tính",
@@ -30937,7 +29788,9 @@
                 "devices": [
                     "Mọi điện thoại (qua ngàm hoặc hút MagSafe)"
                 ],
-                "os": []
+                "os": [
+
+                ]
             },
             "features": {
                 "passthrough": false,
@@ -30948,13 +29801,13 @@
         "discount": ""
     },
     {
-        "id": 520,
+        "id": 493,
         "name": "Black Shark Magnetic Cooler 3 Pro",
         "imageKey": "blacksharkmagneticcooler3pro",
         "currentPrice": 1090000,
         "brandid": "blackshark",
         "series": "other",
-        "idcategory": 11,
+        "idcategory": 10,
         "originalPrice": 1420000,
         "specifications": {
             "type": "Quạt tản nhiệt từ tính",
@@ -30994,7 +29847,9 @@
                     "iPhone 12+ (MagSafe)",
                     "Android qua keo từ tính"
                 ],
-                "os": []
+                "os": [
+
+                ]
             },
             "features": {
                 "passthrough": false,
@@ -31005,13 +29860,13 @@
         "discount": ""
     },
     {
-        "id": 521,
+        "id": 494,
         "name": "Memo DL88 Mobile Cooler",
         "imageKey": "memodl88mobilecooler",
         "currentPrice": 590000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 11,
+        "idcategory": 10,
         "originalPrice": 770000,
         "specifications": {
             "type": "Quạt tản nhiệt ngàm kẹp",
@@ -31050,7 +29905,9 @@
                 "devices": [
                     "Điện thoại rộng 65-88mm"
                 ],
-                "os": []
+                "os": [
+
+                ]
             },
             "features": {
                 "passthrough": false,
@@ -31061,13 +29918,13 @@
         "discount": ""
     },
     {
-        "id": 522,
+        "id": 495,
         "name": "Flydigi B6X Cooling Fan",
         "imageKey": "flydigib6xcoolingfan",
         "currentPrice": 790000,
         "brandid": "other",
         "series": "other",
-        "idcategory": 11,
+        "idcategory": 10,
         "originalPrice": 1030000,
         "specifications": {
             "type": "Tản nhiệt từ tính",

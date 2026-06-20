@@ -1,14 +1,45 @@
-[
-  { "id": 1, "name": "Điện Thoại" },
-  { "id": 2, "name": "Máy Tính Bảng" },
-  { "id": 3, "name": "Đồng Hồ Thông Minh" },
-  { "id": 4, "name": "Âm Thanh" },
-  { "id": 5, "name": "Sạc & Nguồn" },
-  { "id": 6, "name": "Phụ Kiện Điện Thoại" },
-  { "id": 7, "name": "Thiết Bị Nhập Liệu" },
-  { "id": 8, "name": "Phụ Kiện Quay Chụp" },
-  { "id": 9, "name": "Thiết Bị Lưu Trữ" },
-  { "id": 10, "name": "Smarthome" },
-  { "id": 11, "name": "Phụ Kiện Khác" },
-  { "id": 12, "name": "Dịch Vụ" }
+[{
+        "id": 1,
+        "name": "Điện Thoại"
+    },
+    {
+        "id": 2,
+        "name": "Máy Tính Bảng"
+    },
+    {
+        "id": 3,
+        "name": "Đồng Hồ Thông Minh"
+    },
+    {
+        "id": 4,
+        "name": "Âm Thanh"
+    },
+    {
+        "id": 5,
+        "name": "Sạc & Nguồn"
+    },
+    {
+        "id": 6,
+        "name": "Thiết Bị Nhập Liệu"
+    },
+    {
+        "id": 7,
+        "name": "Phụ Kiện Quay Chụp"
+    },
+    {
+        "id": 8,
+        "name": "Thiết Bị Lưu Trữ"
+    },
+    {
+        "id": 9,
+        "name": "Smarthome"
+    },
+    {
+        "id": 10,
+        "name": "Phụ Kiện Khác"
+    },
+    {
+        "id": 11,
+        "name": "Dịch Vụ"
+    }
 ]

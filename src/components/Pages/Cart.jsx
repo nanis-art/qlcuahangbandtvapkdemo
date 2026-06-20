@@ -6,7 +6,7 @@ import { isEligibleItem, getEligibleSubTotal, calculateCartTotals } from "../../
 import "./Cart.css";
 
 const Cart = () => {
-  
+
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   const [selectedIds, setSelectedIds] = useState([]);
@@ -150,9 +150,13 @@ const Cart = () => {
                     <p className="cart-item-price">{formatPrice(price)}</p>
                   </div>
                   <div className="cart-item-quantity">
-                    <button className="quantity-btn minus" onClick={() => decreaseQuantity(item.id)}>-</button>
+                    <button className="quantity-btn minus" onClick={() => decreaseQuantity(item.id)}>
+                      <i className="bi bi-dash-lg"></i>
+                    </button>
                     <span className="quantity-value">{item.quantity}</span>
-                    <button className="quantity-btn plus" onClick={() => increaseQuantity(item.id)}>+</button>
+                    <button className="quantity-btn plus" onClick={() => increaseQuantity(item.id)}>
+                      <i className="bi bi-plus-lg"></i>
+                    </button>
                   </div>
                   <div className="cart-item-total">
                     <p className="item-total-price">{formatPrice(price * item.quantity)}</p>
@@ -187,18 +191,22 @@ const Cart = () => {
                 type="text"
                 placeholder="Mã giảm giá..."
                 value={voucherCode}
-                onChange={(e) => { setVoucherCode(e.target.value); if(voucherMessage.text) setVoucherMessage({ type: "", text: "" }); }}
+                onChange={(e) => { setVoucherCode(e.target.value); if (voucherMessage.text) setVoucherMessage({ type: "", text: "" }); }}
                 className="voucher-input"
               />
               <button onClick={handleApplyVoucher} disabled={!voucherCode.trim()} className="voucher-apply-btn">Áp dụng</button>
-              <button onClick={() => setShowVoucherList(!showVoucherList)} className="voucher-list-btn">🎟️ Chọn</button>
+              <button onClick={() => setShowVoucherList(!showVoucherList)} className="voucher-list-btn">
+                <i className="bi bi-ticket-perforated"></i> Chọn
+              </button>
             </div>
 
             {showVoucherList && (
               <div className="voucher-dropdown-list">
                 <div className="voucher-header">
                   <h4>Mã giảm giá có sẵn</h4>
-                  <button onClick={() => setShowVoucherList(false)}>✕</button>
+                  <button onClick={() => setShowVoucherList(false)}>
+                    <i className="bi bi-x-lg"></i>
+                  </button>
                 </div>
                 <div className="voucher-items">
                   {vouchersData.length > 0 ? vouchersData.map(v => {
@@ -208,7 +216,7 @@ const Cart = () => {
 
                     return (
                       <div key={v.code} className={`v-card ${isEligible ? 'eligible' : 'disabled'}`}>
-                        <div className="v-icon">🎟️</div>
+                        <div className="v-icon"><i className="bi-ticket"></i></div>
                         <div className="v-info">
                           <p className="v-code">{v.code}</p>
                           <p className="v-desc">{v.description}</p>

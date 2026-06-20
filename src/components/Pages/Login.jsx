@@ -61,7 +61,7 @@ function Login() {
   };
 
   const handleGoogleLogin = () => {
-    alert("Chưa có API Google thật đâu nha!");
+    alert("Chưa cấu hình API Google.");
   };
 
   return (

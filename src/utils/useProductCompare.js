@@ -75,14 +75,14 @@ export function useProductCompare() {
             let finalIds = [...new Set(validIds)];
 
             if (finalIds.length > 4) {
-                alert("Bàn cân đầy rồi! Tối đa 4 sản phẩm thôi nha. Tui tự động lấy 4 cái đầu tiên lên sàn.");
+                alert("Chỉ so sánh tối đa 4 sản phẩm. Hệ thống tự động chọn 4 sản phẩm đầu tiên.");
                 finalIds = finalIds.slice(0, 4);
             }
 
             if (finalIds.length > 0) setSelectedIds(finalIds);
 
             if (validIds.length < incomingIds.length) {
-                alert("Một số sản phẩm bị loại vì khác danh mục. Chỉ so sánh cùng loại nhé!");
+                alert("Một số sản phẩm bị loại bỏ do khác danh mục. Chỉ so sánh các sản phẩm cùng loại.");
             }
 
             processedStateKey.current = stateKey;
@@ -132,7 +132,7 @@ export function useProductCompare() {
     const handleSelectProduct = idStr => {
         if (!idStr) return;
         if (selectedIds.length >= 4) {
-            alert("Chỉ so sánh được tối đa 4 sản phẩm thôi nha!");
+            alert("Chỉ so sánh tối đa 4 sản phẩm.");
             return;
         }
         const id = sid(idStr);
@@ -146,7 +146,7 @@ export function useProductCompare() {
 
         const targetCat = sid(tCat);
         if (currentCategory && currentCategory !== targetCat) {
-            alert("Lệch danh mục rồi! Chỉ so sánh cùng loại nhé (VD: Điện thoại với Điện thoại).");
+            alert("Chỉ so sánh các sản phẩm cùng danh mục.");
             return;
         }
         setSelectedIds(prev => [...prev, id]);

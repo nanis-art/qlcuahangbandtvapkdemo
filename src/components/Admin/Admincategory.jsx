@@ -208,7 +208,7 @@ function AdminCategory({ embedded = false }) {
           <>
             <div className="admin-toolbar admin-toolbar--row">
               <button type="button" className="admin-btn" onClick={openCreate} disabled={saving}>
-                + Thêm danh mục
+                <i className="bi bi-plus-lg"></i> Thêm danh mục
               </button>
               <div className="admin-toolbar-search">
                 <label htmlFor="admin-category-search-id">Tìm kiếm: </label>
@@ -274,17 +274,17 @@ function AdminCategory({ embedded = false }) {
             </div>
             {totalPages > 1 && (
               <div className="admin-pagination" style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '15px' }}>
-                <button 
-                  className="admin-btn" 
-                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))} 
+                <button
+                  className="admin-btn"
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                   disabled={currentPage === 1 || saving}
                 >
                   Trước
                 </button>
                 <span style={{ display: 'flex', alignItems: 'center', fontSize: '14px', fontWeight: '500' }}>Trang {currentPage} / {totalPages}</span>
-                <button 
-                  className="admin-btn" 
-                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} 
+                <button
+                  className="admin-btn"
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                   disabled={currentPage === totalPages || saving}
                 >
                   Sau

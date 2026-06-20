@@ -651,7 +651,7 @@ const Admin = () => {
             <div className="ruang-modal_header">
               <h5>Ohh No!</h5>
               <button type="button" className="ruang-modal_close" onClick={() => setLogoutModalOpen(false)}>
-                X
+                <i className="bi bi-x-lg"></i>
               </button>
             </div>
             <div className="ruang-modal_body">Bạn có chắc muốn đăng xuất?</div>

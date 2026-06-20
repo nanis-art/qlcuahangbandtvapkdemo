@@ -70,12 +70,12 @@ const Favorite = () => {
     setSelectedIds(new Set());
     window.dispatchEvent(new Event("cartUpdated"));
     window.dispatchEvent(new Event("FavoriteUpdated"));
-    alert(`Đã thêm ${itemsToAdd.length} món vào giỏ và dọn dẹp danh sách!`);
+    alert(`Đã thêm ${itemsToAdd.length} sản phẩm vào giỏ hàng.`);
   };
 
   const handleCompare = () => {
     if (selectedIds.size < 2) {
-      alert("Chọn ít nhất 2 máy để so sánh nha ní!");
+      alert("Vui lòng chọn tối thiểu 2 sản phẩm để so sánh.");
       return;
     }
     const itemsToCompare = favorites.filter(p => selectedIds.has(p.id));
