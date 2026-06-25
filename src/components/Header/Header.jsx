@@ -26,47 +26,47 @@ const Header = () => {
 
   const searchMatches = rankProductsBySearch(products, q, 5);
 
-  const updateCartCount = () => {
-    const savedCart = localStorage.getItem("cart");
-    if (!savedCart) {
-      setCartCount(0);
-      return;
-    }
-    try {
-      const cart = JSON.parse(savedCart);
-      setCartCount(cart.reduce((sum, item) => sum + (item.quantity || 0), 0));
-    } catch {
-      setCartCount(0);
-    }
-  };
-
-  const updateCurrentUser = () => {
-    const savedUser = localStorage.getItem("currentUser");
-    if (!savedUser) {
-      setCurrentUser(null);
-      return;
-    }
-    try {
-      setCurrentUser(JSON.parse(savedUser));
-    } catch {
-      setCurrentUser(null);
-    }
-  };
-
-  const updateFavCount = () => {
-    const savedFavs = localStorage.getItem("Favorite");
-    if (!savedFavs) {
-      setFavCount(0);
-      return;
-    }
-    try {
-      setFavCount(JSON.parse(savedFavs).length);
-    } catch {
-      setFavCount(0);
-    }
-  };
-
   useEffect(() => {
+    const updateCartCount = () => {
+      const savedCart = localStorage.getItem("cart");
+      if (!savedCart) {
+        setCartCount(0);
+        return;
+      }
+      try {
+        const cart = JSON.parse(savedCart);
+        setCartCount(cart.reduce((sum, item) => sum + (item.quantity || 0), 0));
+      } catch {
+        setCartCount(0);
+      }
+    };
+
+    const updateCurrentUser = () => {
+      const savedUser = localStorage.getItem("currentUser");
+      if (!savedUser) {
+        setCurrentUser(null);
+        return;
+      }
+      try {
+        setCurrentUser(JSON.parse(savedUser));
+      } catch {
+        setCurrentUser(null);
+      }
+    };
+
+    const updateFavCount = () => {
+      const savedFavs = localStorage.getItem("Favorite");
+      if (!savedFavs) {
+        setFavCount(0);
+        return;
+      }
+      try {
+        setFavCount(JSON.parse(savedFavs).length);
+      } catch {
+        setFavCount(0);
+      }
+    };
+
     updateCartCount();
     updateCurrentUser();
     updateFavCount();
@@ -134,7 +134,7 @@ const Header = () => {
         const data = await res.json();
         if (cancelled) return;
         setProducts(data);
-      } catch (err) { }
+      } catch { }
     })();
     return () => {
       cancelled = true;
@@ -252,7 +252,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="center" ref={searchBoxRef}>///
+            <div className="center" ref={searchBoxRef}>
               <form className="input-group-search" onSubmit={handleSearchSubmit}>
                 <input type="text" placeholder="Tìm kiếm sản phẩm..." value={q} onChange={e => setQ(e.target.value)} onFocus={() => setSearchFocused(true)} autoComplete="off" />
                 <button type="submit">Tìm kiếm</button>
@@ -272,7 +272,7 @@ const Header = () => {
                               alt={p.name}
                               className="header-search_thumb"
                               style={{ objectFit: "contain", width: "40px", height: "40px", background: "#f8faff", borderRadius: "4px" }}
-                            />{" "}
+                            />
                           </span>
                           <span className="header-search_meta">
                             <span className="header-search_name">{p.name}</span>
@@ -384,9 +384,9 @@ const Header = () => {
               {renderDropdown(phukienMenuItems)}
             </div>
 
-            <a href="/contact" className="nav-link">
+            <Link to="/contact" className="nav-link">
               LIÊN HỆ
-            </a>
+            </Link>
           </div>
         </nav>
       </header>
